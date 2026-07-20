@@ -53,6 +53,7 @@ const SubcategoryContent = ({ posts, subcategoryInfo, totalPosts }) => {
     posts.map((post) => (
       <div key={post._id} className="w-full sm:w-1/2 lg:w-1/3 px-3 mb-6">
         <CardComponent
+        category={post.category}
           readTime={post.readTime?.minutes}
           overview={post.overview}
           title={post.title}
