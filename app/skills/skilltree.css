@@ -1,0 +1,1063 @@
+/* ══════════════════════════════════════════════════════════════════════════
+   SKILL TREE — organic aspen leaves · golden circuitry · cold-storm lightning
+   v2 Royal Gold: skills forged under pressure. Lightning is an EVENT, not a loop.
+   ══════════════════════════════════════════════════════════════════════════ */
+.vt-root {
+  --accent: #E3B341;
+  --accent-ink: #2E2106;  /* text/icons sitting ON the accent */
+  --ink: #EDE9DC;
+  --ink-soft: rgba(237,233,220,0.62);
+  --ink-faint: rgba(237,233,220,0.4);
+  position: relative; width: 100%; overflow-x: clip;
+  scrollbar-gutter: stable;       /* reserve scrollbar space → no shift between views */
+  padding: 40px 0 40px;
+  background: radial-gradient(140% 55% at 50% 0%, #0b1024 0%, #060a18 40%, #03060f 100%);
+  color: var(--ink); font-family: inherit;
+}
+
+/* Shared stage: centres every view (tree, table, mobile) independent of margins */
+.vt-stage { width: 100%; display: flex; flex-direction: column; align-items: center; }
+
+/* ══ STORM SKY ══ */
+/* EVENTFUL STORM: bolts live on long 14-28s cycles with brief flash windows,
+   so at any moment the sky is mostly calm — a recruiter reads in peace, then
+   the storm reminds them it's alive. The full-tree strike is a 20s set piece. */
+.vt-sky { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+.vt-fog {
+  position: absolute; inset: -20%;
+  background: radial-gradient(40% 30% at 25% 15%, rgba(82,113,255,0.10), transparent 70%),
+              radial-gradient(45% 35% at 78% 12%, rgba(0,217,255,0.08), transparent 70%),
+              radial-gradient(50% 30% at 50% 92%, rgba(82,113,255,0.07), transparent 70%);
+  filter: blur(22px);
+  animation: vtFog 26s ease-in-out infinite alternate;
+}
+@keyframes vtFog { 0% { transform: translate3d(-2%,0,0) scale(1); } 100% { transform: translate3d(2%,1%,0) scale(1.05); } }
+
+/* full-height layer so bolts can live anywhere in the frame */
+.vt-bolts { position: absolute; inset: 0; width: 100%; height: 100%; }
+.vt-bolt {
+  fill: none; stroke: #eaf6ff; stroke-width: 2.4;
+  stroke-linejoin: round; stroke-linecap: round;
+  filter: drop-shadow(0 0 5px #cfe6ff) drop-shadow(0 0 12px #2f7bff) drop-shadow(0 0 22px #5271ff);
+  opacity: 0; will-change: opacity;
+}
+/* each bolt runs on its OWN period + phase (none equal to the 5s tree strike)
+   → they flicker independently across the scene and only sometimes coincide */
+.vt-bolt--0 { animation: vtFlick 3.5s linear 0.0s infinite; }
+.vt-bolt--1 { animation: vtFlick 4.8s linear 1.2s infinite; }
+.vt-bolt--2 { animation: vtFlick 3.8s linear 2.1s infinite; }
+.vt-bolt--3 { animation: vtFlick 5.5s linear 0.6s infinite; }
+.vt-bolt--4 { animation: vtFlick 4.2s linear 3.0s infinite; }
+.vt-bolt--5 { animation: vtFlick 5.0s linear 1.8s infinite; }
+.vt-bolt--6 { animation: vtFlick 3.6s linear 0.4s infinite; }
+.vt-bolt--7 { animation: vtFlick 4.5s linear 2.5s infinite; }
+/* CENTER bolts behind the tree: 7.5s period → in sync with the 5s tree strike
+   every 15s (every 3rd strike); the third runs phase-shifted, purely ambient */
+.vt-bolt--8  { animation: vtFlick 5.2s linear 0s infinite; }
+.vt-bolt--9  { animation: vtFlick 4.0s linear 0.07s infinite; }
+.vt-bolt--10 { animation: vtFlick 5.8s linear -2.5s infinite; }
+@keyframes vtFlick {
+  0% { opacity: 0; } 0.6% { opacity: 1; } 1.2% { opacity: 0.2; }
+  1.8% { opacity: 0.85; } 2.6% { opacity: 0; } 100% { opacity: 0; }
+}
+.vt-flash {
+  position: absolute; inset: 0;
+  background: radial-gradient(80% 60% at 50% 18%, rgba(150,200,255,0.16), transparent 72%);
+  opacity: 0; will-change: opacity; animation: vtFlash 4s linear infinite;
+}
+/* soft, scene-wide ambient flash on its own rhythm (not the strike's) */
+.vt-flash--ambient {
+  background: radial-gradient(85% 70% at 50% 45%, rgba(120,170,255,0.08), transparent 78%);
+  animation: vtFlashAmbient 5.5s linear 2s infinite;
+}
+@keyframes vtFlash { 0% { opacity: 0; } 2% { opacity: 1; } 10% { opacity: 0; } 100% { opacity: 0; } }
+@keyframes vtFlashAmbient { 0% { opacity: 0; } 0.5% { opacity: 0.85; } 2.2% { opacity: 0; } 100% { opacity: 0; } }
+
+/* ══ HEADER & SWITCHER HUD ══ */
+.vt-header {
+  position: relative; z-index: 3; text-align: center;
+  max-width: 780px; margin: 0 auto 30px; padding: 0 20px;
+  animation: vtRise 0.7s cubic-bezier(0.2,0.9,0.3,1) both;
+}
+@keyframes vtRise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+.vt-eyebrow {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 11px; font-weight: 800; letter-spacing: 0.18em;
+  text-transform: uppercase; color: #E3B341;
+}
+.vt-title {
+  font-size: clamp(2rem, 4.5vw, 2.9rem); font-weight: 900;
+  letter-spacing: -0.03em; margin: 10px 0 0; line-height: 1.08;
+  background: linear-gradient(180deg, #fff, #F2CC6B);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  filter: drop-shadow(0 0 24px rgba(227,179,65,0.35));
+}
+.vt-sub { font-size: 14.5px; line-height: 1.65; color: var(--ink-soft); margin: 14px 0 0; }
+
+.vt-toggle-row {
+  display: inline-flex;
+  padding: 4px;
+  margin-top: 20px;
+  border-radius: 12px;
+  background: rgba(4, 8, 22, 0.6);
+  border: 1px solid rgba(227, 179, 65, 0.2);
+  backdrop-filter: blur(10px);
+}
+.vt-toggle-btn {
+  display: flex; align-items: center; gap: 8px;
+  padding: 8px 16px; border-radius: 9px;
+  font-size: 12.5px; font-weight: 700; color: var(--ink-soft);
+  background: transparent; border: none; cursor: pointer;
+  transition: all 0.22s;
+}
+.vt-toggle-btn:hover { color: #fff; }
+.vt-toggle-btn.active {
+  color: var(--accent-ink);
+  background: var(--accent);
+  box-shadow: 0 2px 12px rgba(227, 179, 65, 0.45);
+}
+
+.vt-legend {
+  display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
+  gap: 8px; margin-top: 22px; width: 100%;
+}
+.vt-legend-item {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 7px 14px; border-radius: 11px; cursor: pointer;
+  font-size: 11.5px; font-weight: 700; color: var(--ink-soft);
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  backdrop-filter: blur(8px);
+  transition: transform 0.18s, background 0.18s, border-color 0.18s, color 0.18s, box-shadow 0.18s;
+}
+.vt-legend-item:hover {
+  color: #fff; transform: translateY(-2px);
+  background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.2);
+}
+.vt-legend-item.is-active {
+  color: #fff;
+  background: color-mix(in srgb, var(--tier-c) 22%, rgba(8,12,26,0.6));
+  border-color: color-mix(in srgb, var(--tier-c) 70%, transparent);
+  box-shadow: 0 4px 18px color-mix(in srgb, var(--tier-c) 35%, transparent),
+              inset 0 0 0 1px color-mix(in srgb, var(--tier-c) 28%, transparent);
+}
+.vt-legend-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--tier-c); box-shadow: 0 0 8px var(--tier-c); }
+.vt-legend-item--core       { --tier-c: #F2E6C4; }
+.vt-legend-item--expert     { --tier-c: #E3B341; }
+.vt-legend-item--proficient { --tier-c: #C9952C; }
+.vt-legend-item--working    { --tier-c: #8A7340; }
+.vt-legend-clear {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 7px 12px; border-radius: 11px; cursor: pointer;
+  font-size: 11.5px; font-weight: 700; color: #ffd2d2;
+  background: rgba(255,90,90,0.1); border: 1px solid rgba(255,120,120,0.3);
+  transition: all 0.18s;
+}
+.vt-legend-clear:hover { background: rgba(255,90,90,0.2); color: #fff; transform: translateY(-2px); }
+
+/* ── TIER FILTER: dim non-matching skills, spotlight the chosen tier ── */
+.vt-filterable { transition: opacity 0.3s ease, filter 0.3s ease; }
+.vt-filtering .vt-filterable { opacity: 0.22; filter: saturate(0.55); }
+.vt-filter-core       .vt-filterable.tier-core,
+.vt-filter-expert     .vt-filterable.tier-expert,
+.vt-filter-proficient .vt-filterable.tier-proficient,
+.vt-filter-working    .vt-filterable.tier-working {
+  opacity: 1; filter: none;
+}
+
+.vt-scroll-hint {
+  display: flex; flex-direction: column; align-items: center; gap: 2px; margin-top: 22px;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--ink-faint);
+}
+.vt-bounce { color: #E3B341; animation: vtBounce 2.6s ease-in-out infinite; }
+@keyframes vtBounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
+
+/* ══ VECTOR FIELD COGNITIVE VIEWPORT CONTAINER ══ */
+.vt-tree { width: 100%; margin: 0 auto; position: relative; z-index: 2; }
+
+/* The viewport is a fixed camera window — never scrolls, clips everything outside */
+.ot-viewport {
+  position: relative;
+  width: 100%;
+  height: 82vh;          /* Fixed camera window height */
+  min-height: 560px;
+  max-height: 900px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: radial-gradient(ellipse at 50% 30%, #080d1d 0%, #040711 70%, #020307 100%);
+  border: 1px solid rgba(227,179,65,0.14);
+  box-shadow: inset 0 0 40px rgba(0,0,0,0.6);
+  touch-action: none;      /* Prevent browser gesture hijack on touch screens */
+  contain: layout style;   /* Isolated compositing context */
+  user-select: none;
+}
+
+.is-grab    { cursor: grab; }
+.is-grabbing { cursor: grabbing; }
+
+/* ══ SINGLE-BOARD CAMERA ══
+   The board (.ot-canvas) holds the tree AND its grid, and is the only thing
+   that moves. JS drives  transform: translate3d(x,y,0) scale(zoom)  from the
+   top-left origin, with bounded panning so content is always reachable. */
+
+/* grid lives on the board → the whole scene pans/zooms as one cohesive unit */
+.ot-board-grid {
+  position: absolute;
+  inset: -40%;
+  width: 180%;
+  height: 180%;
+  pointer-events: none;
+  background-size: 80px 80px;
+  background-image:
+    linear-gradient(to right, rgba(227,179,65,0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(227,179,65,0.035) 1px, transparent 1px);
+  -webkit-mask-image: radial-gradient(70% 60% at 50% 38%, #000 55%, transparent 100%);
+          mask-image: radial-gradient(70% 60% at 50% 38%, #000 55%, transparent 100%);
+}
+
+/* Tree board — JS sets the transform; origin at top-left keeps the math clean */
+.ot-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate3d(0, 28px, 0) scale(0.5);   /* sensible pre-mount frame */
+  transform-origin: 0 0;
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* CANVAS NAVIGATION HUD — sits inside the viewport, not fixed to screen */
+.ot-hud {
+  position: absolute;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 6px 14px;
+  border-radius: 14px;
+  background: rgba(6, 11, 26, 0.88);
+  border: 1px solid rgba(227, 179, 65, 0.3);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  pointer-events: all;
+}
+.ot-hud-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 4px;
+  width: 32px; height: 32px; border-radius: 8px;
+  color: var(--ink-soft); background: transparent; border: none;
+  cursor: pointer; transition: all 0.18s;
+}
+.ot-hud-btn:hover { color: #fff; background: rgba(255, 255, 255, 0.08); }
+.ot-hud-btn--text { width: auto; padding: 0 11px; gap: 6px; color: #E3B341; font-size: 11px; font-weight: 700; }
+.ot-hud-btn--text:hover { color: #fff; background: rgba(227, 179, 65, 0.2); }
+.ot-hud-label {
+  font-size: 12px; font-weight: 800; color: #fff;
+  min-width: 48px; text-align: center; font-variant-numeric: tabular-nums;
+}
+.ot-hud-divider { width: 1px; height: 18px; background: rgba(255, 255, 255, 0.12); margin: 0 8px; }
+
+/* ══ ORGANIC DARK-WOOD TREE ══ */
+.ot-svg   { position: absolute; inset: 0; display: block; overflow: visible; z-index: 1; pointer-events: none; }
+
+/* trunk: warm bark body, cylindrical cross-shade, woody striations */
+.ot-trunk { fill: url(#ot-trunk); filter: drop-shadow(0 16px 30px rgba(0,0,0,0.6)); }
+.ot-trunk-shade { fill: url(#ot-trunk-x); }
+.ot-bark  { fill: none; stroke: rgba(0,0,0,0.45); stroke-width: 1.6; stroke-linecap: round; opacity: 0.7; }
+
+/* roots: wood body + soft upper highlight */
+.ot-root    { fill: url(#ot-root); filter: drop-shadow(0 6px 12px rgba(0,0,0,0.55)); }
+.ot-root-hi { fill: #2a1f15; opacity: 0.5; }
+
+/* branches: rounded warm wood, sunlit upper edge, subtle bark rim, faint sap current */
+.ot-bough     { fill: url(#ot-limb); filter: drop-shadow(0 5px 12px rgba(0,0,0,0.5)); }
+.ot-bough-hi  { fill: #5c4631; opacity: 0.55; }
+.ot-bough-edge { fill: none; stroke: #5a4636; stroke-width: 1; stroke-opacity: 0.4; }
+/* zig-zag twigs: stroked wood with a lit upper edge + a thin flowing current.
+   The MAIN twig is a bold, clearly-visible continuation of the branch that
+   bridges to the leaf; the forks are finer side-twiglets. */
+.ot-twig {
+  fill: none; stroke: #261a10; stroke-width: 8;
+  stroke-linecap: round; stroke-linejoin: round;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.55));
+}
+.ot-twig--main { stroke-width: 11; }
+.ot-twig-hi {
+  fill: none; stroke: #7a5c40; stroke-width: 3;
+  stroke-linecap: round; stroke-linejoin: round; stroke-opacity: 0.8;
+}
+.ot-twig-hi--main { stroke-width: 4; }
+.ot-twig-current {
+  fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round;
+  stroke-dasharray: 4 16; stroke-opacity: 0.92;
+  animation: otTwigFlow 3.6s linear infinite; will-change: stroke-dashoffset;
+}
+.ot-twig-current--main { stroke-width: 3.2; filter: drop-shadow(0 0 4px var(--limb)); }
+@keyframes otTwigFlow { to { stroke-dashoffset: -114; } }
+/* wood bud sealing the twig→leaf junction, ringed in the branch colour so the
+   connection head is unmistakable */
+.ot-twig-bud {
+  fill: #2e2115; stroke: #7a5c40; stroke-width: 2;
+  filter: drop-shadow(0 0 4px rgba(0,0,0,0.5));
+}
+.ot-twig-bud-ring {
+  fill: none; stroke-width: 2; stroke-opacity: 0.85;
+  filter: drop-shadow(0 0 5px var(--limb));
+}
+
+/* ── DIGITAL / HIGH-VOLTAGE LAYER (sits on top of the wood) ── */
+
+/* soft blue energy glow breathing along each branch */
+.ot-bough-glow {
+  stroke-width: 3.4; stroke-linecap: round; stroke-opacity: 0;
+  filter: drop-shadow(0 0 7px var(--limb)) drop-shadow(0 0 14px var(--limb));
+  animation: otGlowPulse 5s ease-in-out infinite;
+}
+@keyframes otGlowPulse { 0%,100% { stroke-opacity: 0.05; } 50% { stroke-opacity: 0.4; } }
+
+/* bright pulse of energy flowing outward along the limb */
+.ot-current {
+  stroke-linecap: round; stroke-opacity: 0.95;
+  filter: drop-shadow(0 0 5px var(--limb)) drop-shadow(0 0 9px #fff);
+  animation: otFlow 4.4s linear infinite;
+}
+@keyframes otFlow { to { stroke-dashoffset: -260; } }
+
+/* glowing node where a branch meets the trunk */
+.ot-junction {
+  filter: drop-shadow(0 0 6px var(--limb)) drop-shadow(0 0 12px var(--limb));
+  transform-box: fill-box; transform-origin: center;
+  animation: otJunction 3.8s ease-in-out infinite;
+}
+@keyframes otJunction {
+  0%,100% { opacity: 0.55; transform: scale(0.8); }
+  50%     { opacity: 1;    transform: scale(1.25); }
+}
+
+/* ── ALWAYS-ON DIGITAL HALF: flowing energy conduits up the trunk ── */
+.ot-trunk-flow {
+  fill: none; stroke: #EDD9A3; stroke-linecap: round; stroke-linejoin: round;
+  stroke-dasharray: 5 24; stroke-opacity: 0.5; mix-blend-mode: screen;
+  filter: drop-shadow(0 0 4px #C9952C);
+  animation: otTrunkFlow 4.5s linear infinite; will-change: stroke-dashoffset;
+}
+.ot-trunk-flow--0 { stroke-width: 2.6; }
+.ot-trunk-flow--1 { stroke-width: 1.8; stroke-opacity: 0.42; animation-duration: 3.6s; animation-direction: reverse; }
+.ot-trunk-flow--2 { stroke-width: 1.2; stroke-opacity: 0.32; animation-duration: 5.5s; }
+@keyframes otTrunkFlow { to { stroke-dashoffset: -290; } }
+
+/* occasional micro-crackle, independent of the 20s strike */
+.ot-trunk-bolt {
+  fill: none; stroke: #F2E6C4; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round;
+  stroke-opacity: 0.5; mix-blend-mode: screen;
+  filter: drop-shadow(0 0 3px #C9952C); opacity: 0;
+}
+.ot-trunk-bolt--0 { animation: otCrackle 6.5s ease-in-out infinite; }
+.ot-trunk-bolt--1 { animation: otCrackle 8.5s ease-in-out -3s infinite; }
+@keyframes otCrackle { 0%,100% { opacity: 0; } 8% { opacity: 0.5; } 16% { opacity: 0.05; } 24% { opacity: 0.34; } 32% { opacity: 0; } }
+
+/* ═══ WHOLE-TREE LIGHTNING STRIKE — one 20s cascade, top → bottom ═══
+   crown(0.4%) → trunk(1.6%) → branches(2.8%+) → leaves(4%+) → roots(7%).
+   Every part is a pre-filtered path whose OPACITY animates (compositor-cheap);
+   the flash is brief so the costly glow only renders for a few frames. */
+.ot-strike-crown {
+  stroke: #eaf6ff; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round;
+  filter: drop-shadow(0 0 6px #cfe6ff) drop-shadow(0 0 16px #2f7bff) drop-shadow(0 0 30px #5271ff);
+  opacity: 0; will-change: opacity; animation: strikeCrown 5s linear infinite;
+}
+.ot-strike-crown--core { stroke: #fff; stroke-width: 1.1; filter: drop-shadow(0 0 4px #fff); }
+@keyframes strikeCrown { 0% { opacity: 0; } 0.4% { opacity: 1; } 1.4% { opacity: 0.25; } 2% { opacity: 0.9; } 3% { opacity: 0; } 100% { opacity: 0; } }
+
+.ot-strike-trunk {
+  stroke: #dff0ff; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round;
+  mix-blend-mode: screen; filter: drop-shadow(0 0 6px #9cc8ff) drop-shadow(0 0 18px #2f7bff);
+  opacity: 0; will-change: opacity; animation: strikeTrunk 5s linear infinite;
+}
+@keyframes strikeTrunk { 0%,1% { opacity: 0; } 1.6% { opacity: 1; } 3% { opacity: 0.2; } 4% { opacity: 0.7; } 5.2% { opacity: 0; } 100% { opacity: 0; } }
+
+.ot-strike-bough {
+  stroke: #eaf6ff; stroke-width: 4.5; stroke-linecap: round; stroke-linejoin: round;
+  filter: drop-shadow(0 0 5px #cfe6ff) drop-shadow(0 0 14px var(--limb, #2f7bff));
+  opacity: 0; will-change: opacity; animation: strikeBough 5s linear infinite;
+}
+@keyframes strikeBough { 0%,2% { opacity: 0; } 2.8% { opacity: 1; } 4.2% { opacity: 0.2; } 5.4% { opacity: 0.65; } 6.8% { opacity: 0; } 100% { opacity: 0; } }
+
+.ot-strike-root {
+  stroke: #bfe2ff; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round;
+  filter: drop-shadow(0 0 5px #9cc8ff) drop-shadow(0 0 16px #2f7bff);
+  opacity: 0; will-change: opacity; animation: strikeRoot 5s linear infinite;
+}
+@keyframes strikeRoot { 0%,6% { opacity: 0; } 7% { opacity: 1; } 8.4% { opacity: 0.2; } 9.6% { opacity: 0.6; } 11% { opacity: 0; } 100% { opacity: 0; } }
+
+/* Canopy / core nodes */
+.ot-canopy {
+  position: absolute; top: 12px; transform: translateX(-50%);
+  z-index: 3; display: flex; flex-direction: column; align-items: center; gap: 12px;
+}
+.ot-canopy-label {
+  font-size: 11px; font-weight: 800; text-transform: uppercase;
+  letter-spacing: 0.18em; color: #E3B341;
+}
+.ot-core {
+  display: inline-flex; align-items: center; gap: 11px;
+  padding: 14px 22px; border-radius: 22px 8px 22px 8px;
+  border: 1.5px solid rgba(227,179,65,0.42);
+  background: rgba(4,8,22,0.85);
+  box-shadow: 0 0 24px rgba(227,179,65,0.2), inset 0 1px 0 rgba(255,255,255,0.12);
+  cursor: pointer; transition: all 0.25s; backdrop-filter: blur(6px); white-space: nowrap;
+}
+.ot-core:hover { transform: translateY(-3px) rotate(-1deg); box-shadow: 0 0 40px rgba(227,179,65,0.45); border-color: rgba(227,179,65,0.8); }
+.ot-core-dot { width: 14px; height: 14px; border-radius: 50%; background: #F2E6C4; box-shadow: 0 0 14px #EDD9A3, 0 0 5px #fff; flex-shrink: 0; }
+.ot-core-name { font-size: 15.5px; font-weight: 800; color: #fff; }
+
+.ot-leaf-anchor { position: absolute; z-index: 3; }
+
+/* Foundations — label at the trunk base, pills riding the root tips */
+.ot-roots-label {
+  position: absolute; transform: translateX(-50%); z-index: 3;
+  display: inline-flex; align-items: center; gap: 7px;
+  font-size: 12px; font-weight: 800; text-transform: uppercase;
+  letter-spacing: 0.16em; color: #aab8d8; white-space: nowrap;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+}
+.ot-root-pill {
+  position: absolute; z-index: 4;
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 14px; cursor: pointer; pointer-events: all;
+  white-space: nowrap; transition: all 0.2s; backdrop-filter: blur(6px);
+  background: rgba(8, 10, 16, 0.9);
+  border: 1px solid color-mix(in srgb, var(--limb) 38%, transparent);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.5), 0 0 12px color-mix(in srgb, var(--limb) 14%, transparent);
+  color: var(--ink);
+}
+.ot-root-pill--left  { transform: translate(-100%, -50%); margin-left: -14px; border-radius: 16px 5px 5px 16px; flex-direction: row-reverse; }
+.ot-root-pill--right { transform: translate(0, -50%);     margin-left: 14px;  border-radius: 5px 16px 16px 5px; }
+.ot-root-pill:hover {
+  background: color-mix(in srgb, var(--limb) 18%, rgba(8,10,16,0.92));
+  border-color: color-mix(in srgb, var(--limb) 65%, transparent);
+  box-shadow: 0 0 22px color-mix(in srgb, var(--limb) 32%, transparent);
+}
+.ot-root-pill--left:hover  { transform: translate(-100%, -50%) scale(1.04); }
+.ot-root-pill--right:hover { transform: translate(0, -50%) scale(1.04); }
+.ot-root-pill-text { font-size: 13px; font-weight: 700; color: var(--ink); }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   ASPEN LEAF CARD SYSTEM 
+   ═══════════════════════════════════════════════════════════════════════════ */
+.al-wrapper { position: relative; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.al-leaf-container { position: relative; flex-shrink: 0; isolation: isolate; }
+.al-svg { pointer-events: none; user-select: none; }
+
+@keyframes alVeinFlow { from { stroke-dashoffset: 0; } to { stroke-dashoffset: -120; } }
+@keyframes alSparkFlow { from { stroke-dashoffset: 0; } to { stroke-dashoffset: -80; } }
+.al-vein-current { animation: alVeinFlow 3s linear infinite; will-change: stroke-dashoffset; }
+.al-vein-spark { animation: alSparkFlow 2.4s linear infinite; will-change: stroke-dashoffset; }
+
+/* leaf strike flash — fires as part of the 5s whole-tree cascade */
+.al-strike-fill {
+  opacity: 0; mix-blend-mode: screen; will-change: opacity;
+  animation: alStrikeFill 5s linear infinite;
+}
+.al-strike-edge {
+  opacity: 0; stroke-width: 2; will-change: opacity;
+  filter: drop-shadow(0 0 6px #F8EFD8) drop-shadow(0 0 12px #E3B341);
+  animation: alStrikeEdge 5s linear infinite;
+}
+@keyframes alStrikeFill { 0%,3% { opacity: 0; } 4% { opacity: 0.5; } 6% { opacity: 0.1; } 7.5% { opacity: 0.32; } 9% { opacity: 0; } 100% { opacity: 0; } }
+@keyframes alStrikeEdge { 0%,3% { opacity: 0; } 4% { opacity: 1; } 6% { opacity: 0.2; } 7.5% { opacity: 0.7; } 9% { opacity: 0; } 100% { opacity: 0; } }
+
+@keyframes alRingSpin { from { stroke-dashoffset: 0; } to { stroke-dashoffset: -180; } }
+.al-center-ring { animation: alRingSpin 14s linear infinite; will-change: stroke-dashoffset; }
+
+@keyframes alNodePulse {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50%       { opacity: 0.12; transform: scale(1.4); }
+}
+.al-node-pulse {
+  animation: alNodePulse 3.6s ease-in-out infinite;
+  will-change: opacity, transform;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+.al-center-label {
+  position: absolute; transform: translate(-50%, -50%); z-index: 4;
+  display: flex; flex-direction: column; align-items: center; gap: 5px;
+  width: 110px; text-align: center; background: none; border: none; padding: 0;
+  cursor: pointer; pointer-events: all; transition: transform 0.2s;
+}
+.al-center-label:hover { transform: translate(-50%, -50%) scale(1.04); }
+.al-center-icon {
+  width: 15px; height: 15px; border-radius: 50%; display: grid; place-items: center;
+  background: rgba(3,5,12,0.85); color: var(--limb);
+  border: 1px solid color-mix(in srgb, var(--limb) 55%, transparent);
+  box-shadow: 0 0 12px color-mix(in srgb, var(--limb) 45%, transparent); flex-shrink: 0;
+}
+.al-center-name {
+  font-size: 13.5px; font-weight: 800; color: #fff; line-height: 1.25; letter-spacing: -0.01em;
+  text-shadow: 0 0 14px rgba(0,0,0,0.8);
+}
+.al-center-chevron { color: var(--limb); margin-top: 2px; }
+
+.al-node-label {
+  position: absolute; z-index: 4; background: rgba(4, 8, 22, 0.92);
+  border: 1px solid color-mix(in srgb, var(--limb) 45%, transparent);
+  border-radius: 8px 3px 8px 3px; padding: 7px 14px; cursor: pointer; pointer-events: all;
+  transition: all 0.2s; white-space: nowrap; backdrop-filter: blur(6px);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.4), 0 0 12px color-mix(in srgb, var(--limb) 18%, transparent);
+}
+.al-node-label--left { transform: translate(-100%, -50%); margin-left: -22px; border-radius: 8px 3px 3px 8px; text-align: right; }
+.al-node-label--right { transform: translate(0%, -50%); margin-left: 22px; border-radius: 3px 8px 8px 3px; text-align: left; }
+.al-node-label:hover {
+  background: color-mix(in srgb, var(--limb) 22%, rgba(4,8,22,0.95));
+  border-color: color-mix(in srgb, var(--limb) 75%, transparent);
+  box-shadow: 0 0 24px color-mix(in srgb, var(--limb) 45%, transparent);
+}
+.al-node-label--left:hover  { transform: translate(-100%, -50%) scale(1.04); }
+.al-node-label--right:hover { transform: translate(0%,   -50%) scale(1.04); }
+.al-node-text { font-size: 13.5px; font-weight: 700; color: var(--ink); line-height: 1.3; display: block; }
+.tier-core    .al-node-text { color: #F2E6C4; font-weight: 800; }
+.tier-expert  .al-node-text { color: #EDD9A3; }
+.al-blurb { font-size: 21px; line-height: 1.55; color: var(--ink-soft); max-width: 620px; margin: 6px 0 0 0; text-align: center; }
+
+/* Foundations row pill */
+.ot-pill {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 14px; border-radius: 18px 5px 18px 5px;
+  border: 1px solid color-mix(in srgb, var(--limb) 28%, transparent);
+  background: color-mix(in srgb, var(--limb) 11%, rgba(255,255,255,0.02));
+  color: var(--ink); font-size: 12.5px; font-weight: 600; cursor: pointer; transition: all 0.2s;
+}
+.ot-pill:nth-child(even) { border-radius: 5px 18px 5px 18px; }
+.ot-pill:hover {
+  background: color-mix(in srgb, var(--limb) 24%, transparent);
+  border-color: color-mix(in srgb, var(--limb) 50%, transparent);
+  transform: translateY(-2px) rotate(-2deg); box-shadow: 0 5px 16px color-mix(in srgb, var(--limb) 30%, transparent);
+}
+.ot-pill:nth-child(even):hover { transform: translateY(-2px) rotate(2deg); }
+.ot-pill-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--limb); flex-shrink: 0; }
+.tier-core .ot-pill-dot     { width: 12px; height: 12px; box-shadow: 0 0 12px var(--limb), 0 0 4px #fff; }
+.tier-expert .ot-pill-dot   { box-shadow: 0 0 9px var(--limb); }
+.tier-proficient .ot-pill-dot { box-shadow: 0 0 6px var(--limb); opacity: 0.9; }
+.tier-working .ot-pill-dot  { box-shadow: 0 0 4px var(--limb); opacity: 0.76; }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   PREMIUM MATRIX TABLE DISPLAY ENGINE
+   ═══════════════════════════════════════════════════════════════════════════ */
+.mt-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px 60px;
+  animation: vtRise 0.5s cubic-bezier(0.2, 0.9, 0.3, 1) both;
+}
+.mt-table-wrapper {
+  overflow: hidden;
+  border-radius: 16px;
+  border: 1px solid rgba(227, 179, 65, 0.16);
+  background: rgba(6, 10, 24, 0.7);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+.mt-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+.mt-table th {
+  padding: 18px 24px;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #E3B341;
+  background: rgba(4, 7, 18, 0.9);
+  border-bottom: 2px solid rgba(227, 179, 65, 0.22);
+}
+.mt-row {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.mt-row:hover {
+  background: linear-gradient(90deg, color-mix(in srgb, var(--row-color) 8%, transparent), rgba(255,255,255,0.01));
+}
+.mt-table td {
+  padding: 16px 24px;
+  vertical-align: middle;
+}
+.mt-cell-branch {
+  font-size: 13.5px;
+  font-weight: 800;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.mt-branch-indicator {
+  width: 4px;
+  height: 18px;
+  border-radius: 2px;
+  box-shadow: 0 0 10px currentColor;
+}
+.mt-cell-name {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--ink);
+}
+.mt-tier-badge {
+  display: inline-flex;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #fff;
+  background: color-mix(in srgb, var(--badge-color) 16%, transparent);
+  border: 1px solid color-mix(in srgb, var(--badge-color) 35%, transparent);
+  margin-bottom: 6px;
+}
+.mt-tier-bars {
+  display: flex;
+  gap: 4px;
+  width: 72px;
+}
+.mt-bar {
+  height: 4px;
+  flex: 1;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.08);
+}
+.mt-bar--active {
+  background: var(--bar-color);
+  box-shadow: 0 0 6px var(--bar-color);
+}
+.mt-cell-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.mt-tag-pill {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 12px;
+  color: var(--ink-soft);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+/* ══ MOBILE STACK ══ */
+.vt-stack { width: 100%; display: flex; flex-direction: column; gap: 14px; padding: 0 20px; }
+.vt-stack-branch {
+  border-radius: 18px; padding: 16px;
+  border: 1px solid color-mix(in srgb, var(--limb) 28%, transparent);
+  background: linear-gradient(150deg, color-mix(in srgb, var(--limb) 10%, transparent), rgba(255,255,255,0.02));
+  box-shadow: 0 0 26px color-mix(in srgb, var(--limb) 14%, transparent) inset;
+}
+.vt-stack-head { display: flex; align-items: center; gap: 10px; }
+.vt-stack-icon {
+  width: 34px; height: 34px; border-radius: 11px; display: grid; place-items: center;
+  color: var(--limb); background: color-mix(in srgb, var(--limb) 18%, transparent);
+  box-shadow: 0 0 14px color-mix(in srgb, var(--limb) 30%, transparent);
+}
+.vt-stack-name { font-size: 15.5px; font-weight: 800; color: #fff; }
+.vt-stack-name--btn { background: none; border: none; cursor: pointer; padding: 0; text-align: left; }
+.vt-stack-blurb { font-size: 12.5px; line-height: 1.55; color: var(--ink-soft); margin: 9px 0 0; }
+.vt-chip-wrap { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 12px; }
+.vt-chip {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 13px; border-radius: 16px 5px 16px 5px;
+  border: 1px solid color-mix(in srgb, var(--limb) 26%, transparent);
+  background: color-mix(in srgb, var(--limb) 8%, rgba(255,255,255,0.02));
+  color: var(--ink); font-size: 12.5px; font-weight: 600; cursor: pointer; transition: all 0.2s;
+}
+.vt-chip:nth-child(even) { border-radius: 5px 16px 5px 16px; }
+.vt-chip:hover, .vt-chip:active { background: color-mix(in srgb, var(--limb) 20%, transparent); transform: translateY(-2px) rotate(-2deg); }
+.vt-chip:nth-child(even):hover { transform: translateY(-2px) rotate(2deg); }
+.vt-skill-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--limb); flex-shrink: 0; }
+.tier-core .vt-skill-dot     { box-shadow: 0 0 12px var(--limb), 0 0 4px #fff; }
+.tier-expert .vt-skill-dot   { box-shadow: 0 0 9px var(--limb); }
+.tier-proficient .vt-skill-dot { box-shadow: 0 0 6px var(--limb); opacity: 0.9; }
+.tier-working .vt-skill-dot  { box-shadow: 0 0 4px var(--limb); opacity: 0.76; }
+
+/* ══ SCROLL-REVEAL ══ */
+.vt-reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.65s ease, transform 0.65s cubic-bezier(0.2,0.9,0.3,1); }
+.vt-reveal.vt-in { opacity: 1; transform: translateY(0); }
+
+/* ══ DETAIL PANEL ══ */
+.vt-panel-scrim { position: fixed; inset: 0; z-index: 40; background: rgba(2,5,12,0.5); backdrop-filter: blur(3px); animation: vtFade 0.25s ease both; }
+@keyframes vtFade { from { opacity: 0; } to { opacity: 1; } }
+.vt-panel {
+  position: fixed; top: 0; right: 0; z-index: 50; width: 380px; max-width: 90vw; height: 100%;
+  padding: 28px 26px; overflow-y: auto; background: linear-gradient(180deg, #0c1226, #070c1a);
+  border-left: 1px solid color-mix(in srgb, var(--limb) 40%, rgba(255,255,255,0.08));
+  box-shadow: -30px 0 80px rgba(0,0,0,0.6); animation: vtPanelIn 0.32s cubic-bezier(0.2,0.9,0.3,1) both;
+}
+@keyframes vtPanelIn { from { transform: translateX(40px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+.vt-panel::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, transparent, var(--limb), transparent); box-shadow: 0 0 14px var(--limb); }
+.vt-panel--sheet { top: auto; bottom: 0; left: 0; right: 0; width: 100%; max-width: 100%; height: auto; max-height: 74vh; border-left: none; border-top: 1px solid color-mix(in srgb, var(--limb) 40%, transparent); border-radius: 22px 22px 0 0; animation: vtSheetIn 0.32s cubic-bezier(0.2,0.9,0.3,1) both; }
+@keyframes vtSheetIn { from { transform: translateY(60px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+.vt-panel-close { position: absolute; top: 18px; right: 18px; width: 34px; height: 34px; display: grid; place-items: center; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: var(--ink-soft); cursor: pointer; transition: all 0.2s; }
+.vt-panel-close:hover { color: #fff; background: rgba(255,255,255,0.12); }
+.vt-panel-eyebrow { display: inline-flex; align-items: center; gap: 6px; font-size: 10.5px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--limb); }
+.vt-panel-title { font-size: 23px; font-weight: 900; letter-spacing: -0.02em; color: #fff; margin: 10px 0 0; }
+.vt-panel-meter { display: flex; gap: 5px; margin: 14px 0 0; }
+.vt-meter-bar { height: 5px; flex: 1; border-radius: 3px; background: rgba(255,255,255,0.1); }
+.vt-meter-bar--on { background: var(--limb); box-shadow: 0 0 8px var(--limb); }
+.vt-panel-detail { font-size: 14px; line-height: 1.72; color: var(--ink-soft); margin: 16px 0 0; }
+.vt-panel-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 16px; }
+.vt-panel-tag { font-size: 11px; font-weight: 700; padding: 5px 11px; border-radius: 20px; color: color-mix(in srgb, var(--limb) 85%, white); background: color-mix(in srgb, var(--limb) 14%, transparent); border: 1px solid color-mix(in srgb, var(--limb) 30%, transparent); }
+.vt-panel-section { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-faint); margin: 20px 0 10px; }
+.vt-panel-skills { display: flex; flex-direction: column; gap: 6px; }
+.vt-panel-skill { display: flex; align-items: center; justify-content: space-between; padding: 11px 14px; border-radius: 11px; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.04); color: var(--ink); font-size: 13px; font-weight: 600; cursor: pointer; transition: all 0.2s; text-align: left; }
+.vt-panel-skill:hover { background: color-mix(in srgb, var(--limb) 14%, transparent); border-color: color-mix(in srgb, var(--limb) 40%, transparent); transform: translateX(3px); }
+
+
+
+/* ═══ CROWN CLUSTER — apex skills at the tree top ═══ */
+.ot-crown {
+  position: relative;
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  padding: 18px 20px 14px; margin-bottom: 12px;
+  border-radius: 16px;
+  background: linear-gradient(145deg, rgba(227,179,65,0.12), rgba(227,179,65,0.04));
+  border: 1px solid rgba(227,179,65,0.22);
+}
+.ot-crown-glow {
+  position: absolute; inset: -20px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(227,179,65,0.18), transparent 60%);
+  pointer-events: none; z-index: -1;
+  animation: crownPulse 4s ease-in-out infinite;
+}
+@keyframes crownPulse {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.08); }
+}
+.ot-crown-skill {
+  display: flex; align-items: center; gap: 8px;
+  padding: 9px 16px; border-radius: 10px;
+  background: rgba(227,179,65,0.10); border: 1px solid rgba(227,179,65,0.28);
+  color: #F2CC6B; font-size: 13px; font-weight: 800;
+  cursor: pointer; transition: background 0.2s, transform 0.2s;
+  width: 100%;
+}
+.ot-crown-skill:hover {
+  background: rgba(227,179,65,0.20);
+  transform: translateY(-2px);
+}
+.ot-crown-icon { color: #E3B341; flex-shrink: 0; }
+
+/* ═══ SKILL DETAIL MODAL — full-screen centered, blurred backdrop ═══ */
+.vt-modal-backdrop {
+  position: fixed; inset: 0; z-index: 90;
+  background: rgba(4,8,16,0.65);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  animation: vtModalFadeIn 0.25s ease both;
+}
+.vt-modal {
+  position: fixed; z-index: 91;
+  top: 50%; left: 50%; transform: translate(-50%, -50%);
+  width: min(92vw, 560px); max-height: 80vh;
+  overflow-y: auto;
+  background: linear-gradient(145deg, #0e1528, #0a1020);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 22px;
+  padding: 32px 28px;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.55), 0 0 60px color-mix(in srgb, var(--limb) 15%, transparent);
+  animation: vtModalSlideIn 0.3s cubic-bezier(0.2,0.9,0.3,1) both;
+}
+@keyframes vtModalFadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes vtModalSlideIn { from { opacity: 0; transform: translate(-50%, -46%); } to { opacity: 1; transform: translate(-50%, -50%); } }
+
+.vt-modal-close {
+  position: absolute; top: 16px; right: 16px;
+  width: 36px; height: 36px; border-radius: 10px;
+  display: grid; place-items: center;
+  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.10);
+  color: rgba(255,255,255,0.6); cursor: pointer;
+  transition: background 0.18s, color 0.18s;
+}
+.vt-modal-close:hover { background: rgba(255,255,255,0.12); color: #fff; }
+
+.vt-modal-eyebrow {
+  display: flex; align-items: center; gap: 7px;
+  font-size: 11px; font-weight: 800; text-transform: uppercase;
+  letter-spacing: 0.12em; color: var(--limb);
+  margin-bottom: 8px;
+}
+.vt-modal-title {
+  font-size: 26px; font-weight: 900; color: #fff;
+  letter-spacing: -0.02em; margin-bottom: 14px; line-height: 1.15;
+}
+.vt-modal-desc {
+  font-size: 15px; line-height: 1.7; color: rgba(255,255,255,0.72);
+  margin-bottom: 18px;
+}
+.vt-modal-meter {
+  display: flex; gap: 4px; margin-bottom: 16px;
+}
+.vt-modal-divider {
+  height: 1px; background: rgba(255,255,255,0.08); margin: 18px 0;
+}
+.vt-modal-section {
+  font-size: 12px; font-weight: 800; text-transform: uppercase;
+  letter-spacing: 0.1em; color: rgba(255,255,255,0.4);
+  margin-bottom: 12px;
+}
+.vt-modal-skill-grid {
+  display: flex; flex-direction: column; gap: 6px;
+}
+.vt-modal-skill-chip {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 14px; border-radius: 11px;
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07);
+  color: rgba(255,255,255,0.82); font-size: 14px; font-weight: 600;
+  cursor: pointer; transition: background 0.18s, border-color 0.18s;
+}
+.vt-modal-skill-chip:hover {
+  background: color-mix(in srgb, var(--limb) 10%, transparent);
+  border-color: color-mix(in srgb, var(--limb) 25%, transparent);
+}
+.vt-modal-proof {
+  padding: 14px 16px; border-radius: 12px;
+  background: color-mix(in srgb, var(--limb) 8%, rgba(255,255,255,0.02));
+  border: 1px solid color-mix(in srgb, var(--limb) 18%, transparent);
+  margin-bottom: 16px;
+}
+.vt-modal-proof-label {
+  display: block; font-size: 10px; font-weight: 800; text-transform: uppercase;
+  letter-spacing: 0.14em; color: var(--limb); margin-bottom: 6px;
+}
+.vt-modal-proof p {
+  font-size: 13.5px; line-height: 1.65; color: rgba(255,255,255,0.62); margin: 0;
+}
+.vt-modal-tags {
+  display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px;
+}
+.vt-modal-tag {
+  padding: 5px 12px; border-radius: 20px; font-size: 11.5px; font-weight: 700;
+  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.58);
+}
+
+/* ══ REDUCED MOTION ══ */
+
+/* ── OFFSCREEN / TAB-HIDDEN PAUSE ──
+   Added by the JSX IntersectionObserver + visibilitychange listener.
+   Stops every animation when the visitor isn't looking → free perf + battery. */
+/* When paused: hide all storm elements entirely instead of freezing mid-flash */
+.vt-paused .vt-bolt,
+.vt-paused .vt-flash,
+.vt-paused .vt-flash--ambient,
+.vt-paused .vt-fog,
+.vt-paused .ot-strike-crown,
+.vt-paused .ot-strike-trunk,
+.vt-paused .ot-strike-bough,
+.vt-paused .ot-strike-root,
+.vt-paused .al-strike-fill,
+.vt-paused .al-strike-edge {
+  opacity: 0 !important;
+  animation: none !important;
+  transition: opacity 0.3s;
+}
+.vt-paused .ot-current,
+.vt-paused .ot-bough-glow,
+.vt-paused .ot-junction,
+.vt-paused .ot-trunk-flow,
+.vt-paused .ot-trunk-bolt,
+.vt-paused .ot-twig-current,
+.vt-paused .al-vein-current,
+.vt-paused .al-vein-spark,
+.vt-paused .al-center-ring,
+.vt-paused .al-node-pulse {
+  animation-play-state: paused !important;
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+  .vt-fog, .vt-bolt, .vt-flash, .ot-current, .vt-bounce,
+  .ot-bough-glow, .ot-junction, .ot-trunk-bolt, .ot-trunk-flow, .ot-twig-current,
+  .ot-strike-crown, .ot-strike-trunk, .ot-strike-bough, .ot-strike-root,
+  .al-strike-fill, .al-strike-edge,
+  .al-vein-current, .al-vein-spark, .al-center-ring, .al-node-pulse,
+  .vt-header, .vt-panel, .vt-panel--sheet, .vt-panel-scrim {
+    animation: none !important;
+  }
+  /* strike overlays stay hidden when motion is reduced */
+  .ot-strike-crown, .ot-strike-trunk, .ot-strike-bough, .ot-strike-root,
+  .al-strike-fill, .al-strike-edge { opacity: 0 !important; }
+  .vt-bolt { opacity: 0.10; }
+  .ot-trunk-bolt { opacity: 0.16; }
+  .ot-trunk-flow { stroke-opacity: 0.28; }
+  .ot-bough-glow { stroke-opacity: 0.2; }
+  .ot-junction { opacity: 0.8; }
+  .al-vein-current { stroke-dashoffset: 0 !important; }
+  .vt-reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+}
+
+/* ═══ NEW OPTIMIZED CLASSES (Replaces Inline Styles) ═══ */
+
+/* Modal Content Classes */
+.vt-modal-content-wrap {
+  display: flex; flex-direction: column; gap: 16px; padding-bottom: 10px;
+  overflow-y: auto; max-height: 70vh;
+}
+.vt-modal-block {
+  display: flex; flex-direction: column; gap: 6px;
+}
+.vt-modal-subheading {
+  font-size: 11px; font-weight: 800; text-transform: uppercase;
+  letter-spacing: 0.12em; color: var(--limb); margin: 0;
+}
+.vt-modal-body-text {
+  font-size: 14px; line-height: 1.65; color: rgba(255,255,255,0.75); margin: 0;
+}
+.vt-modal-evidence-box {
+  display: flex; flex-direction: column; gap: 6px; padding: 14px 16px;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--limb) 8%, rgba(255,255,255,0.02));
+  border: 1px solid color-mix(in srgb, var(--limb) 18%, transparent);
+}
+.vt-modal-evidence-text {
+  font-size: 14px; line-height: 1.65; color: rgba(255,255,255,0.9); margin: 0;
+}
+.vt-modal-philosophy {
+  padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.08);
+  font-style: italic; font-size: 14px; color: rgba(255,255,255,0.9);
+  font-weight: 500; border-left: 3px solid var(--limb);
+  padding-left: 14px; margin-top: 10px;
+}
+
+/* Apex Canopy Classes */
+.ot-canopy-dynamic {
+  position: absolute; display: flex; flex-direction: column;
+  align-items: center; justify-content: flex-start;
+  padding-top: 60px; z-index: 10; width: 400px; height: 350px;
+  transform: translateX(-50%); margin-left: 0;
+}
+.ot-apex-identity-label {
+  color: var(--accent); font-size: 13px; font-weight: 800;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  margin-bottom: 16px; display: flex; align-items: center; gap: 6px;
+}
+.ot-apex-btn {
+  position: relative; padding: 16px 40px;
+  background: rgba(4,8,22,0.95); border: 1px solid var(--accent);
+  border-radius: 12px; color: #fff; font-size: 18px; font-weight: 900;
+  cursor: pointer; white-space: nowrap;
+  box-shadow: 0 0 25px color-mix(in srgb, var(--accent) 33%, transparent),
+              inset 0 0 12px color-mix(in srgb, var(--accent) 20%, transparent);
+  transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 0.05em;
+}
+.ot-apex-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 35px color-mix(in srgb, var(--accent) 60%, transparent),
+              inset 0 0 20px color-mix(in srgb, var(--accent) 40%, transparent);
+}
+.ot-apex-btn-dot {
+  position: absolute; top: -5px; right: -5px; width: 14px; height: 14px;
+  background: var(--accent); border-radius: 50%;
+  box-shadow: 0 0 12px var(--accent);
+}
+/* ═══ LEAF TEXT & LAYOUT OPTIMIZATION ═══ */
+
+/* 1. Freeing the Central Branch Name from the strict circle */
+.al-center-label {
+  width: auto !important;
+  max-width: none !important;
+  min-width: max-content !important; /* Allows text to dictate the width naturally */
+  padding: 8px 15px !important;
+  border-radius: 40px !important; /* Transforms it into a premium wide pill shape */
+  /* background: rgba(4, 8, 22, 0.85) !important; Solid dark background to stand out */
+  /* backdrop-filter: blur(8px); */
+  border: 1px solid color-mix(in srgb, var(--limb) 50%, transparent) !important;
+  /* box-shadow: 0 8px 32px rgba(0,0,0,0.5), inset 0 0 15px rgba(255,255,255,0.03) !important; */
+  white-space: nowrap !important; /* Prevents awkward multi-line squishing completely */
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+}
+
+.al-center-name {
+  font-size: 21px !important; /* Open and readable */
+  font-weight: 900 !important;
+  letter-spacing: 0.05em;
+}
+
+.al-center-icon svg {
+  width: 20px !important;
+  height: 20px !important;
+}
+
+/* 2. Increasing the surrounding Skill Labels */
+.al-node-text {
+  font-size: 21px !important; /* Increased further for effortless reading */
+  font-weight: 800 !important;
+  letter-spacing: 0.03em;
+}
+
+.al-node-label {
+  padding: 10px 22px !important; /* Scaled padding to comfortably wrap the larger text */
+  border-radius: 30px !important;
+  white-space: nowrap !important; /* Ensures skill names stay on a clean, single line */
+}
+/* ═══ MODAL HYPERLINK PRECISION OVERRIDES ═══ */
+.vt-modal-body-text a, 
+.vt-modal-evidence-text a {
+  position: relative;
+  color: var(--limb, #E3B341) !important;
+  text-decoration: none !important;
+  font-weight: 700 !important;
+  display: inline-block;
+  transition: color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Custom underline layer positioned perfectly below text descenders (g, j, p) */
+.vt-modal-body-text a::after, 
+.vt-modal-evidence-text a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -3px; /* Safely clears typography boundaries */
+  width: 100%;
+  height: 1.5px;
+  background-color: color-mix(in srgb, var(--limb, #E3B341) 60%, transparent);
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.3s ease;
+  transform-origin: left;
+}
+
+/* Premium animation effect: Line cleanly wipes out and fades on hover */
+.vt-modal-body-text a:hover::after, 
+.vt-modal-evidence-text a:hover::after {
+  transform: scaleX(0);
+  opacity: 0;
+  transform-origin: right;
+}
+
+.vt-modal-body-text a:hover, 
+.vt-modal-evidence-text a:hover {
+  filter: drop-shadow(0 0 4px color-mix(in srgb, var(--limb, #E3B341) 50%, transparent));
+}
+/* ═══ GLOBAL H3 RESET FOR ON-PAGE SEO IMMUNITY ═══ */
+/* Completely isolates standard browser heading metrics from disturbing absolute geometry shapes */
+/* ═══ GLOBAL HEADING LAYOUT IMMUNITY MASKS ═══ */
+h3.al-center-name,
+h3.vt-stack-h3,
+h4.al-node-text, 
+h4.vt-chip-text,
+h3.vt-chip-text,   /* Added to capture upgraded mobile apex labels safely */
+h4.mt-name-text {
+  margin: 0 !important;
+  padding: 0 !important;
+  /* font-size: inherit !important; */
+  /* font-weight: inherit !important;
+  font-family: inherit !important;
+  color: inherit !important; */
+  display: inline-block !important;
+  line-height: inherit !important;
+  /* letter-spacing: inherit !important; */
+  text-transform: inherit !important;
+}

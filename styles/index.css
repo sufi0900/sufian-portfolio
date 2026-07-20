@@ -1,0 +1,1333 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: "Inter", sans-serif;
+    /* background: rgb(243, 110, 110); */
+  }
+}
+
+@layer components {
+  input[type="checkbox"]:checked ~ label span svg {
+    @apply inline-flex;
+  }
+
+  .sticky .header-logo {
+    @apply py-5 lg:py-2;
+  }
+
+  .sticky .menu-scroll.active {
+    @apply opacity-70;
+  }
+
+  input#togglePlan:checked ~ .dot {
+    @apply translate-x-full;
+  }
+
+  input#checkboxLabel:checked ~ .box span {
+    @apply opacity-100;
+  }
+}
+
+.card {
+  box-shadow:
+    rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+/* Tailwind CSS */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marquee-reverse {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.animate-marquee-reverse {
+  animation: marquee-reverse 30s linear infinite;
+}
+
+.animate-marquee-reverse:hover {
+  animation-play-state: paused;
+}
+
+.flex2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+/* Define your color variables for light and dark themes */
+.transition-opacity {
+  transition: opacity 0.5s ease-in-out;
+}
+
+.transition-max-height {
+  transition: max-height 0.5s ease; /* Adjust the duration and easing as needed */
+}
+
+.max-h-full {
+  max-height: 1000px; /* Set a sufficiently large value */
+}
+
+.max-h-0 {
+  max-height: 0;
+}
+.card-content {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+.title-container {
+  height: 56px; /* Set a fixed height for the title container */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  /* color: rgb(82, 82, 247) */
+}
+
+.card2 {
+  box-shadow:
+    rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+    rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+.card3 {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 15px; /* Adjust the value to change the roundness */
+  transition: 0.5s;
+  
+}
+.customClassName {
+  transition: 0.3s;
+}
+
+.customClassName:hover{
+  scale: 1.1;
+
+}
+.card3:hover {
+  box-shadow:
+    rgba(0, 0, 0, 0.16) 0px 3px 6px,
+    rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  border-radius: 10px;
+
+}
+.card4 {
+  box-shadow:
+    rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  transition: 0.3s;
+
+}
+
+
+.bs1{
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;}
+  
+/* ═══════════════════════════════════════════════════════════════════════
+   PORTFOLIO ARTICLE LIST STYLING
+   Used by PortableTextComponents:
+   .custom-bullet-list
+   .custom-number-list
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.article-content .custom-bullet-list,
+.article-content .custom-number-list {
+  position: relative;
+  list-style: none;
+  overflow: hidden;
+  margin: 1.75rem 0;
+  padding: 1.35rem;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 26px;
+  background:
+    radial-gradient(circle at 12% 0%, rgba(82, 113, 255, 0.13), transparent 34%),
+    radial-gradient(circle at 88% 12%, rgba(0, 217, 255, 0.07), transparent 30%),
+    rgba(255, 255, 255, 0.035);
+  box-shadow:
+    0 20px 70px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(14px);
+}
+
+.article-content .custom-bullet-list::before,
+.article-content .custom-number-list::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.06), transparent 34%),
+    linear-gradient(180deg, rgba(82, 113, 255, 0.07), transparent 60%);
+  opacity: 0.8;
+}
+
+.article-content .custom-bullet-list > li,
+.article-content .custom-number-list > li {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  padding: 0.8rem 0.85rem 0.8rem 2.6rem;
+  border-radius: 18px;
+  color: rgba(255, 255, 255, 0.68);
+  font-weight: 500;
+  line-height: 1.8;
+  transition:
+    color 0.25s ease,
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+.article-content .custom-bullet-list > li + li,
+.article-content .custom-number-list > li + li {
+  margin-top: 0.45rem;
+}
+
+.article-content .custom-bullet-list > li:hover,
+.article-content .custom-number-list > li:hover {
+  color: rgba(255, 255, 255, 0.88);
+  background: rgba(82, 113, 255, 0.075);
+  transform: translateX(3px);
+}
+
+/* Bullet list marker */
+.article-content .custom-bullet-list {
+  padding-left: 1.35rem;
+}
+
+.article-content .custom-bullet-list > li::before {
+  content: "";
+  position: absolute;
+  left: 0.95rem;
+  top: 1.48rem;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 999px;
+  background: #5271ff;
+  box-shadow:
+    0 0 12px rgba(82, 113, 255, 0.95),
+    0 0 26px rgba(82, 113, 255, 0.45);
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.article-content .custom-bullet-list > li::after {
+  content: "";
+  position: absolute;
+  left: 1.19rem;
+  top: 2.05rem;
+  bottom: -0.9rem;
+  width: 1px;
+  background: linear-gradient(
+    180deg,
+    rgba(82, 113, 255, 0.45),
+    transparent
+  );
+  opacity: 0.55;
+}
+
+.article-content .custom-bullet-list > li:last-child::after {
+  display: none;
+}
+
+.article-content .custom-bullet-list > li:hover::before {
+  transform: scale(1.35);
+  background: #8ea7ff;
+  box-shadow:
+    0 0 14px rgba(142, 167, 255, 1),
+    0 0 34px rgba(82, 113, 255, 0.65);
+}
+
+/* Numbered list marker */
+.article-content .custom-number-list {
+  counter-reset: custom-counter;
+  padding-left: 1.35rem;
+}
+
+.article-content .custom-number-list > li {
+  counter-increment: custom-counter;
+  padding-left: 3.25rem;
+}
+
+.article-content .custom-number-list > li::before {
+  content: counter(custom-counter, decimal-leading-zero);
+  position: absolute;
+  left: 0.75rem;
+  top: 0.76rem;
+  display: flex;
+  width: 2rem;
+  height: 2rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(82, 113, 255, 0.36);
+  border-radius: 0.85rem;
+  background: rgba(82, 113, 255, 0.12);
+  color: #b8c7ff;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  box-shadow:
+    0 0 18px rgba(82, 113, 255, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.article-content .custom-number-list > li::after {
+  content: "";
+  position: absolute;
+  left: 1.73rem;
+  top: 2.95rem;
+  bottom: -0.9rem;
+  width: 1px;
+  background: linear-gradient(
+    180deg,
+    rgba(82, 113, 255, 0.42),
+    transparent
+  );
+  opacity: 0.55;
+}
+
+.article-content .custom-number-list > li:last-child::after {
+  display: none;
+}
+
+.article-content .custom-number-list > li:hover::before {
+  transform: scale(1.08) rotate(-2deg);
+  background: rgba(82, 113, 255, 0.24);
+  color: #ffffff;
+  box-shadow:
+    0 0 24px rgba(82, 113, 255, 0.34),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+/* Nested lists inside article content */
+.article-content .custom-bullet-list .custom-bullet-list,
+.article-content .custom-bullet-list .custom-number-list,
+.article-content .custom-number-list .custom-bullet-list,
+.article-content .custom-number-list .custom-number-list {
+  margin: 0.75rem 0 0;
+  padding: 0.75rem;
+  border-radius: 18px;
+  background: rgba(5, 11, 31, 0.42);
+  box-shadow: none;
+}
+
+.article-content .custom-bullet-list .custom-bullet-list > li,
+.article-content .custom-bullet-list .custom-number-list > li,
+.article-content .custom-number-list .custom-bullet-list > li,
+.article-content .custom-number-list .custom-number-list > li {
+  font-size: 0.95em;
+  line-height: 1.7;
+}
+
+/* Mobile refinement */
+@media (max-width: 640px) {
+  .article-content .custom-bullet-list,
+  .article-content .custom-number-list {
+    margin: 1.35rem 0;
+    padding: 1rem;
+    border-radius: 22px;
+  }
+
+  .article-content .custom-bullet-list > li,
+  .article-content .custom-number-list > li {
+    padding-top: 0.72rem;
+    padding-bottom: 0.72rem;
+    font-size: 0.96rem;
+    line-height: 1.75;
+  }
+
+  .article-content .custom-bullet-list > li {
+    padding-left: 2.15rem;
+  }
+
+  .article-content .custom-number-list > li {
+    padding-left: 3rem;
+  }
+}
+/* .custom-bullet-list {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+
+} */
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+
+
+.fixed.inset-0.z-50 {
+  z-index: 9999; /* Increase z-index to ensure it stays above the header */
+}
+.header {
+  z-index: 999; /* Ensure it's below the modal's z-index */
+}
+.header {
+  position: fixed;
+  color: #2563eb;
+  z-index: 999; /* Lower than the modal */
+}
+.asd {
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+.readingbar
+{
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;}
+
+  @keyframes gradient-move {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  .animate-gradient-move {
+    background-size: 200% 200%;
+    animation: gradient-move 3s infinite linear;
+  }
+  @keyframes gradientPulse {
+    0% { background: linear-gradient(to right, #06b6d4, #3b82f6, #9333ea); }
+    25% { background: linear-gradient(to right, #3b82f6, #9333ea, #06b6d4); }
+    50% { background: linear-gradient(to right, #9333ea, #06b6d4, #3b82f6); }
+    75% { background: linear-gradient(to right, #06b6d4, #3b82f6, #9333ea); }
+    100% { background: linear-gradient(to right, #3b82f6, #9333ea, #06b6d4); }
+  }
+  @keyframes twinkle {
+    0% { opacity: 0.4; transform: scale(0.8); }
+    50% { opacity: 1; transform: scale(1.2); }
+    100% { opacity: 0.4; transform: scale(0.8); }
+  }
+  
+  .animate-pulse2 {
+    animation: twinkle 2s infinite ease-in-out;
+  }
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0px); }
+  }
+  .high-quality{
+    animation-delay: 2.5s;
+  }
+.coding-challenges{
+  animation-delay: 4.5s;
+}
+.chatgpt{
+  animation-delay: 7s;
+}
+ .let-unlock{
+  animation-delay: 5.5s;}
+  .one-article{
+    animation-delay: 5.5s;
+  }
+@keyframes welcomePop {
+  0% {
+    opacity: 0;
+    transform: scale(0.6) rotate(-10deg);
+  }
+  50% {
+    transform: scale(1.1) rotate(2deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+.welcome-animate {
+  animation: welcomePop 1.2s ease-out forwards;
+}
+@keyframes wordFade {
+  from {
+    transform: translateY(15px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.animate-wordFade {
+  animation: wordFade 0.6s ease-out;
+}
+.chatgpt-glow {
+  text-shadow: 0 0 8px rgba(59, 130, 246, 0.6);
+}
+@keyframes floatY {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+.float-animation {
+  animation: floatY 3s ease-in-out infinite;
+}
+.glow-text {
+  text-shadow: 0 0 6px rgba(37, 99, 235, 0.4);
+}
+@keyframes glowing {
+  0% {
+    text-shadow: 0 0 5px #3b82f6, 0 0 10px #3b82f6, 0 0 20px #3b82f6, 0 0 40px #3b82f6;
+  }
+  50% {
+    text-shadow: 0 0 10px #3b82f6, 0 0 20px #3b82f6, 0 0 30px #3b82f6, 0 0 40px #3b82f6;
+  }
+  100% {
+    text-shadow: 0 0 5px #3b82f6, 0 0 10px #3b82f6, 0 0 20px #3b82f6, 0 0 40px #3b82f6;
+  }
+}
+.glowing-text {
+  animation: glowing 1.5s infinite alternate; /* unique glow effect for Artificial Intelligence */
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes pulse2 {
+  0%, 100% { transform: scale(1.5); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.7; }
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.animate-shimmer {
+  animation: shimmer 2s infinite;
+}
+
+.animate-pulse2 {
+  animation: pulse2 2s infinite;
+}
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes bounceUp {
+  0% {
+    transform: translateY(0px) scale(1);
+  }
+  40% {
+    transform: translateY(-8px) scale(1.1);
+  }
+  60% {
+    transform: translateY(-4px) scale(1.05);
+  }
+  100% {
+    transform: translateY(0px) scale(1);
+  }
+}
+
+.float-anim {
+  animation: float 3s ease-in-out infinite;
+}
+
+.hover\\:animate-bounceUp:hover {
+  animation: bounceUp 0.6s ease-in-out;
+}
+
+/* Add this to your global CSS file */
+@keyframes skeleton-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-skeleton-pulse {
+  animation: skeleton-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-bounce-slow {
+  animation: bounce 3s infinite;
+}
+/* Feature Post Custom Styles */
+.feature-card {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Glass morphism effect for cards in dark mode */
+.dark .feature-card {
+  background: rgba(30, 30, 30, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Resource type indicators */
+.resource-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  z-index: 10;
+}
+
+.resource-badge.document {
+  background-color: #f59e0b;
+  color: white;
+}
+
+.resource-badge.video {
+  background-color: #ef4444;
+  color: white;
+}
+
+.resource-badge.text {
+  background-color: #8b5cf6;
+  color: white;
+}
+
+.resource-badge.image {
+  background-color: #10b981;
+  color: white;
+}
+
+/* Content hover effects */
+.feature-card .card-content {
+  transform: translateY(0);
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover .card-content {
+  transform: translateY(-5px);
+}
+
+/* Animations for resource cards */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.feature-card {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Custom scroll bar for overflow content */
+.feature-card .description {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(155, 155, 155, 0.5) transparent;
+}
+
+.feature-card .description::-webkit-scrollbar {
+  width: 4px;
+}
+
+.feature-card .description::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.feature-card .description::-webkit-scrollbar-thumb {
+  background-color: rgba(155, 155, 155, 0.5);
+  border-radius: 20px;
+}
+
+/* Enhanced carousel styling */
+.custom-dots-container {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-align: center;
+}
+
+/* Fade transition for slides */
+.slick-slide {
+  opacity: 0.5;
+  transition: opacity 0.5s ease;
+}
+
+.slick-current {
+  opacity: 1;
+}
+
+/* Current slide subtle glow effect */
+.slick-current > div > div {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Fix for slick track height */
+.slick-track {
+  display: flex !important;
+  align-items: stretch !important;
+}
+
+.slick-slide {
+  height: auto !important;
+}
+
+.slick-slide > div {
+  height: 100%;
+}
+/* resourceCarousel.css - Add this to your global styles or import it */
+
+/* Custom indicator styling */
+.custom-dots {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.custom-dots li {
+  margin: 0 0.25rem;
+}
+
+.custom-dots li div {
+  transition: all 0.3s ease;
+}
+
+.custom-dots li.slick-active div {
+  background-color: #5271FF !important;
+  transform: scale(1.2);
+}
+
+/* Fix z-index issues with modals */
+.slick-slider {
+  position: relative;
+  z-index: 1;
+}
+
+/* Resource modal should appear above everything */
+div[class*='fixed inset-0'][class*='z-50'] {
+  z-index: 9999 !important;
+}
+
+/* Button animations */
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(82, 113, 255, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(82, 113, 255, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(82, 113, 255, 0); }
+}
+
+.slick-arrow:hover {
+  animation: pulse 1.5s infinite;
+}
+
+/* Improve slide transitions */
+.slick-slide {
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+
+.slick-slide.slick-active {
+  opacity: 1;
+}
+
+/* Ensure modal contents are visible */
+.z-50 {
+  z-index: 9999 !important;
+}
+
+/* Fix modal close button */
+button[aria-label="Close modal"] {
+  z-index: 10000 !important;
+  opacity: 1 !important;
+}
+
+/* Add a subtle focus state to current slide */
+.slick-center .bg-white,
+.slick-center .dark\:bg-gray-800 {
+  box-shadow: 0 0 15px rgba(82, 113, 255, 0.3);
+  border: 1px solid rgba(82, 113, 255, 0.3);
+}
+.carouselNav {
+  box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, 
+              rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+}
+
+/* Dark mode - adjusted colors for dark backgrounds */
+.dark .carouselNav {
+  box-shadow: rgba(0, 0, 0, 0.6) 3px 3px 6px 0px inset, 
+              rgba(255, 255, 255, 0.1) -3px -3px 6px 1px inset;
+}
+
+/* Alternative dark mode option - more subtle */
+.dark .carouselNav.subtle {
+  box-shadow: rgba(0, 0, 0, 0.4) 2px 2px 4px 0px inset, 
+              rgba(255, 255, 255, 0.08) -2px -2px 4px 1px inset;
+}
+
+/* Alternative dark mode option - more pronounced */
+.dark .carouselNav.pronounced {
+  box-shadow: rgba(0, 0, 0, 0.8) 4px 4px 8px 0px inset, 
+              rgba(255, 255, 255, 0.15) -4px -4px 8px 1px inset;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out;
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 20px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.5s ease-out;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Enhance existing shimmer animation */
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+
+
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+  
+  .animate-shimmer {
+    animation: shimmer 2.5s infinite linear;
+  }
+  
+  @keyframes subtle-pulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 0.8; }
+  }
+  
+  .animate-subtle-pulse {
+    animation: subtle-pulse 2s ease-in-out infinite;
+  }
+
+  :root {
+  --scrollbar-width: 0px;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --scrollbar-width: 17px; /* Adjust based on your scrollbar width */
+  }
+}
+
+/* Smooth modal transitions */
+.modal-enter {
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+.modal-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 200ms, transform 200ms;
+}
+
+/* styles.css */
+.scrollbar-visible::-webkit-scrollbar {
+  width: 8px;
+}
+.scrollbar-visible::-webkit-scrollbar-thumb {
+  background-color: rgba(107, 114, 128, 0.8); /* gray-500 */
+  border-radius: 4px;
+}
+.scrollbar-visible::-webkit-scrollbar-track {
+  background-color: rgba(229, 231, 235, 0.3); /* gray-200 */
+}
+
+.scroll-container {
+  scrollbar-width: thin;
+  scrollbar-color: #64748b #f1f5f9;
+}
+
+.scroll-container::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  display: block !important;  
+}
+
+
+.sanity-code-input pre,
+.sanity-code-input code {
+  all: unset; /* The magic property! Resets all inherited styles. */
+  font-family: 'Fira Code', 'Monaco', 'Cascadia Code', 'Roboto Mono', monospace; /* Re-apply font-family if unset breaks it */
+}
+/* Inline code styling for Sanity's default code marks */
+
+code {
+  @apply bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 px-1.5 py-0.5 rounded  font-mono;
+  font-family: 'Fira Code', 'Monaco', 'Cascadia Code', 'Roboto Mono', monospace;
+}
+
+/* Code blocks within pre tags */
+pre code {
+  @apply bg-transparent text-inherit px-0 py-0 rounded-none;
+  display: block;
+  overflow-x: auto;
+}
+
+/* Pre element styling */
+pre {
+  @apply bg-gray-900 dark:bg-black text-gray-100 p-4 rounded-lg overflow-x-auto my-4;
+  font-family: 'Fira Code', 'Monaco', 'Cascadia Code', 'Roboto Mono', monospace;
+}
+
+/* Alternative dark theme for code blocks */
+.prose pre {
+  @apply bg-gray-900 border border-gray-700;
+}
+
+.prose code {
+  @apply bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 px-1.5 py-0.5 rounded ;
+  font-weight: 500;
+}
+
+/* Ensure code doesn't break on small screens */
+code, pre {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+/* Add this to your global CSS or Tailwind config */
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 2s infinite;
+}
+
+/* Ensure proper aspect ratio maintenance */
+.aspect-video {
+  aspect-ratio: 16 / 9;
+}
+
+/* Enhanced loading states */
+.video-loading-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.video-loading-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transform: translateX(-100%);
+  animation: shimmer 1.5s infinite;
+}
+@media (max-width: 475px) {
+  .xs\:hidden {
+    display: none;
+  }
+  .xs\:inline {
+    display: inline;
+  }
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animated-spinner {
+  width: 64px;
+  height: 64px;
+  border: 8px solid transparent;
+  border-top-color: #3b82f6; /* Tailwind blue-500 */
+  border-bottom-color: #60a5fa; /* Tailwind blue-400 */
+  border-radius: 50%;
+  animation: spin 1s cubic-bezier(0.4, 0, 0.2, 1) infinite; /* Smooth easing */
+}
+
+.dark .animated-spinner {
+  border-top-color: #60a5fa; /* Lighter blue for dark mode */
+  border-bottom-color: #93c5fd; /* Tailwind blue-300 */
+}
+.social-card {
+
+  /* transition: transform 0.3s ease , box-shadow 0.3s ease; */
+  }
+  
+  .social-card:hover {
+    /* transform: translateY(-8px); */
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  }
+  
+  .social-icon {
+    transition: none;
+  }
+  
+  .social-title {
+    transition: color ease;
+  }
+  
+  .social-card:hover .social-title {
+    color: #2563eb;
+  }
+  
+  .dark .social-card:hover .social-title {
+    color: #60a5fa;
+  }
+  
+  .social-description {
+    transition: color  ease;
+  }
+  
+  .social-card:hover .social-description {
+    color: #334155;
+  }
+  
+  .dark .social-card:hover .social-description {
+    color: #e2e8f0;
+  }
+  
+  .social-arrow {
+    transition:  ease, color  ease;
+  }
+  
+  .social-card:hover .social-arrow {
+    transform: translateX(4px);
+    color: #1d4ed8;
+  }
+  
+  .dark .social-card:hover .social-arrow {
+    color: #3b82f6;
+  }
+
+   /* ════════════════════════════════════════════════════════════════════════════
+   SUFIANMUSTAFA.COM — LOCKED THEME  v1.0
+   The single source of truth. Import once in app/layout.jsx (before any page CSS).
+   Rule: components NEVER hardcode colors. They consume these tokens.
+   "The Architect is gold. His systems are blue."
+   ════════════════════════════════════════════════════════════════════════════ */
+
+:root {
+  /* ── Foundation (dark-first) ─────────────────────────────────────────── */
+  --bg-base:      #070C18;                       /* page background          */
+  --bg-deep:      #040810;                       /* hero canvas, footer base */
+  --bg-raised:    #0C1226;                       /* cards, panels            */
+  --bg-overlay:   #101936;                       /* modals, popovers, menus  */
+  --edge:         rgba(255, 255, 255, 0.08);     /* default border           */
+  --edge-strong:  rgba(255, 255, 255, 0.14);     /* hover / active border    */
+
+  /* ── Ink (warm ivory — harmonizes with gold) ─────────────────────────── */
+  --ink:          #EDE9DC;
+  --ink-soft:     rgba(237, 233, 220, 0.64);
+  --ink-faint:    rgba(237, 233, 220, 0.38);
+
+  /* ── Brand: Royal Gold ───────────────────────────────────────────────── */
+  --gold:         #E3B341;                       /* primary accent           */
+  --gold-deep:    #C9952C;                       /* hover, pressed, borders  */
+  --gold-bright:  #F2CC6B;                       /* small highlights only    */
+  --gold-ink:     #2E2106;                       /* text ON gold fills       */
+  --gold-tint:    rgba(227, 179, 65, 0.12);      /* tinted surfaces          */
+  --gold-tint-2:  rgba(227, 179, 65, 0.22);      /* stronger tint            */
+  --gold-glow:    rgba(227, 179, 65, 0.28);      /* the ONLY allowed glow    */
+
+  /* Back-compat alias: legacy components read --accent. Locked to gold.    */
+  --accent:       var(--gold);
+
+  /* ── Citation colors — ONLY when referencing that property ───────────── */
+  --cite-doitwithai:   #5271FF;
+  --cite-doitwithai-2: #00D9FF;
+  --cite-lionxe:       #004DFD;
+  --cite-lionxe-soft:  #4D7BFF;                  /* lionxe on dark bg        */
+
+  /* ── Semantic — UI feedback only, never decoration ───────────────────── */
+  --ok:    #2FB07A;
+  --warn:  #D98E2B;
+  --bad:   #D45A5A;
+
+  /* ── Typography ──────────────────────────────────────────────────────── */
+  /* Wire real families via next/font in layout.jsx:
+       Fraunces  -> --font-display   (serif authority headlines)
+       Inter     -> --font-sans      (body & UI)
+       JetBrains Mono -> --font-mono (terminal, code, data chips)          */
+  --font-display: var(--next-font-display, Fraunces, Georgia, "Times New Roman", serif);
+  --font-sans:    var(--next-font-sans, Inter, system-ui, -apple-system, "Segoe UI", sans-serif);
+  --font-mono:    var(--next-font-mono, "JetBrains Mono", ui-monospace, "Courier New", monospace);
+
+  /* Type scale — 1.25 ratio */
+  --fs-xs: 12px;  --fs-sm: 13.5px; --fs-base: 15px; --fs-md: 17px;
+  --fs-lg: 19px;  --fs-xl: 24px;   --fs-2xl: 30px;  --fs-3xl: 38px;
+  --fs-4xl: 48px; --fs-5xl: 60px;
+
+  --lh-body: 1.65;
+  --ls-tight: -0.02em;                           /* display headings         */
+  --ls-eyebrow: 0.14em;                          /* uppercase labels         */
+
+  /* ── Geometry — 8px grid ─────────────────────────────────────────────── */
+  --r-sm: 8px;   --r-md: 14px;  --r-lg: 22px;
+  --space-section: clamp(64px, 10vw, 128px);
+  --container: 1280px;
+
+  /* ── Motion — the budget lives here ──────────────────────────────────── */
+  --t-fast: 180ms;                               /* hover / press            */
+  --t-base: 280ms;                               /* state changes            */
+  --t-enter: 650ms;                              /* entrances                */
+  --ease-out: cubic-bezier(0.2, 0.9, 0.3, 1);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ── Elevation (borders preferred; shadows = true elevation only) ────── */
+  --shadow-device: 0 50px 90px rgba(0, 0, 0, 0.55);
+  --shadow-modal:  0 24px 64px rgba(0, 0, 0, 0.45);
+  --glow-gold:     0 0 40px var(--gold-glow);
+
+  color-scheme: dark;
+}
+
+/* ── Light mode (secondary — dark is the brand) ─────────────────────────── */
+.light, [data-theme="light"] {
+  --bg-base:     #F6F3EA;                        /* warm paper, not cool gray*/
+  --bg-deep:     #EFEBDF;
+  --bg-raised:   #FFFFFF;
+  --bg-overlay:  #FFFFFF;
+  --edge:        rgba(30, 26, 12, 0.10);
+  --edge-strong: rgba(30, 26, 12, 0.18);
+  --ink:         #1C1810;
+  --ink-soft:    rgba(28, 24, 16, 0.66);
+  --ink-faint:   rgba(28, 24, 16, 0.40);
+  --gold:        #B07F1A;                        /* deeper gold for contrast */
+  --gold-deep:   #8F660F;
+  --gold-bright: #C9952C;
+  --gold-tint:   rgba(176, 127, 26, 0.10);
+  --gold-tint-2: rgba(176, 127, 26, 0.18);
+  --gold-glow:   rgba(176, 127, 26, 0.22);
+  color-scheme: light;
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   BASE
+   ════════════════════════════════════════════════════════════════════════════ */
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg-base);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: var(--fs-base);
+  line-height: var(--lh-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection { background: var(--gold-tint-2); color: var(--ink); }
+
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Scrollbar — quiet, on-brand */
+* { scrollbar-width: thin; scrollbar-color: rgba(227,179,65,0.28) transparent; }
+*::-webkit-scrollbar { width: 9px; height: 9px; }
+*::-webkit-scrollbar-thumb { background: rgba(227,179,65,0.22); border-radius: 99px; }
+*::-webkit-scrollbar-thumb:hover { background: rgba(227,179,65,0.4); }
+*::-webkit-scrollbar-track { background: transparent; }
+
+/* ════════════════════════════════════════════════════════════════════════════
+   SHARED PRIMITIVES — reusable across every page
+   ════════════════════════════════════════════════════════════════════════════ */
+
+/* Display headline */
+.sm-display {
+  font-family: var(--font-display);
+  font-weight: 560;
+  letter-spacing: var(--ls-tight);
+  line-height: 1.08;
+  color: var(--ink);
+}
+
+/* Uppercase eyebrow label */
+.sm-eyebrow {
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+.sm-eyebrow--gold { color: var(--gold); }
+
+/* Primary action — gold fill, navy text. ONE per viewport. */
+.sm-btn-primary {
+  display: inline-flex; align-items: center; gap: 8px;
+  height: 48px; padding: 0 24px;
+  border-radius: var(--r-md);
+  background: var(--gold);
+  color: var(--gold-ink);
+  font-weight: 700; font-size: var(--fs-sm);
+  text-decoration: none; border: none; cursor: pointer;
+  transition: transform var(--t-fast) var(--ease-out),
+              background var(--t-fast), box-shadow var(--t-fast);
+  box-shadow: 0 8px 28px var(--gold-glow);
+}
+.sm-btn-primary:hover { background: var(--gold-bright); transform: translateY(-2px); }
+.sm-btn-primary:active { transform: translateY(0); }
+
+/* Secondary action — ghost, gold on hover */
+.sm-btn-ghost {
+  display: inline-flex; align-items: center; gap: 8px;
+  height: 48px; padding: 0 22px;
+  border-radius: var(--r-md);
+  background: transparent;
+  color: var(--ink);
+  font-weight: 600; font-size: var(--fs-sm);
+  text-decoration: none; cursor: pointer;
+  border: 1px solid var(--edge-strong);
+  transition: border-color var(--t-fast), color var(--t-fast),
+              background var(--t-fast), transform var(--t-fast) var(--ease-out);
+}
+.sm-btn-ghost:hover {
+  border-color: var(--gold-deep);
+  color: var(--gold);
+  background: var(--gold-tint);
+  transform: translateY(-2px);
+}
+
+/* Card */
+.sm-card {
+  background: var(--bg-raised);
+  border: 1px solid var(--edge);
+  border-radius: var(--r-md);
+  transition: border-color var(--t-fast);
+}
+.sm-card:hover { border-color: var(--edge-strong); }
+
+/* Citation chips — the ONLY place blue is allowed */
+.sm-cite { display: inline-flex; align-items: center; gap: 7px; font-weight: 600; }
+.sm-cite::before { content: ""; width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+.sm-cite--doitwithai::before { background: var(--cite-doitwithai); box-shadow: 0 0 8px rgba(82,113,255,0.5); }
+.sm-cite--lionxe::before     { background: var(--cite-lionxe-soft); box-shadow: 0 0 8px rgba(0,77,253,0.5); }
+
+/* Gold link — underline grows on hover */
+.sm-link {
+  color: var(--gold); text-decoration: none; font-weight: 600;
+  background-image: linear-gradient(var(--gold), var(--gold));
+  background-size: 0% 1.5px; background-repeat: no-repeat; background-position: 0 100%;
+  transition: background-size var(--t-base) var(--ease-out);
+}
+.sm-link:hover { background-size: 100% 1.5px; }
+
+/* Section container */
+.sm-container { width: 100%; max-width: var(--container); margin-inline: auto; padding-inline: clamp(16px, 4vw, 32px); }
+
+/* Entrance — the ONE shared page transition (Plan §5.5) */
+.sm-enter { animation: smEnter var(--t-enter) var(--ease-out) both; }
+@keyframes smEnter {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   MOTION GOVERNANCE — global, non-negotiable
+   ════════════════════════════════════════════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

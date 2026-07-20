@@ -1,0 +1,262 @@
+/* ══════════════════════════════════════════════════════════════════════════
+   WORK / CASE STUDIES — sufianmustafa.com
+   Clean editorial layout · gold accent · expandable case study cards
+   ══════════════════════════════════════════════════════════════════════════ */
+
+.work-root {
+  --accent: #E3B341;
+  --ink: #EDE9DC;
+  --ink-soft: rgba(237,233,220,0.64);
+  --ink-faint: rgba(237,233,220,0.38);
+  --bg: #070C18;
+  --bg-raised: #0C1226;
+  --line: rgba(255,255,255,0.08);
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--ink);
+  padding-bottom: 80px;
+}
+
+/* ── Hero ── */
+.work-hero {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 100px clamp(18px, 5vw, 40px) 48px;
+  text-align: center;
+}
+.work-eyebrow {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-size: 11px; font-weight: 800; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--accent); margin-bottom: 14px;
+}
+.work-h1 {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 900; letter-spacing: -0.03em;
+  color: #fff; line-height: 1.08; margin-bottom: 14px;
+}
+.work-lede {
+  font-size: clamp(0.95rem, 1.6vw, 1.1rem);
+  line-height: 1.7; color: var(--ink-soft);
+  max-width: 600px; margin: 0 auto;
+}
+
+/* ── Case cards ── */
+.work-cases {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 0 clamp(16px, 4vw, 32px);
+  display: flex; flex-direction: column; gap: 16px;
+}
+
+.work-case {
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  background: var(--bg-raised);
+  overflow: hidden;
+  transition: border-color 0.3s;
+}
+.work-case--open {
+  border-color: color-mix(in srgb, var(--case-color) 40%, transparent);
+}
+
+/* Header (always visible, clickable) */
+.work-case-header {
+  display: flex; align-items: center; gap: 18px;
+  width: 100%; padding: 22px 24px;
+  background: none; border: none; cursor: pointer;
+  text-align: left; color: var(--ink);
+  transition: background 0.2s;
+}
+.work-case-header:hover {
+  background: rgba(255,255,255,0.02);
+}
+.work-case-num {
+  font-size: 28px; font-weight: 900;
+  color: color-mix(in srgb, var(--case-color) 60%, transparent);
+  flex-shrink: 0; width: 48px;
+  letter-spacing: -0.02em;
+}
+.work-case-meta { flex: 1; min-width: 0; }
+.work-case-badge {
+  display: inline-block;
+  font-size: 10px; font-weight: 800;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--case-color);
+  padding: 3px 9px; border-radius: 6px;
+  background: color-mix(in srgb, var(--case-color) 12%, transparent);
+  margin-bottom: 6px;
+}
+.work-case-title {
+  font-size: 22px; font-weight: 900; color: #fff;
+  letter-spacing: -0.02em; line-height: 1.15;
+}
+.work-case-subtitle {
+  font-size: 13.5px; color: var(--ink-soft);
+  margin-top: 4px; line-height: 1.5;
+}
+.work-case-arrow {
+  flex-shrink: 0; color: var(--ink-faint);
+  transition: transform 0.3s, color 0.3s;
+}
+.work-case-arrow--open {
+  transform: rotate(90deg);
+  color: var(--case-color);
+}
+
+/* Body (expanded content) */
+.work-case-body {
+  padding: 0 24px 28px;
+  animation: workFadeIn 0.35s ease both;
+}
+@keyframes workFadeIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Sections inside the body */
+.work-section {
+  margin-top: 22px;
+}
+.work-section-label {
+  font-size: 11px; font-weight: 800;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--case-color); margin-bottom: 8px;
+}
+.work-section-text {
+  font-size: 14.5px; line-height: 1.7; color: var(--ink-soft);
+}
+
+/* How list */
+.work-how-list {
+  list-style: none; padding: 0; margin: 0;
+  display: flex; flex-direction: column; gap: 10px;
+}
+.work-how-list li {
+  display: flex; align-items: flex-start; gap: 10px;
+  font-size: 13.5px; line-height: 1.65; color: var(--ink-soft);
+}
+.work-how-icon {
+  flex-shrink: 0; margin-top: 3px;
+  color: var(--case-color); opacity: 0.7;
+}
+
+/* Evidence grid */
+.work-evidence-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;
+}
+.work-evidence-card {
+  padding: 14px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--line);
+  display: flex; flex-direction: column; gap: 4px;
+}
+.work-evidence-label {
+  font-size: 10.5px; font-weight: 700;
+  color: var(--ink-faint); text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.work-evidence-value {
+  font-size: 15px; font-weight: 800; color: #fff;
+}
+
+/* Stack chips */
+.work-stack {
+  display: flex; flex-wrap: wrap; gap: 7px;
+}
+.work-stack-chip {
+  padding: 5px 13px; border-radius: 20px;
+  font-size: 12px; font-weight: 700;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--line);
+  color: var(--ink-soft);
+}
+
+/* Proves */
+.work-proves {
+  padding: 16px;
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--case-color) 6%, transparent);
+  border: 1px solid color-mix(in srgb, var(--case-color) 18%, transparent);
+  border-left: 3px solid var(--case-color);
+}
+.work-proves-text {
+  font-size: 14px; line-height: 1.7;
+  color: var(--ink); font-weight: 600;
+}
+
+/* Visit link */
+.work-case-link {
+  display: inline-flex; align-items: center; gap: 7px;
+  margin-top: 18px;
+  font-size: 14px; font-weight: 700;
+  color: var(--case-color); text-decoration: none;
+  padding: 10px 20px; border-radius: 10px;
+  border: 1px solid color-mix(in srgb, var(--case-color) 35%, transparent);
+  transition: background 0.2s, transform 0.2s;
+}
+.work-case-link:hover {
+  background: color-mix(in srgb, var(--case-color) 10%, transparent);
+  transform: translateY(-2px);
+}
+
+/* ── Ecosystem summary ── */
+.work-ecosystem {
+  max-width: 720px;
+  margin: 56px auto 0;
+  padding: 0 clamp(18px, 5vw, 40px);
+  text-align: center;
+}
+.work-ecosystem-title {
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 900; color: #fff;
+  letter-spacing: -0.02em; margin-bottom: 12px;
+}
+.work-ecosystem-body {
+  font-size: 14.5px; line-height: 1.7;
+  color: var(--ink-soft); max-width: 580px;
+  margin: 0 auto 24px;
+}
+.work-ecosystem-links {
+  display: flex; justify-content: center;
+  flex-wrap: wrap; gap: 10px;
+}
+.work-eco-link {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 10px 18px; border-radius: 10px;
+  font-size: 13px; font-weight: 700;
+  color: var(--eco-color); text-decoration: none;
+  border: 1px solid color-mix(in srgb, var(--eco-color) 30%, transparent);
+  transition: background 0.2s, transform 0.2s;
+}
+.work-eco-link:hover {
+  background: color-mix(in srgb, var(--eco-color) 10%, transparent);
+  transform: translateY(-2px);
+}
+
+/* ── Responsive ── */
+@media (max-width: 700px) {
+  .work-hero { padding: 72px 18px 36px; }
+  .work-case-header { padding: 18px 16px; gap: 12px; }
+  .work-case-num { font-size: 22px; width: 36px; }
+  .work-case-title { font-size: 18px; }
+  .work-case-subtitle { font-size: 12.5px; }
+  .work-case-body { padding: 0 16px 22px; }
+  .work-evidence-grid { grid-template-columns: repeat(2, 1fr); }
+  .work-section-text { font-size: 13.5px; }
+  .work-how-list li { font-size: 13px; }
+  .work-ecosystem-links { flex-direction: column; align-items: center; }
+}
+
+@media (max-width: 480px) {
+  .work-case-header { flex-wrap: wrap; }
+  .work-case-num { width: auto; font-size: 18px; }
+  .work-case-title { font-size: 16px; }
+  .work-evidence-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .work-evidence-card { padding: 10px; }
+  .work-evidence-value { font-size: 13px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .work-case-body { animation: none; }
+}
