@@ -205,19 +205,9 @@ export default function PublicChapter9Page() {
         figureNumber="9.1"
         title="Fragmented Accounts vs. Consolidated Brand Presence"
         leftLabel="CURRENT MODEL: 261 FRAGMENTED ACCOUNTS"
-        leftItems={[
-          "Each account builds its own minimal follower base independently",
-          "Engagement history fragmented across 261 profiles",
-          "No single account earns platform recommendation",
-          "The company's 30-year reputation is invisible online",
-        ]}
+        leftBody="Each account builds its own minimal follower base independently. Engagement history is fragmented across 261 profiles. No single account earns platform recommendation. The company's 30-year reputation is invisible online."
         rightLabel="CONSOLIDATED MODEL: ONE BRAND PER PLATFORM"
-        rightItems={[
-          "One Facebook page, one Instagram, one YouTube channel",
-          "All engagement concentrates into a single entity",
-          "Platform authority builds through consistent activity",
-          "One identity carries the full real-world reputation",
-        ]}
+        rightBody="One Facebook page, one Instagram, one YouTube channel. All engagement concentrates into a single entity. Platform authority builds through consistent activity. One identity carries the full real-world reputation."
       />
 
       <MiniHeading>The Trust Gap</MiniHeading>
