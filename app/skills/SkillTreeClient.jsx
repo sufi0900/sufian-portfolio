@@ -1,3 +1,7 @@
+
+/* eslint-disable @next/next/no-img-element */
+/* eslint-disable react/no-unescaped-entities */
+
 "use client";
 
 import React, { useEffect, useRef, useState, useMemo, useCallback } from "react";

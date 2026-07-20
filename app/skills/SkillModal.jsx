@@ -1,3 +1,6 @@
+/* eslint-disable @next/next/no-img-element */
+/* eslint-disable react/no-unescaped-entities */
+
 // SkillModal.jsx
 import React from "react";
 import { X, ChevronRight } from "lucide-react";

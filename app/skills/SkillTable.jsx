@@ -1,3 +1,6 @@
+/* eslint-disable @next/next/no-img-element */
+/* eslint-disable react/no-unescaped-entities */
+
 // app/skills/SkillTable.jsx
 import React from "react";
 import { CROWN, BRANCHES, ROOTS, ACCENT } from "./skillData";
