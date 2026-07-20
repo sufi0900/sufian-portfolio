@@ -15,7 +15,9 @@ import { faqsData, categoriesData } from './faqs';
 import './faq.css';
 
 // Dynamic Icon Map lookup setup
-const iconMap: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
+// lucide-react icon components accept size as string | number and support ref; use their prop types loosely
+type IconComponent = React.ComponentType<React.ComponentProps<typeof Search>>;
+const iconMap: Record<string, IconComponent> = {
   Search: Search,
   Layers: Layers,
   Cpu: Cpu,
