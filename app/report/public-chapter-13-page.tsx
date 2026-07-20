@@ -262,15 +262,6 @@ export default function PublicChapter13Page() {
       <PillarClusterTreeDiagram
         figureNumber="13.4"
         title="Pillar-Cluster Architecture for Area Rug Cleaning"
-        pillarLabel="Area Rug Cleaning"
-        clusters={[
-          "Wool rugs",
-          "Silk rugs",
-          "Pet stains",
-          "Water damage",
-          "Odor removal",
-          "Pricing guide",
-        ]}
       />
 
       <Paragraph>
