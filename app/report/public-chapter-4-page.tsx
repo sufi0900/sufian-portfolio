@@ -285,12 +285,12 @@ export default function PublicChapter4Page() {
         figureNumber="4.4"
         title="Six Keywords, One Intent — Row 29 of the Keyword Sheet"
         keywords={[
-          { role: "Primary", keyword: "how to get stains out of mattress", isPrimary: true },
-          { role: "Secondary 1", keyword: "how to get stains out of a mattress" },
-          { role: "Secondary 2", keyword: "how to clean stains off mattress" },
-          { role: "Secondary 3", keyword: "how to remove stains from mattress" },
-          { role: "Secondary 4", keyword: "clean stain from mattress" },
-          { role: "Secondary 5", keyword: "how to get rid of stain on mattress" },
+          { keyword: "how to get stains out of mattress", isPrimary: true },
+          { keyword: "how to get stains out of a mattress" },
+          { keyword: "how to clean stains off mattress" },
+          { keyword: "how to remove stains from mattress" },
+          { keyword: "clean stain from mattress" },
+          { keyword: "how to get rid of stain on mattress" },
         ]}
         sharedIntent="Remove stains from a mattress"
       />
