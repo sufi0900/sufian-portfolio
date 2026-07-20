@@ -22,7 +22,7 @@ class CustomSanityCache {
 
     async initializeStore() {
         try {
-            this.store = createStore('sanity-cache-db', 'cache-store');
+            this.store = createStore('sufian-portfolio-cache-db', 'cache-store');
         } catch (error) {
             console.warn('IndexedDB not available, using memory only:', error);
         }

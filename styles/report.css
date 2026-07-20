@@ -1,0 +1,157 @@
+/* styles/report.css
+   Import once in app/report/layout.tsx: import "@/styles/report.css";
+*/
+
+:root {
+  --navy: #0a1628;
+  --dark-navy: #060e1a;
+  --lionxe-blue: #004dfd;
+  --accent-blue: #1a6bff;
+  --light-blue: #e8f0fe;
+  --pale-blue: #f4f7fc;
+  --warm-grey: #f5f3f0;
+  --text-black: #1a1a1a;
+  --text-grey: #4a4a4a;
+  --text-light: #8a8a8a;
+  --border-grey: #d0d0d0;
+  --red-flag: #c0392b;
+}
+
+/* ── Screen preview ─────────────────────────────────────────── */
+.report-shell {
+  max-width: 760px;
+  margin: 0 auto;
+  background: white;
+  padding: 48px 56px;
+}
+
+/* Cover uses its own shell so print rules can treat it differently. */
+.cover-shell {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 48px 56px;
+}
+
+@media screen {
+  .report-shell {
+    box-shadow: 0 0 0 1px var(--border-grey), 0 20px 40px -20px rgb(0 0 0 / 0.25);
+    margin-top: 32px;
+    margin-bottom: 32px;
+  }
+  .cover-shell {
+    box-shadow: 0 0 0 1px var(--border-grey), 0 20px 40px -20px rgb(0 0 0 / 0.25);
+    margin-top: 32px;
+    margin-bottom: 32px;
+  }
+}
+
+/* ── Print / PDF export ─────────────────────────────────────── */
+/* Page margins are set in the Puppeteer pdf() call, not here. */
+@media print {
+  /* Ensure navy/red/blue fills actually print */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .report-shell {
+    max-width: none;
+    padding: 0;
+    box-shadow: none;
+    margin: 0;
+  }
+
+  /* Cover: keep its internal padding (unlike chapters), fill exactly
+     one printable page, then hard-break. A4 = 297mm; with 25mm top +
+     25mm bottom Puppeteer margins the printable height is 247mm. */
+  .cover-shell {
+    max-width: none;
+    margin: 0;
+    box-shadow: none;
+    padding: 6mm 6mm;
+    max-height: 225mm;
+    overflow: hidden;
+    break-after: page;
+    page-break-after: always;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+}
+
+/* ── Pagination engine ──────────────────────────────────────── */
+
+/* 1. CHAPTER BREAKS — every element with .print-break starts on a
+      fresh page. Applied to each chapter wrapper in full-report. */
+.print-break {
+  break-before: page;
+  page-break-before: always;
+}
+/* The cover is the document's first element; a break before it would
+   create a blank page 1. */
+#cover.print-break {
+  break-before: auto;
+  page-break-before: auto;
+}
+
+/* 2. KEEP-TOGETHER BLOCKS — cards, tables, figures never slice
+      across two pages. */
+.avoid-break,
+table,
+figure,
+svg,
+img {
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+tr {
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+/* 3. HEADING ORPHAN CONTROL — a heading must never sit alone at the
+      bottom of a page. Chromium does not honor break-after: avoid,
+      so each heading carries an invisible spacer that reaches into
+      the following block: if ~90px of space for upcoming content
+      does not fit below the heading, the whole heading moves to the
+      next page. The negative margin cancels the spacer visually, so
+      layout is unchanged everywhere else. */
+.section-heading,
+.mini-heading {
+  break-inside: avoid;
+  page-break-inside: avoid;
+  break-after: avoid; /* honored by future engines; harmless today */
+  page-break-after: avoid;
+}
+.section-heading::after {
+  content: "";
+  display: block;
+  height: 110px;
+  margin-bottom: -110px;
+}
+.mini-heading::after {
+  content: "";
+  display: block;
+  height: 90px;
+  margin-bottom: -90px;
+}
+
+/* 4. WIDOW / ORPHAN LINES — no stranded single lines at page
+      boundaries: at least 3 lines of any paragraph must appear on
+      each side of a break, else the whole paragraph moves. */
+p {
+  orphans: 3;
+  widows: 3;
+}
+li {
+  orphans: 2;
+  widows: 2;
+  break-inside: avoid;
+}
+
+/* 5. Utility: force a break anywhere manually if ever needed. */
+.force-page-break {
+  break-before: page;
+  page-break-before: always;
+}

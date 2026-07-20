@@ -1,5 +1,3 @@
-// SearchResults.js
-
 'use client';
 import React from 'react';
 // import { urlForImage } from '@/sanity/lib/image';
@@ -121,7 +119,7 @@ const SearchResults = ({
         makemoney: "ai-learn-earn",
         aitool: "ai-tools", 
         coding: "ai-code",
-        seo: "blogs",
+        seo: "ai-seo"
       };
       
       const routePrefix = schemaSlugMap[post._type];

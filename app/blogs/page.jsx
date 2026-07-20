@@ -18,7 +18,7 @@ const BLOGS_PAGE_LIMIT = 50;
 
 function getBaseUrl() {
   if (process.env.NODE_ENV === 'production') {
-    return 'https://doitwithai.tools';
+    return 'https://sufianmustafa.com';
   }
   if (process.env.VERCEL_URL) {
     return `https://${process.env.VERCEL_URL}`;
@@ -132,7 +132,7 @@ async function getData(schemaType, pageSlugPrefix) {
 
 export default async function Page() {
   const schemaType = "seo";
-  const pageSlugPrefix = "ai-seo";
+  const pageSlugPrefix = "blogs";
 
   const serverData = await getData(schemaType, pageSlugPrefix);
 
