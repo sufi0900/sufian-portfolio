@@ -55,7 +55,7 @@ async function fetchSubcategoryPosts(slug) {
   }
 }
 // Fetch subcategory information
-async function fetchSubcategoryPosts(slug) {
+async function fetchSubcategoryInfo(slug) {
   const query = `*[
     _type == "seo" &&
     (
@@ -177,7 +177,7 @@ export default async function CategoryPage({ params }) {
 
   const [posts, subcategoryInfo] = await Promise.all([
     fetchSubcategoryPosts(category),
-    fetchSubcategoryInfo(category)
+    subcategoryInfo(category)
   ]);
 
   if (!subcategoryInfo) {

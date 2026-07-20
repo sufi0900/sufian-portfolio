@@ -13,7 +13,7 @@ import { Inter } from "next/font/google";
 import dynamic from "next/dynamic";
 import { usePathname } from "next/navigation";
 import Hero from "@/components/Hero/index";
-import Header from "@/components/hero/Navbar";
+import Header from "@/components/Hero/Navbar";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
 import { CacheProvider } from "@/React_Query_Caching/CacheProvider";
