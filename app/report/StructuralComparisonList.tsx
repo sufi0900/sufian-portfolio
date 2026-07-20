@@ -34,7 +34,7 @@ export function StructuralComparisonList({
       </div>
 
       {/* Main Content Layout */}
-      <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x" style={{ divideColor: "var(--border-grey)", backgroundColor: "white" }}>
+      <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x" style={{ borderColor: "var(--border-grey)", backgroundColor: "white" }}>
         {/* Left Hand: Flawed Headcount Scaling */}
         <div className="p-5 sm:p-6" style={{ background: "#fafbfc" }}>
           <h4 className="text-xs font-bold uppercase tracking-wider mb-4 flex items-center gap-2 text-red-600">
