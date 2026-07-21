@@ -9,16 +9,16 @@ import {
 } from "@/components/report/Headings";
 import { BulletList } from "@/components/report/BulletList";
 import { LionxeGateDiagram } from "@/components/report/LionxeGateDiagram";
-import { GateTimelineDiagram } from "./GateTimelineDiagram";
+import { GateTimelineDiagram } from "@/app/report/GateTimelineDiagram";
 import { DownloadPdfButton } from "@/components/report/DownloadPdfButton";
 
 export default function PublicChapter12Page() {
   return (
     <main className="report-shell">
-      <DownloadPdfButton
+      {/* <DownloadPdfButton
         slug="portfolio-chapter-12"
         label="Chapter 12: The LIONXE Standard for Measuring Digital Quality"
-      />
+      /> */}
 
       <ChapterOpener
         chapterNumber={12}
@@ -114,7 +114,7 @@ export default function PublicChapter12Page() {
       <Paragraph>
         The current model&apos;s foundation is a decentralized network of 87
         near-identical websites built to exploit geographic keyword coverage
-        through location-swapped duplication (Chapter 3). Chapter 10 documented
+        through location-swapped duplication (Chapter 3). Chapter 10 identified
         that this model was built for an environment that no longer exists, and
         that the trajectory of the search landscape is moving away from the
         conditions the model depends on.
@@ -124,7 +124,7 @@ export default function PublicChapter12Page() {
         describes an enterprise that deploys a network of shallow, low-effort
         micro-websites designed to exploit a temporary search engine loophole,
         only to see traffic collapse when the loophole closes. That case, written
-        as a general principle, describes the documented network almost point for
+        as a general principle, describes the audited network almost point for
         point.
       </Paragraph>
       <Paragraph>
@@ -139,7 +139,7 @@ export default function PublicChapter12Page() {
       </Paragraph>
       <Paragraph>
         The diagnostic chapters identified structural weaknesses across every
-        internal layer of the company&apos;s digital operations:
+        internal layer of the organization&apos;s digital operations:
       </Paragraph>
       <BulletList
         items={[
@@ -167,7 +167,7 @@ export default function PublicChapter12Page() {
         when it costs revenue or growth.
       </Paragraph>
       <Paragraph>
-        The diagnostic chapters documented alignment with patterns that
+        The diagnostic chapters identified alignment with patterns that
         Google&apos;s own published policies classify as violations:
       </Paragraph>
       <BulletList
@@ -181,7 +181,7 @@ export default function PublicChapter12Page() {
       <Paragraph>
         The integrity standard does not ask whether these practices have resulted
         in a penalty. It asks whether the practices themselves are consistent
-        with the published rules. On the evidence documented in this report, they
+        with the published rules. On the evidence presented in this report, they
         are not.
       </Paragraph>
       <Paragraph>
@@ -194,7 +194,7 @@ export default function PublicChapter12Page() {
         alternative could fully replace it, its distinction score is zero.
       </Paragraph>
       <Paragraph>
-        The diagnostic chapters documented that the company&apos;s digital
+        The diagnostic chapters identified that the organization&apos;s digital
         output, across every channel, is structurally interchangeable with what
         any competitor could produce using the same tools:
       </Paragraph>
@@ -207,7 +207,7 @@ export default function PublicChapter12Page() {
         ]}
       />
       <Paragraph>
-        Under the Commodity Threshold Law, the company&apos;s digital output
+        Under the Commodity Threshold Law, the organization&apos;s digital output
         scores zero on distinction. A competitor with the same tools and the same
         prompts could produce functionally identical content. Nothing in the
         current output is proprietary, experience-based, or irreplicable.
@@ -305,7 +305,7 @@ export default function PublicChapter12Page() {
       </Paragraph>
       <Paragraph>
         The gate-by-gate evaluation is qualitative, based on the evidence
-        documented in Chapters 3 through 10 and the governing laws of each
+        identified in Chapters 3 through 10 and the governing laws of each
         gate. It is not a formal certification submission, and no numeric score
         is presented. The comparative assessment of the proposed architecture
         appears in Chapter 14, after the architecture is presented in Chapter

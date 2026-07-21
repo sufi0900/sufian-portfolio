@@ -123,9 +123,9 @@
         }
 
         .pn-brand-text {
-          display: inline-flex;
+          /* display: inline-flex; */
           align-items: center;
-          gap: 0;
+          /* gap: 0; */
           color: #fff;
           font-size: 16.5px;
           font-weight: 850;

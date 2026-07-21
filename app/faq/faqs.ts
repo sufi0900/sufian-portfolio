@@ -50,17 +50,17 @@ export const faqsData: FAQItem[] = [
   // ==========================================
   {
     cat: "lionxe",
-    question: "What is the LIONXE® Framework?",
+    question: "What is the LIONXE ™ Framework?",
     answer: "The LIONXE™ Framework is a proprietary four-gate digital quality standard engineered by Sufian Mustafa to evaluate whether an online ecosystem is built to survive long-term market volatility and search engine updates. Comprising four binary evaluation gates—Logic & Longevity (L), Internal Optimization (IO), Non-Negotiable Integrity (N), and Exceptional Execution (XE)—the framework dictates that if an asset fails a single check, the entire audit halts. It shifts digital evaluation from surface-level metrics to vertical architecture resilience."
   },
   {
     cat: "lionxe",
-    question: "How does the LIONXE® Framework evaluate digital assets?",
+    question: "How does the LIONXE ™ Framework evaluate digital assets?",
     answer: "The framework treats auditing as a sequential pipeline. First, Logic & Longevity checks if the technical foundation is future-proof and free from volatile quick-fixes. Second, Internal Optimization ensures every codebase, indexation path, and data junction runs flawlessly, adhering to the rule that total ecosystem value is capped by its weakest internal layer. Third, Non-Negotiable Integrity verifies clean data compliance and quality standards even at the cost of short-term conversions. Finally, Exceptional Execution tests if the asset possesses a distinct competitive advantage that cannot be automated or duplicated by cheap AI commodities."
   },
   {
     cat: "lionxe",
-    question: "Why was the LIONXE® Framework created?",
+    question: "Why was the LIONXE ™ Framework created?",
     answer: "It was forged during an extensive enterprise audit of a massive US corporate carpet cleaning network encompassing 87 websites and over 226,200 URLs. Standard SEO tools and generic checklists failed to diagnose hidden structural fragmentation, fractured branding (which included 261 isolated social media accounts), and code inconsistencies across the network. Sufian engineered LIONXE™ to introduce a vertical, multi-layered auditing logic that assesses architectural debt, system compliance, and content authenticity simultaneously."
   },
   {

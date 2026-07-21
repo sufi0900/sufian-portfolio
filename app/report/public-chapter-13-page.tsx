@@ -2,8 +2,6 @@
 
 // force-dynamic: this chapter uses the Screenshot component, which checks
 // the filesystem at render time for pending images.
-export const dynamic = "force-dynamic";
-
 import "@/styles/report.css";
 import { ChapterOpener } from "@/components/report/ChapterOpener";
 import {
@@ -15,7 +13,6 @@ import { BulletList } from "@/components/report/BulletList";
 import { DataTable } from "@/components/report/DataTable";
 import { ConsolidationBenefitsPanel } from "@/app/report/ConsolidationBenefitsPanel";
 import { InlineLink } from "@/components/report/InlineLink";
-import { Screenshot } from "@/components/report/Screenshot";
 import { CartsVsMallDiagram } from "@/app/report/CartsVsMallDiagram";
 import { LocationArchitectureDiagram } from "@/app/report/LocationArchitectureDiagram";
 import { PillarClusterTreeDiagram } from "@/components/report/PillarClusterDiagram";
@@ -103,7 +100,7 @@ export default function PublicChapter13Page() {
       <Paragraph>
         In search terms: backlinks, content depth, engagement signals, and brand
         searches all accumulate on one domain. This concentration is what
-        produces the authority that Chapter 11 documented as the deciding factor
+        produces the authority that Chapter 11 identified as the deciding factor
         in both traditional rankings and AI citation.
       </Paragraph>
 
@@ -159,7 +156,7 @@ export default function PublicChapter13Page() {
         lists every branch as a page within its single site, and{" "}
         <InlineLink href="https://www.coit.com/locations">COIT</InlineLink>{" "}
         structures each service area as a path under one domain. Each of these
-        brands holds the rankings the documented network has been unable to
+        brands holds the rankings the audited network has been unable to
         reach with 87 separate sites.
       </Paragraph>
       <Paragraph>
@@ -184,20 +181,13 @@ export default function PublicChapter13Page() {
         covering hundreds of service areas each. None of these businesses
         operates a separate website per city.
       </Paragraph>
-
-      <Screenshot
-        src="/report-assets/chapter-13/location-pages-industry-example.png"
-        alt="Location directory of a single-domain cleaning industry website listing city and area pages"
-        caption="A cleaning-industry location directory: every service area as a page inside one domain"
-      />
-
-      <MiniHeading>The Observable Ranking Evidence</MiniHeading>
+<MiniHeading>The Observable Ranking Evidence</MiniHeading>
       <Paragraph>
         Third-party ranking data makes the outcome of this structure directly
         visible. Single-domain cleaning businesses in the company&apos;s own
         market hold first-page positions on high-volume commercial queries,
         including &ldquo;near me&rdquo; searches in the tens of thousands of
-        monthly searches, positions no site in the documented 87-site network
+        monthly searches, positions no site in the 87 audited-site network
         holds on any comparable term.
       </Paragraph>
       <Paragraph>
@@ -245,7 +235,7 @@ export default function PublicChapter13Page() {
         13.5 The Pillar-Cluster Content Architecture
       </SectionHeading>
       <Paragraph>
-        The flat 809-row keyword list documented in Chapter 8 is replaced by a
+        The flat 809-row keyword list identified in Chapter 8 is replaced by a
         structured topical hierarchy organized around the company&apos;s core
         services.
       </Paragraph>
@@ -373,7 +363,7 @@ export default function PublicChapter13Page() {
       {/* 13.7 */}
       <SectionHeading>13.7 Brand and Channel Consolidation</SectionHeading>
       <Paragraph>
-        The fragmented social media presence documented in Chapter 9
+        The fragmented social media presence identified in Chapter 9
         consolidates under the same unified brand identity.
       </Paragraph>
 
@@ -391,7 +381,7 @@ export default function PublicChapter13Page() {
         authentic material drawn from the company&apos;s actual operations: real
         job-site footage, technician expertise, before-and-after documentation,
         and community-specific content. This aligns with the platform
-        originality policies documented in Chapter 9 and with the same
+        originality policies identified in Chapter 9 and with the same
         first-hand-experience standard Google&apos;s guidance applies to web
         content.
       </Paragraph>
@@ -423,14 +413,7 @@ export default function PublicChapter13Page() {
         An established channel also qualifies for platform verification, a
         trust signal no collection of small scattered accounts can earn.
       </Paragraph>
-
-      <Screenshot
-        src="/report-assets/chapter-13/youtube-industry-example.png"
-        alt="Cleaning industry YouTube channel publishing authentic job footage with strong viewership"
-        caption="A cleaning-industry YouTube channel built on real job footage: one channel, one brand, compounding viewership"
-      />
-
-      <MiniHeading>The Same Pattern on Facebook</MiniHeading>
+<MiniHeading>The Same Pattern on Facebook</MiniHeading>
       <Paragraph>
         The identical structure holds on Facebook.{" "}
         <InlineLink href="https://www.facebook.com/SERVPRO">SERVPRO</InlineLink>{" "}
@@ -450,14 +433,7 @@ export default function PublicChapter13Page() {
         recurring clients, rather than being split into fragments too small for
         any of them to matter.
       </Paragraph>
-
-      <Screenshot
-        src="/report-assets/chapter-13/facebook-industry-example.png"
-        alt="Verified single-brand Facebook page of a national cleaning company"
-        caption="A verified single-brand Facebook presence: one page accumulating the entire audience"
-      />
-
-      <MiniHeading>Every Platform, One Brand</MiniHeading>
+<MiniHeading>Every Platform, One Brand</MiniHeading>
       <Paragraph>
         The consolidation principle extends to every channel where the
         company&apos;s customers are present. The proposed model establishes
@@ -503,14 +479,7 @@ export default function PublicChapter13Page() {
         content, this is a landscape in which broad keyword coverage is
         realistically attainable.
       </Paragraph>
-
-      <Screenshot
-        src="/report-assets/chapter-13/easy-to-rank-keywords-ahrefs.png"
-        alt="Keyword research data showing low difficulty scores on high-volume cleaning industry informational keywords"
-        caption="Third-party keyword data: the industry's informational queries combine high volume with low ranking difficulty"
-      />
-
-      <MiniHeading>The Contrast With the Current Output</MiniHeading>
+<MiniHeading>The Contrast With the Current Output</MiniHeading>
       <Paragraph>
         The current model has published thin variants of these same topics
         across 87 sites, and holds rankings on none of them. The proposed model
@@ -542,14 +511,7 @@ export default function PublicChapter13Page() {
         streams separately measurable, so leadership can see what the brand
         earns and what the content earns.
       </Paragraph>
-
-      <Screenshot
-        src="/report-assets/chapter-13/branded-nonbranded-traffic-ahrefs.png"
-        alt="Traffic data of a single-domain cleaning business showing rankings on branded and non-branded keywords"
-        caption="A single-domain industry site earning traffic on both branded and non-branded terms across its page structure"
-      />
-
-      {/* 13.9 */}
+{/* 13.9 */}
       <SectionHeading>13.9 Why Partial Fixes Fail: The Aquarium</SectionHeading>
       <Paragraph>
         A reasonable question at this point is whether the full consolidation is
@@ -692,7 +654,7 @@ export default function PublicChapter13Page() {
       <SectionHeading>13.12 Summary</SectionHeading>
       <BulletList
         items={[
-          "Every documented problem traces to fragmentation. The solution is one consolidation: a single authority brand on a single authoritative domain.",
+          "Every identified problem traces to fragmentation. The solution is one consolidation: a single authority brand on a single authoritative domain.",
           "The 87-site network consolidates into one domain, with geographic targeting achieved through structured location subdirectories carrying genuinely local content, the same structure used by Apple, national banks, and the dominant US cleaning brands.",
           "The flat 809-row keyword list is replaced by a pillar-cluster content architecture organized around the company\u2019s core services, resolving cannibalization and building topical authority.",
           "The operating philosophy shifts from production to optimization: one piece produced through research, drafting, review, and refinement is engineered to outrank the 25 pages the current model produces in a day.",
@@ -707,7 +669,7 @@ export default function PublicChapter13Page() {
       <Paragraph>
         The architecture is now fully described. The next chapter places it
         beside the current model as a formal choice: two paths, each with a
-        documented trajectory, evaluated through the standard established in
+        projected trajectory, evaluated through the standard established in
         Chapter 12.
       </Paragraph>
     </main>

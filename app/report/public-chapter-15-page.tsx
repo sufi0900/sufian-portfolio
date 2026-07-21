@@ -15,10 +15,10 @@ import { DownloadPdfButton } from "@/components/report/DownloadPdfButton";
 export default function PublicChapter15Page() {
   return (
     <main className="report-shell">
-      <DownloadPdfButton
+      {/* <DownloadPdfButton
         slug="portfolio-chapter-15"
         label="Chapter 15: Implementation Roadmap"
-      />
+      /> */}
 
       <ChapterOpener
         chapterNumber={15}
@@ -73,7 +73,7 @@ export default function PublicChapter15Page() {
         Each phase consolidates a layer of the current model before optimizing
         it. Consolidation removes the structural limitations. Optimization builds
         the quality. Attempting to optimize without consolidating first repeats
-        the pattern documented in Chapter 9: investing effort into a system whose
+        the pattern identified in Chapter 9: investing effort into a system whose
         structure prevents the effort from producing results.
       </Paragraph>
 
@@ -126,7 +126,7 @@ export default function PublicChapter15Page() {
       <Paragraph>
         No foundation is poured onto occupied land. Before the new architecture
         is built, the instruments of the current model are strategically
-        retired: the keyword sheet and its repetition instructions, the fixed
+        retired: the keyword dataset and its repetition instructions, the fixed
         content templates, the humanizer pipeline, the per-site production
         quotas, and the quantity-based planning documents that direct the daily
         work of every department.
@@ -163,7 +163,7 @@ export default function PublicChapter15Page() {
         items={[
           "Select and secure the primary domain for the consolidated site",
           "Design and implement the URL architecture: structured subdirectories for locations, services, and content types",
-          "Establish the technical infrastructure: hosting, CMS, analytics, and Search Console for the new domain",
+          "Establish the technical infrastructure: hosting, CMS, analytics, and webmaster tools for the new domain",
           "Design the brand identity for the unified digital presence",
           "Plan the staged decommissioning of the existing network: sites are dismantled entirely, with no redirects into the new domain",
         ]}
@@ -172,7 +172,7 @@ export default function PublicChapter15Page() {
       <MiniHeading>Dependencies and Team</MiniHeading>
       <Paragraph>
         This phase has no dependencies on other phases. It is the starting
-        point. Design and development teams lead, and their skills, documented in
+        point. Design and development teams lead, and their skills, assessed in
         Chapter 9 as consistently developing, are directly applicable without
         role changes.
       </Paragraph>
@@ -318,7 +318,7 @@ export default function PublicChapter15Page() {
           {
             cells: [
               "SEO",
-              "Managing 809-row spreadsheet and sitemap rollout",
+              "Managing 809-row keyword dataset and sitemap rollout",
               "Pillar-cluster architecture, topical authority, backlink strategy",
               "Phase 2",
             ],
@@ -363,7 +363,7 @@ export default function PublicChapter15Page() {
         The redirection is managed department by department rather than through
         a single company-wide announcement. Each team receives its new
         direction as a forward-looking work plan: the SEO team is briefed on
-        the authority strategy that replaces the keyword sheet, the content
+        the authority strategy that replaces the keyword dataset, the content
         team on the insight-led method that replaces the template, the design
         and development teams on the single authority build that replaces
         per-site production, and the video and social teams on the

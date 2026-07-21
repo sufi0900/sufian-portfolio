@@ -8,15 +8,15 @@ import {
 } from "@/components/report/Headings";
 import { BulletList } from "@/components/report/BulletList";
 import { OrderedList } from "@/components/report/OrderedList";
-import { DownloadPdfButton } from "@/components/report/DownloadPdfButton";
+// import { DownloadPdfButton } from "@/components/report/DownloadPdfButton";
 
 export default function PublicChapter2Page() {
   return (
     <main className="report-shell">
-      <DownloadPdfButton
+      {/* <DownloadPdfButton
         slug="portfolio-chapter-2"
         label="Chapter 2: Research Methodology"
-      />
+      /> */}
 
       <ChapterOpener
         chapterNumber={2}
@@ -53,13 +53,13 @@ export default function PublicChapter2Page() {
         structures that appeared repeatedly across multiple websites, with only
         service locations changing between pages. These recurring patterns
         prompted a broader review of the systems, workflows, and infrastructure
-        supporting the company&apos;s digital presence.
+        supporting the organization&apos;s digital presence.
       </Paragraph>
       <Paragraph>
         To ensure findings were based on complete understanding rather than
         isolated observations, the review was conducted independently over a
         period exceeding two months. This extended observation period allowed
-        recurring patterns to be examined across the documented network and
+        recurring patterns to be examined across the audited network and
         validated before inclusion in this report.
       </Paragraph>
       <Paragraph>
@@ -82,10 +82,10 @@ export default function PublicChapter2Page() {
       <MiniHeading>Technical and Infrastructure Review</MiniHeading>
       <BulletList
         items={[
-          "Website architecture review across the documented network",
+          "Website architecture review across the audited network",
           "Infrastructure and hosting analysis",
           "Content management system review",
-          "Google Search Console configuration assessment",
+          "webmaster tools configuration assessment",
         ]}
       />
 
@@ -159,14 +159,14 @@ export default function PublicChapter2Page() {
       </Paragraph>
       <BulletList
         items={[
-          "The documented website portfolio provided for review",
+          "The audited website portfolio provided for review",
           "Independent research conducted during the audit period",
           "Observations gathered through the methodology outlined in Section 2.3",
         ]}
       />
 
       <Paragraph>
-        The technical findings primarily concern the documented network of 87
+        The technical findings primarily concern the audited network of 87
         websites, as this is the portion of the digital portfolio that could be
         reviewed in full technical detail. Where broader domain ownership becomes
         relevant to a finding, that distinction is explicitly identified within
@@ -179,7 +179,7 @@ export default function PublicChapter2Page() {
       </Paragraph>
       <BulletList
         items={[
-          "Comprehensive Search Console exports",
+          "Comprehensive SEO analytics data",
           "Internal analytics datasets",
           "Paid advertising performance data",
           "Proprietary reporting systems",
@@ -291,7 +291,7 @@ export default function PublicChapter2Page() {
       </Paragraph>
       <BulletList
         items={[
-          "Direct observation of the documented website network",
+          "Direct observation of the audited website network",
           "Publicly observable digital evidence",
           "Official search engine documentation and published guidance",
         ]}

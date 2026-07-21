@@ -10,6 +10,9 @@ import {
   Youtube,
   Instagram,
   Mail,
+  FileText,
+  BookOpen,
+  Rss,
 } from "lucide-react";
 
 const footerLinks = {
@@ -18,17 +21,22 @@ const footerLinks = {
     { title: "Skills", path: "/skills" },
     { title: "Work", path: "/work" },
     { title: "Insights", path: "/insights" },
-    { title: "Select Engagementments", path: "/contact" },
+    { title: "Select Engagements", path: "/contact" },
   ],
   ecosystem: [
     {
-      title: "LIONXE® Framework",
+      title: "LIONXE ™ Framework",
       path: "https://lionxeframework.com",
       external: true,
     },
     {
       title: "DoItWithAI.tools",
       path: "https://doitwithai.tools",
+      external: true,
+    },
+    {
+      title: "Linktree",
+      path: "https://linktr.ee/doitwithaitools",
       external: true,
     },
   ],
@@ -42,18 +50,33 @@ const footerLinks = {
 const socialLinks = [
   {
     title: "LinkedIn",
-    href: "https://www.linkedin.com/in/sufian-mustafa",
+    href: "https://www.linkedin.com/in/sufian-mustafa/",
     icon: Linkedin,
   },
   {
     title: "X / Twitter",
-    href: "https://x.com/doitwithaitools",
+    href: "https://x.com/SufianWebDev",
     icon: Twitter,
   },
   {
     title: "GitHub",
-    href: "https://github.com/doitwithaitools",
+    href: "https://github.com/sufi0900",
     icon: Github,
+  },
+  {
+    title: "Dev.to",
+    href: "https://dev.to/sufian",
+    icon: FileText,
+  },
+  {
+    title: "Medium",
+    href: "https://medium.com/@sufianmustafa0900",
+    icon: BookOpen,
+  },
+  {
+    title: "Substack",
+    href: "https://substack.com/@sufianai",
+    icon: Rss,
   },
   {
     title: "YouTube",
@@ -62,12 +85,12 @@ const socialLinks = [
   },
   {
     title: "Instagram",
-    href: "https://www.instagram.com/doitwithaitools",
+    href: "https://www.instagram.com/doitwithaitools/",
     icon: Instagram,
   },
   {
     title: "Email",
-    href: "mailto:doitwithaitools@gmail.com",
+    href: "mailto:contact@sufianmustafa.com",
     icon: Mail,
   },
 ];
@@ -130,7 +153,7 @@ export default function Footer() {
 
           <p className="pf-footer-statement">
             Architecting digital authority through AI SEO systems, deep
-            research, and the LIONXE® framework.
+            research, and the LIONXE ™ framework.
           </p>
 
           <div className="pf-social-row" aria-label="Social links">

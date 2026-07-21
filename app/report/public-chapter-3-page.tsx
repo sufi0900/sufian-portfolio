@@ -6,8 +6,6 @@
 // you drop into /public later during local development. Forcing dynamic
 // rendering makes every request re-check the filesystem, so adding a
 // screenshot and reloading the page is enough, no rebuild required.
-export const dynamic = "force-dynamic";
-
 import "@/styles/report.css";
 import { ChapterOpener } from "@/components/report/ChapterOpener";
 import {
@@ -18,24 +16,23 @@ import {
 import { BulletList } from "@/components/report/BulletList";
 import { DataTable } from "@/components/report/DataTable";
 import { CitationCard } from "@/components/report/CitationCard";
-import { Screenshot } from "@/components/report/Screenshot";
 import { InlineLink } from "@/components/report/InlineLink";
 import { MultiplicationChainDiagram } from "@/components/report/MultiplicationChainDiagram";
 import { ScaleProjectionChart } from "@/components/report/ScaleProjectionChart";
-import { DownloadPdfButton } from "@/components/report/DownloadPdfButton";
+// import { DownloadPdfButton } from "@/components/report/DownloadPdfButton";
 
 export default function PublicChapter3Page() {
   return (
     <main className="report-shell">
-      <DownloadPdfButton
+      {/* <DownloadPdfButton
         slug="portfolio-chapter-3"
         label="Chapter 3: The Infrastructure of the Documented Network"
-      />
+      /> */}
 
       <ChapterOpener
         chapterNumber={3}
         title="The Infrastructure of the Documented Network"
-        overview="This chapter documents the construction of the company's website network, the resulting URL volume across the documented 87 sites, the search index and crawl signals associated with that volume, and how the underlying construction pattern aligns with Google's published infrastructure and content policies."
+        overview="This chapter documents the construction of the company's website network, the resulting URL volume across the 87 audited sites, the search index and crawl signals associated with that volume, and how the underlying construction pattern aligns with Google's published infrastructure and content policies."
       />
 
       {/* ═══════════════════════════════════════════════════════════
@@ -44,7 +41,7 @@ export default function PublicChapter3Page() {
       <SectionHeading>3.1 Scope of This Chapter</SectionHeading>
 
       <Paragraph>
-        This chapter examines the structure of the company&apos;s documented
+        This chapter examines the structure of the audited
         website network and establishes how that structure is read by search
         engines. The findings concern the network&apos;s construction and scale,
         based on the internal site inventory provided for this audit.
@@ -68,20 +65,13 @@ export default function PublicChapter3Page() {
       <MiniHeading>An Example From the Documented Network</MiniHeading>
       <Paragraph>
         The clearest way to see this pattern is to walk through it on one real
-        site from the documented network:{" "}
+        site from the audited network:{" "}
         <InlineLink href="https://[location]cleaning.example.com">
           [location]cleaning.example.com
         </InlineLink>
         .
       </Paragraph>
-
-      <Screenshot
-        src="/report-assets/chapter-3/brooklyn-homepage.png"
-        alt="Homepage of [location]cleaning.example.com"
-        caption="Homepage of [location]cleaning.example.com"
-      />
-
-      <Paragraph>
+<Paragraph>
         On the homepage, a{" "}
         <InlineLink href="https://www.[location]cleaning.example.com/brooklyn/service-area">
           service-area list
@@ -89,14 +79,7 @@ export default function PublicChapter3Page() {
         runs alphabetically from A to Z, covering each neighborhood the site
         targets.
       </Paragraph>
-
-      <Screenshot
-        src="/report-assets/chapter-3/service-area-list.png"
-        alt="A-to-Z service area list"
-        caption="The A-to-Z service area list on the site"
-      />
-
-      <Paragraph>
+<Paragraph>
         Clicking an area from that list, say{" "}
         <InlineLink href="https://www.[location]cleaning.example.com/ocean-hill">
           Ocean Hill
@@ -118,14 +101,7 @@ export default function PublicChapter3Page() {
         posts, and the standard pages including contact and FAQ. Every page
         keeps its original content. Only the area name moves.
       </Paragraph>
-
-      <Screenshot
-        src="/report-assets/chapter-3/ocean-hill-page.png"
-        alt="Live Ocean Hill page showing swapped content"
-        caption="The live Ocean Hill page showing the swapped content in place"
-      />
-
-      <MiniHeading>Building the Page Count, Step by Step</MiniHeading>
+<MiniHeading>Building the Page Count, Step by Step</MiniHeading>
       <DataTable
         headers={["Step", "What It Covers", "Count"]}
         align={["left", "left", "right"]}
@@ -154,34 +130,27 @@ export default function PublicChapter3Page() {
       <Paragraph>
         The number of service areas varies somewhat from site to site. The
         figure of 104 is used here as the average observed across the
-        documented network, not as a fixed count for every individual site.
+        audited network, not as a fixed count for every individual site.
       </Paragraph>
 
       <MiniHeading>Multiplying Across the Network</MiniHeading>
       <Paragraph>
         A single site producing approximately 2,600 near-duplicate URLs would
-        already be a significant finding. The documented network does not
+        already be a significant finding. The audited network does not
         contain one site. It contains{" "}
-        <InlineLink href="#">
+        
           87
-        </InlineLink>
+        
         , and the same construction applies to every one of them.
       </Paragraph>
-
-      <Screenshot
-        src="/report-assets/chapter-3/site-inventory-spreadsheet.png"
-        alt="Internal site inventory spreadsheet"
-        caption="Internal site inventory spreadsheet, master list of the 87 documented sites"
-      />
-
-      <DataTable
+<DataTable
         headers={["Step", "Calculation", "Result"]}
         align={["left", "left", "right"]}
         rows={[
           { cells: ["URLs per site", "25 pages × 104 areas", "2,600"] },
           {
             cells: [
-              "Total URLs across the documented network",
+              "Total URLs across the audited network",
               "2,600 × 87 sites",
               "226,200",
             ],
@@ -212,31 +181,24 @@ export default function PublicChapter3Page() {
 
       <MiniHeading>The Sitemap</MiniHeading>
       <Paragraph>
-        Sites are brought into the documented network in stages, not all at
+        Sites are brought into the audited network in stages, not all at
         once. As each site reaches this stage, an XML sitemap is generated
         covering the full set of dynamically created service-area URLs for that
         site, calculated using the same method shown in section 3.2, and
         submitted to Google for crawling.
       </Paragraph>
       <Paragraph>
-        As of this audit, 34 of the 87 documented sites have a sitemap of this
+        As of this audit, 34 of the 87 audited sites have a sitemap of this
         kind submitted, with the remaining 53 sites pending in the same
         rotation. The{" "}
         <InlineLink href="https://arearugcleanerbrooklyn.com/sitemap.xml">
           sitemap for one such site
         </InlineLink>
-        , a second property within the documented network, shows this structure
+        , a second property within the audited network, shows this structure
         directly, with each location-specific page listed as its own indexable
         URL.
       </Paragraph>
-
-      <Screenshot
-        src="/report-assets/chapter-3/sitemap-xml.png"
-        alt="XML sitemap from a second documented site"
-        caption="XML sitemap from a second documented site, listing dynamically generated service-area URLs"
-      />
-
-      <Paragraph>
+<Paragraph>
         The sitemap reflects the same construction described in section 3.2.
         Each location-specific page generated by the swap pattern is listed as
         its own indexable URL, submitted to Google as a complete batch rather
@@ -246,7 +208,7 @@ export default function PublicChapter3Page() {
       <MiniHeading>Search Index Status Across the Network</MiniHeading>
       <Paragraph>
         Submitting a sitemap does not guarantee that every URL in it is
-        indexed. Checking the documented network directly, using a site:
+        indexed. Checking the audited network directly, using a site:
         search in Google for individual pages, shows a result consistent with
         the staged rollout described above.
       </Paragraph>
@@ -256,17 +218,10 @@ export default function PublicChapter3Page() {
           "For the remaining 53 sites, the homepage is indexed, but service-area pages are largely not yet indexed, consistent with no sitemap having been submitted for them at this stage.",
         ]}
       />
-
-      <Screenshot
-        src="/report-assets/chapter-3/site-search-index.png"
-        alt="Google site: search result"
-        caption="A Google search results page using a site: search showing an indexed service-area URL from the network"
-      />
-
-      <Paragraph>
+<Paragraph>
         Google&apos;s{" "}
         <InlineLink href="https://developers.google.com/search/help/crawling-index-faq">
-          Search Console documentation
+          webmaster tools documentation
         </InlineLink>{" "}
         states directly that submitting a sitemap helps Google discover pages
         but does not guarantee they will be indexed.
@@ -308,7 +263,7 @@ export default function PublicChapter3Page() {
       <BulletList
         items={[
           "Shared hosting infrastructure across all 87 sites",
-          "A single Google Search Console account managing the entire portfolio",
+          "A single Google webmaster account managing the entire portfolio",
           "The same content management system across every site",
           "The same underlying code base across every site",
         ]}
@@ -371,7 +326,7 @@ export default function PublicChapter3Page() {
         cities that funnel toward the same outcome.
       </Paragraph>
       <Paragraph>
-        The characteristics observed throughout the documented 87-site network,
+        The characteristics observed throughout the 87 audited-site network,
         shared infrastructure, shared templates, and location-based variation,
         closely align with several patterns described within this published
         guidance.
@@ -444,7 +399,7 @@ export default function PublicChapter3Page() {
 
       <Paragraph>
         This projected total is not a count of pages independently confirmed
-        to exist today. It is what the documented construction pattern produces
+        to exist today. It is what the observed construction pattern produces
         if applied consistently across the full portfolio, a reasonable
         assumption given that both originate from the same documented strategy,
         though one that remains a projection rather than a directly observed
@@ -459,7 +414,7 @@ export default function PublicChapter3Page() {
       </Paragraph>
       <Paragraph>
         Continuing the current construction pattern across the remaining
-        documented sites, and into the wider portfolio, does not reduce this
+        audited sites, and into the wider portfolio, does not reduce this
         risk. It repeats it at greater scale.
       </Paragraph>
 
@@ -542,7 +497,7 @@ export default function PublicChapter3Page() {
 
       <Paragraph>
         The math in section 3.2 and the sitemap and indexing evidence in
-        section 3.3 concern the documented 87-site network specifically. They
+        section 3.3 concern the 87 audited-site network specifically. They
         are based on directly observable infrastructure, submitted sitemaps,
         and search index checks.
       </Paragraph>
@@ -556,7 +511,7 @@ export default function PublicChapter3Page() {
       </Paragraph>
       <Paragraph>
         The 5,200,000 URL figure in section 3.5 is a projection, derived
-        directly from the construction ratio documented in the 87-site sample,
+        directly from the construction ratio identified in the 87-site sample,
         and is presented as such rather than as a confirmed count.
       </Paragraph>
       <Paragraph>
@@ -572,7 +527,7 @@ export default function PublicChapter3Page() {
 
       <BulletList
         items={[
-          "The documented 87-site network is built from approximately 25 core pages multiplied across approximately 104 service areas per site, producing approximately 2,600 URLs per site and 226,200 URLs across the documented network.",
+          "The 87 audited-site network is built from approximately 25 core pages multiplied across approximately 104 service areas per site, producing approximately 2,600 URLs per site and 226,200 URLs across the audited network.",
           "These URLs follow the same construction pattern throughout, and have been submitted to Google through XML sitemaps in stages, with 34 of the 87 sites submitted as of this audit.",
           "Google\u2019s own indexing decisions show a mixed result consistent with that staged rollout: homepages indexed across the network, service-area pages indexed in some cases and excluded in others for the 34 submitted sites, and largely not yet indexed for the 53 sites still pending. This is consistent with how Google\u2019s documentation describes handling duplicate or low-value content at scale.",
           "The network shares hosting infrastructure, a single management account, and underlying code, detectable signals of common ownership, and its content structure closely aligns with patterns Google\u2019s published policies identify as doorway abuse.",

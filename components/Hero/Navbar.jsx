@@ -114,11 +114,11 @@ export default function Navbar({ hideOnScroll = false, hideAfter = 90 }) {
             aria-label="Go to Sufian Mustafa homepage"
             className="pn-brand"
           >
-            <span className="pn-brand-mark">S</span>
+            <span className="pn-brand-mark">SM</span>
 
             <span className="pn-brand-text">
-              <span>Sufian</span>
-              <strong>Mustafa</strong>
+              <span>Sufian {" "} </span>
+              <strong> Mustafa</strong>
             </span>
           </Link>
         </div>

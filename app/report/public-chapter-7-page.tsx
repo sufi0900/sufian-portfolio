@@ -26,10 +26,10 @@ import { DownloadPdfButton } from "@/components/report/DownloadPdfButton";
 export default function PublicChapter7Page() {
   return (
     <main className="report-shell">
-      <DownloadPdfButton
+      {/* <DownloadPdfButton
         slug="portfolio-chapter-7"
         label="Chapter 7: AI Symbols, Prohibited Phrases, and the Fear-Driven Workflow"
-      />
+      /> */}
 
       <ChapterOpener
         chapterNumber={7}
@@ -93,7 +93,7 @@ export default function PublicChapter7Page() {
       <Paragraph>
         The restriction does not originate from a style guide, a readability
         standard, or reader feedback. It originates from the same fear
-        documented in Chapter 5, Section 5.7: the belief that AI detection tools
+        identified in Chapter 5, Section 5.7: the belief that AI detection tools
         will flag the content, and that being flagged will result in a search
         penalty.
       </Paragraph>
@@ -109,7 +109,7 @@ export default function PublicChapter7Page() {
 
       <MiniHeading>Where the Logic Fails</MiniHeading>
       <Paragraph>
-        The reasoning fails at every step. As documented in Chapter 5,
+        The reasoning fails at every step. As identified in Chapter 5,
         third-party detection scores do not influence Google&apos;s ranking
         decisions. The tools that produce those scores are unreliable, with the
         creator of the most widely used language model abandoning its own
@@ -203,7 +203,7 @@ export default function PublicChapter7Page() {
       <SectionHeading>7.6 The Connection to Quality</SectionHeading>
       <Paragraph>
         The restriction does not exist in isolation. It compounds the quality
-        constraints documented in the previous chapters.
+        constraints identified in the previous chapters.
       </Paragraph>
 
       <MiniHeading>The Cumulative Constraint</MiniHeading>
@@ -246,14 +246,14 @@ export default function PublicChapter7Page() {
       <SectionHeading>7.7 Scope and Confidence of These Findings</SectionHeading>
       <Paragraph>
         The editorial restrictions on punctuation marks and phrases are directly
-        observable in the company&apos;s documented content workflow and
+        observable in the audited content workflow and
         editorial guidelines. The use of em dashes in the Search Engine Land
         article is directly verifiable by reviewing the published article.
       </Paragraph>
       <Paragraph>
         The connection between the restriction and the fear of AI detection
         follows from the stated reasoning within the workflow. The observation
-        that the restriction compounds the quality constraints documented in
+        that the restriction compounds the quality constraints identified in
         earlier chapters follows from the cumulative nature of the restrictions.
       </Paragraph>
 
@@ -262,7 +262,7 @@ export default function PublicChapter7Page() {
       <BulletList
         items={[
           "The content workflow prohibits em dashes, semicolons, and certain transitional phrases from published content, not based on style or readability standards, but because automated language models use them frequently.",
-          "The restriction originates from the same fear documented in Chapter 5: the belief that AI detection scores influence ranking. That belief is inconsistent with the evidence.",
+          "The restriction originates from the same fear identified in Chapter 5: the belief that AI detection scores influence ranking. That belief is inconsistent with the evidence.",
           "The top-ranking article for \u201Cwhat is AI SEO\u201D on Search Engine Land uses em dashes approximately 24 times. Industry leaders do not restrict standard grammar because their content is built on original insight.",
           "The restriction reveals that the company\u2019s editorial rules are being set by the characteristics of an automated tool rather than by the needs of the reader. AI is dictating what the writers are allowed to write.",
           "Combined with the word-count ceiling, keyword repetition, template rigidity, and automated pipeline, the grammar restriction further narrows the space available for naturally written, reader-focused content.",

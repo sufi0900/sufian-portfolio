@@ -17,10 +17,10 @@ import { DownloadPdfButton } from "@/components/report/DownloadPdfButton";
 export default function PublicChapter8Page() {
   return (
     <main className="report-shell">
-      <DownloadPdfButton
+      {/* <DownloadPdfButton
         slug="portfolio-chapter-8"
         label="Chapter 8: Site Architecture and Keyword Strategy"
-      />
+      /> */}
 
       <ChapterOpener
         chapterNumber={8}
@@ -32,7 +32,7 @@ export default function PublicChapter8Page() {
       <SectionHeading>8.1 Scope of This Chapter</SectionHeading>
       <Paragraph>
         The previous three chapters examined the content produced within the
-        documented network: its quality (Chapter 4), the tools used to create it
+        audited network: its quality (Chapter 4), the tools used to create it
         (Chapter 5), and the template imposed on it (Chapter 6). This chapter
         steps back from the content itself and examines the architecture into
         which it is organized: the keyword strategy that determines what gets
@@ -50,7 +50,7 @@ export default function PublicChapter8Page() {
       {/* 7.2 */}
       <SectionHeading>8.2 The Flat Keyword Model</SectionHeading>
       <Paragraph>
-        The company&apos;s keyword strategy is organized as a spreadsheet
+        The company&apos;s keyword strategy is organized as a dataset
         containing 809 independent rows. Each row specifies a primary keyword and
         a set of secondary keywords, and each row is treated as an instruction to
         produce one piece of content targeting that phrase. The rows have no
@@ -125,7 +125,7 @@ export default function PublicChapter8Page() {
 
       <MiniHeading>How It Occurs in the Documented Network</MiniHeading>
       <Paragraph>
-        The 809-row keyword sheet, combined with the location-swap construction
+        The 809-row keyword dataset, combined with the location-swap construction
         from Chapter 3, produces a large number of pages that target closely
         related or identical intents. A blog post on a given topic competes with
         the service page covering the same subject, and both compete with the
@@ -151,7 +151,7 @@ export default function PublicChapter8Page() {
         portfolio.
       </Paragraph>
       <Paragraph>
-        This is compounded by the scale documented in Chapter 3. With
+        This is compounded by the scale identified in Chapter 3. With
         approximately 226,200 URLs across the network, the number of pages
         competing internally for the same set of intents is not a minor
         duplication issue. It is a structural characteristic of the architecture
@@ -194,8 +194,8 @@ export default function PublicChapter8Page() {
 
       <MiniHeading>What the Documented Network Has Instead</MiniHeading>
       <Paragraph>
-        The documented network replaces this hierarchy with volume. The 809-row
-        keyword sheet produces content at scale, but without structural
+        The audited network replaces this hierarchy with volume. The 809-row
+        keyword dataset produces content at scale, but without structural
         relationships. Pages exist in parallel rather than in a hierarchy. Blog
         posts do not link upward to the service pages they support. Service pages
         do not link to the detailed content that would deepen their coverage. The
@@ -239,7 +239,7 @@ export default function PublicChapter8Page() {
 
       <MiniHeading>The Observed State</MiniHeading>
       <Paragraph>
-        The documented network has no workflow, plan, or system for acquiring
+        The audited network has no workflow, plan, or system for acquiring
         external links. The operational resources described throughout this
         report, the team&apos;s daily capacity, the content pipeline, the
         production schedule, are directed entirely toward content production and
@@ -250,8 +250,8 @@ export default function PublicChapter8Page() {
         This means the company is investing heavily in producing pages that enter
         the search ecosystem without the authority signal that would give them a
         realistic chance of ranking for competitive queries. The scale of
-        publication documented in Chapter 3, and the content quality issues
-        documented in Chapters 4 through 6, amplify this limitation: the network
+        publication identified in Chapter 3, and the content quality issues
+        identified in Chapters 4 through 6, amplify this limitation: the network
         produces a high volume of structurally similar pages, none of which has
         the authority profile to compete independently.
       </Paragraph>
@@ -259,7 +259,7 @@ export default function PublicChapter8Page() {
       {/* 7.6 */}
       <SectionHeading>8.6 Scope and Confidence of These Findings</SectionHeading>
       <Paragraph>
-        The 809-row keyword sheet, the absence of pillar-cluster relationships,
+        The 809-row keyword dataset, the absence of pillar-cluster relationships,
         the lack of internal linking strategy, and the absence of an external
         link acquisition plan are directly observable in the company&apos;s
         documented workflow and site architecture.
@@ -284,10 +284,10 @@ export default function PublicChapter8Page() {
       <SectionHeading>8.7 Summary of Findings</SectionHeading>
       <BulletList
         items={[
-          "The keyword strategy is organized as a flat spreadsheet of 809 independent rows with no hierarchy, no pillar-cluster relationships, and no internal linking plan connecting related pages.",
+          "The keyword strategy is organized as a flat dataset of 809 independent rows with no hierarchy, no pillar-cluster relationships, and no internal linking plan connecting related pages.",
           "The flat-list model, combined with the location-swap construction from Chapter 3, produces keyword cannibalization: multiple pages on the same site compete for the same intent without a designated primary resource.",
           "The network has no topical hierarchy. Pages exist in parallel rather than in a structured depth model, producing breadth (volume of URLs) without the depth (organized expertise) that modern search evaluates as topical authority.",
-          "The documented network has no strategy, workflow, or system for acquiring external links, the primary mechanism through which search engines evaluate authority and trust.",
+          "The audited network has no strategy, workflow, or system for acquiring external links, the primary mechanism through which search engines evaluate authority and trust.",
           "The operational investment is directed entirely toward production and publication, with no allocation toward building the authority signals that would allow the published content to compete.",
         ]}
       />

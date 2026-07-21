@@ -14,10 +14,10 @@ import { DownloadPdfButton } from "@/components/report/DownloadPdfButton";
 export default function PublicChapter11Page() {
   return (
     <main className="report-shell">
-      <DownloadPdfButton
+      {/* <DownloadPdfButton
         slug="portfolio-chapter-11"
         label="Chapter 11: The Strategic Landscape and the Turning Point"
-      />
+      /> */}
 
       <ChapterOpener
         chapterNumber={11}
@@ -28,7 +28,7 @@ export default function PublicChapter11Page() {
       {/* 10.1 */}
       <SectionHeading>11.1 Scope of This Chapter</SectionHeading>
       <Paragraph>
-        Chapters 3 through 10 examined the company&apos;s digital ecosystem
+        Chapters 3 through 10 examined the organization&apos;s digital ecosystem
         factor by factor: the infrastructure, the content, the tools, the
         template, the architecture, the social channels, and the operational
         capacity of the team. Each chapter presented its findings against the
@@ -42,14 +42,14 @@ export default function PublicChapter11Page() {
       </Paragraph>
       <Paragraph>
         No new diagnostic evidence is introduced here. The chapter draws entirely
-        on the findings already established and on the publicly documented
+        on the findings already established and on the publicly available
         trajectory of the search landscape.
       </Paragraph>
 
       {/* 10.2 */}
       <SectionHeading>11.2 The Cumulative Diagnostic Picture</SectionHeading>
       <Paragraph>
-        Taken individually, each factor documented in Chapters 3 through 10
+        Taken individually, each factor identified in Chapters 3 through 10
         represents a structural limitation. Taken together, they form a pattern.
         The following table summarizes the core finding of each diagnostic
         chapter and the standard it was measured against.
@@ -115,7 +115,7 @@ export default function PublicChapter11Page() {
         The pattern these findings describe is not a collection of isolated
         issues. It is a single operational model, built around volume,
         automation, and geographic duplication, applied consistently across every
-        dimension of the company&apos;s digital presence. The individual findings
+        dimension of the organization&apos;s digital presence. The individual findings
         are symptoms. The model is the condition.
       </Paragraph>
 
@@ -202,7 +202,7 @@ export default function PublicChapter11Page() {
       />
 
       <Paragraph>
-        Each of these misalignments was already documented as a limitation
+        Each of these misalignments was already identified as a limitation
         against today&apos;s standards. The trajectory of the search landscape
         means these limitations will become more consequential over time, not
         less.
@@ -222,7 +222,7 @@ export default function PublicChapter11Page() {
         to consolidate must therefore answer a specific question: what happens
         to the company&apos;s presence in each of its service locations if the
         separate sites are retired? The chapters that follow address this
-        question directly, with documented guidance from Google and observable
+        question directly, with published guidance from Google and observable
         practice from multi-location enterprises.
       </Paragraph>
 
@@ -259,7 +259,7 @@ export default function PublicChapter11Page() {
       <Paragraph>
         The observation that the current model&apos;s characteristics are
         structurally misaligned with the direction of the search landscape
-        follows from comparing the diagnostic findings to the documented
+        follows from comparing the diagnostic findings to the published
         trajectory. It is a structural assessment, not a prediction about
         specific future algorithm changes.
       </Paragraph>

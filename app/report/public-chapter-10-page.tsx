@@ -16,10 +16,10 @@ import { UnifiedAssessmentMatrix } from "./UnifiedAssessmentMatrix";
 export default function PublicChapter10Page() {
   return (
     <main className="report-shell">
-      <DownloadPdfButton
+      {/* <DownloadPdfButton
         slug="portfolio-chapter-10"
         label="Chapter 10: Resource Allocation and Departmental Capacity"
-      />
+      /> */}
 
       <ChapterOpener
         chapterNumber={10}
@@ -55,8 +55,8 @@ export default function PublicChapter10Page() {
         10.2 The Operational Cost of the Current Model
       </SectionHeading>
       <Paragraph>
-        The digital portfolio documented in this report requires ongoing
-        investment across multiple cost categories. The 87 documented websites
+        The digital portfolio analyzed in this report requires ongoing
+        investment across multiple cost categories. The 87 audited websites
         and 261 social media accounts carry recurring costs in hosting, domain
         renewals, content production labor, design and development hours, and
         management overhead.
@@ -114,7 +114,7 @@ export default function PublicChapter10Page() {
         </span>
         The workflow centers on writing and maintaining code, launching new domain
         properties, and managing the backend infrastructure across the 87
-        documented sites. The technical demands of the portfolio provide a
+        audited sites. The technical demands of the portfolio provide a
         consistent development environment that keeps coding proficiency and
         infrastructure management capabilities in active use.
       </Paragraph>
@@ -142,7 +142,7 @@ export default function PublicChapter10Page() {
         >
           Development Team
         </span>
-        Building, launching, and maintaining websites across the documented
+        Building, launching, and maintaining websites across the audited
         network keeps technical skills, coding proficiency, and infrastructure
         management capabilities in regular use. The same portfolio-level
         limitation applies: the work develops technical range, but the absence of
@@ -163,7 +163,7 @@ export default function PublicChapter10Page() {
       <Paragraph>
         The gap emerges downstream. The websites these teams build and design are
         structurally unable to rank, acquire organic traffic, or generate revenue
-        through search visibility, for reasons documented in Chapters 3 through
+        through search visibility, for reasons identified in Chapters 3 through
         6. The company receives the asset but not the business outcome the asset
         is intended to produce.
       </Paragraph>
@@ -225,7 +225,7 @@ export default function PublicChapter10Page() {
         The daily workflow consists of compiling automated video content using
         stock databases and AI generation tools to meet the publishing volume
         required across 261 social media accounts. The production model
-        documented in Chapter 8 relies on stock and synthetic assets rather than
+        identified in Chapter 8 relies on stock and synthetic assets rather than
         original footage.
       </Paragraph>
       <Paragraph>
@@ -359,10 +359,10 @@ export default function PublicChapter10Page() {
         >
           SEO Team
         </span>
-        The workflow consists of maintaining the 809-row keyword spreadsheet,
+        The workflow consists of maintaining the 809-row keyword dataset,
         coordinating content transfers with the writing team, managing the
         sitemap rollout described in Chapter 3, and monitoring performance
-        through Google Search Console across 87 sites. The two experienced team
+        through webmaster tools across 87 sites. The two experienced team
         members carry the strategic load, placing the effective ratio at 43.5
         sites per experienced person. The workflow does not include pillar-page
         strategy, topical authority development, backlink acquisition, technical
@@ -416,8 +416,8 @@ export default function PublicChapter10Page() {
         the competitive advantage the company requires. There is no clean
         organic traffic pipeline, no authority development, and no conversion
         funnel driven by search visibility. The two departments most responsible
-        for the company&apos;s digital revenue potential are operating in a
-        closed loop that reinforces the structural problems documented
+        for the organization&apos;s digital revenue potential are operating in a
+        closed loop that reinforces the structural problems identified
         throughout this report.
       </Paragraph>
 
@@ -492,7 +492,7 @@ export default function PublicChapter10Page() {
       <Paragraph>
         The departments carrying the lowest capacity relative to their
         operational scope are the same departments whose output determines
-        whether the company&apos;s digital investment produces a return. This is
+        whether the organization&apos;s digital investment produces a return. This is
         not a staffing shortfall that additional hires resolve. It is a
         structural inversion where the greatest operational load falls on the
         narrowest strategic capability.
@@ -504,7 +504,7 @@ export default function PublicChapter10Page() {
         cycle of asset creation, content production, and account management. The
         design and development teams convert their share into tangible
         deliverables whose downstream value is blocked by the architectural
-        issues documented in earlier chapters. The video and social media teams
+        issues identified in earlier chapters. The video and social media teams
         convert theirs into activity whose business return is disproportionately
         low. The content and SEO teams convert theirs into output that produces
         neither skill growth nor competitive advantage.
@@ -549,7 +549,7 @@ export default function PublicChapter10Page() {
         An intern entering the SEO or content writing teams under the current
         workflow does not receive training in modern search optimization, content
         strategy, or editorial quality standards. The workflow they are trained
-        on, the keyword spreadsheet, the automated pipeline, the volume-first
+        on, the keyword dataset, the automated pipeline, the volume-first
         upload model, teaches practices that are structurally misaligned with
         what the market rewards.
       </Paragraph>
@@ -584,7 +584,7 @@ export default function PublicChapter10Page() {
         Headcount Expansion Within a Constrained Model
       </MiniHeading>
       <Paragraph>
-        The issues documented in Chapters 3 through 8 are not caused by
+        The issues identified in Chapters 3 through 8 are not caused by
         insufficient staffing. They are caused by the structure of the system the
         staff operates within. Adding writers to the current content pipeline
         produces more content under the same constraints: the same word-count
@@ -652,7 +652,7 @@ export default function PublicChapter10Page() {
           <>
             The department structure, team sizes, and workflows described in
             this chapter are directly observable in the company&apos;s
-            documented operations. Team sizes reflect the current baseline and
+            operations. Team sizes reflect the current baseline and
             may carry minor flexibility as staffing evolves.
           </>,
           <>
@@ -662,7 +662,7 @@ export default function PublicChapter10Page() {
           </>,
           <>
             The five-lens evaluation framework applied to each department group
-            is grounded in the operational evidence documented in Chapters 3
+            is grounded in the operational evidence identified in Chapters 3
             through 8. The cross-department assessment, including the
             upstream-downstream split and load inversion observations, follows
             from comparing each group&apos;s findings against the others.

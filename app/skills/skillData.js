@@ -11,9 +11,9 @@ export const sk = (name, tier, detail, tags) => ({ id: slug(name), name, tier, d
 export const SKILL_EVIDENCE = {
   // 👑 APEX IDENTITY
   "growth-systems-architecture": {
-    overview: "Growth Systems Architecture is the elite discipline of analyzing, engineering, and expanding digital platforms as single interconnected ecosystems. Rather than viewing engineering, UI/UX, technical SEO, and copywriting as separate operations, this layer evaluates a company's complete digital footprint through the lens of the LIONXE® Framework. I investigate the technical foundation, optimize the present execution layer, and structure clear roadmaps for long-term growth and technical performance immunity.",
+    overview: "Growth Systems Architecture is the elite discipline of analyzing, engineering, and expanding digital platforms as single interconnected ecosystems. Rather than viewing engineering, UI/UX, technical SEO, and copywriting as separate operations, this layer evaluates a company's complete digital footprint through the lens of the LIONXE ™ Framework. I investigate the technical foundation, optimize the present execution layer, and structure clear roadmaps for long-term growth and technical performance immunity.",
     whyMatters: "Most online platforms suffer from severe conversion drops and visibility leaks because developers don't understand crawlability, and marketers don't understand codebase architecture. Approaching an asset as a unified growth system removes this friction entirely.",
-    howApplied: "I analyze and design digital infrastructures using the structural lens of the four LIONXE® pillars: Long-Term Logic, Internal Optimization, Non-Negotiable Integrity, and Exceptional Execution.",
+    howApplied: "I analyze and design digital infrastructures using the structural lens of the four LIONXE ™ pillars: Long-Term Logic, Internal Optimization, Non-Negotiable Integrity, and Exceptional Execution.",
     evidence: (
       <span>
         Proven via the complete zero-to-one brand creation of{" "}
@@ -22,8 +22,8 @@ export const SKILL_EVIDENCE = {
         <a href="https://sufianmustafa.com" target="_blank" rel="noopener noreferrer">sufianmustafa.com</a>.
       </span>
     ),
-    related: ["Brand Ecosystem Design", "The LIONXE® Framework", "Digital Ecosystem Auditing"],
-    tech: ["Ecosystem Mapping", "System Dependency Analysis", "LIONXE® Audit Methodology"],
+    related: ["Brand Ecosystem Design", "The LIONXE ™ Framework", "Digital Ecosystem Auditing"],
+    tech: ["Ecosystem Mapping", "System Dependency Analysis", "LIONXE ™ Audit Methodology"],
     philosophy: "I look beyond the surface level of digital assets. True scale is unlocked when codebase engineering, search visibility, and structured content operate as a single synchronized engine."
   },
 
@@ -48,7 +48,7 @@ export const SKILL_EVIDENCE = {
     evidence: (
       <span>
         Fully developed and systemized via the independent documentation on{" "}
-        <a href="https://lionxeframework.com" target="_blank" rel="noopener noreferrer">LIONXE® Framework</a>
+        <a href="https://lionxeframework.com" target="_blank" rel="noopener noreferrer">LIONXE ™ Framework</a>
         , and applied to audit a sprawled 87-site commercial services network, pinpointing critical footprint risks and doorway page patterns.
       </span>
     ),
@@ -64,7 +64,7 @@ export const SKILL_EVIDENCE = {
         Single-handedly executed for{" "}
         <a href="https://doitwithai.tools" target="_blank" rel="noopener noreferrer">Do It With AI Tools</a>
         , navigating the platform from an abstract concept into a fully functional, highly ranked authority resource built completely onto the parent blueprints of the{" "}
-        <a href="https://lionxeframework.com" target="_blank" rel="noopener noreferrer">LIONXE® Standard</a>.
+        <a href="https://lionxeframework.com" target="_blank" rel="noopener noreferrer">LIONXE ™ Standard</a>.
       </span>
     ),
     related: ["Growth Systems Architecture", "Advanced 3-Tier Caching Systems"],
@@ -80,7 +80,7 @@ export const SKILL_EVIDENCE = {
         <a href="https://sufianmustafa.com" target="_blank" rel="noopener noreferrer">sufianmustafa.com</a>.
       </span>
     ),
-    related: ["The LIONXE® Framework", "Technical Search Architecture"],
+    related: ["The LIONXE ™ Framework", "Technical Search Architecture"],
     tech: ["Google Search Console Modeling", "Network Footprint Analysis", "Root-Cause Diagnostics"]
   },
 
@@ -133,7 +133,7 @@ export const SKILL_EVIDENCE = {
         Architected as a core visibility engine within{" "}
         <a href="https://doitwithai.tools" target="_blank" rel="noopener noreferrer">Do It With AI Tools</a>
         , ensuring seamless context delivery for AI scrapers aligned to the strict guidelines of the{" "}
-        <a href="https://lionxeframework.com" target="_blank" rel="noopener noreferrer">LIONXE® Standard</a>.
+        <a href="https://lionxeframework.com" target="_blank" rel="noopener noreferrer">LIONXE ™ Standard</a>.
       </span>
     ),
     tags: ["AEO / GEO Parallel Control", "SGE Readiness", "SXO Conversions"]
@@ -300,7 +300,7 @@ export const BRANCHES = [
     blurb: "The strategic foundation: Systems design, zero-to-one brand creation, proprietary LIONXE standards, and independent ecosystem diagnostics.",
     skills: [
       sk("Systems Thinking & Strategy", "core", "Designing interconnected digital platforms.", ["Long-Term Architecture", "Data Loops"]),
-      sk("The LIONXE® Framework", "core", "Proprietary 4-gate evaluation methodology.", ["Audit Standard", "Quality Engine"]),
+      sk("The LIONXE ™ Framework", "core", "Proprietary 4-gate evaluation methodology.", ["Audit Standard", "Quality Engine"]),
       sk("Brand Ecosystem Design", "core", "End-to-end brand and platform creation from scratch.", ["Platform Ownership", "Brand Genesis"]),
       sk("Digital Ecosystem Auditing", "expert", "Independent technical diagnostics of complex enterprise setups.", ["Root-Cause Diagnostics", "Risk Mapping"]),
     ],

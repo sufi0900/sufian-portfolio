@@ -8,15 +8,15 @@ import {
 } from "@/components/report/Headings";
 import { BulletList } from "@/components/report/BulletList";
 import { PullQuote } from "@/components/report/PullQuote";
-import { DownloadPdfButton } from "@/components/report/DownloadPdfButton";
+// import { DownloadPdfButton } from "@/components/report/DownloadPdfButton";
 
 export default function PublicChapter1Page() {
   return (
     <main className="report-shell">
-      <DownloadPdfButton
+      {/* <DownloadPdfButton
         slug="portfolio-chapter-1"
         label="Chapter 1: Enterprise Profile"
-      />
+      /> */}
 
       <ChapterOpener
         chapterNumber={1}
@@ -64,7 +64,7 @@ export default function PublicChapter1Page() {
       </Paragraph>
 
       <Paragraph>
-        The analysis that follows is based on the documented website portfolio,
+        The analysis that follows is based on the audited website portfolio,
         supporting research conducted during this audit, and observations
         gathered throughout the review process.
       </Paragraph>
@@ -201,7 +201,7 @@ export default function PublicChapter1Page() {
       <MiniHeading>Documented Website Portfolio</MiniHeading>
       <Paragraph>
         The audit materials currently provided document 87 fully published
-        websites operating within the company&apos;s digital portfolio.
+        websites operating within the organization&apos;s digital portfolio.
       </Paragraph>
       <Paragraph>
         These websites share several common operational characteristics:
@@ -210,7 +210,7 @@ export default function PublicChapter1Page() {
         items={[
           "The same content management system",
           "The same hosting infrastructure",
-          "Centralized oversight through a single Google Search Console environment",
+          "Centralized oversight through a single webmaster tools environment",
           "Similar service offerings across the portfolio",
           "Repeated content methodologies and content-production patterns",
           "A corresponding social media presence on Facebook, Instagram, and YouTube for each website",
@@ -223,7 +223,7 @@ export default function PublicChapter1Page() {
         similar content-development approaches.
       </Paragraph>
       <Paragraph>
-        At the time of this audit, approximately 34 of the documented 87
+        At the time of this audit, approximately 34 of the 87 audited
         websites have already undergone a design and template refresh as part of
         an ongoing website modernization initiative. Additional websites continue
         to be updated through content development, design revisions, technical
@@ -237,8 +237,8 @@ export default function PublicChapter1Page() {
 
       <MiniHeading>Broader Domain Ownership</MiniHeading>
       <Paragraph>
-        The documented 87 websites do not appear to represent the full extent of
-        the company&apos;s digital holdings.
+        The 87 audited websites do not appear to represent the full extent of
+        the organization&apos;s digital holdings.
       </Paragraph>
       <Paragraph>
         Research conducted during this audit indicates the existence of a
@@ -382,7 +382,7 @@ export default function PublicChapter1Page() {
       <Paragraph>
         Can the current team realistically sustain, optimize, and scale a
         footprint of this size over the long term, particularly if the true
-        scope extends beyond the documented portfolio currently under review?
+        scope extends beyond the audited portfolio currently under review?
       </Paragraph>
 
       {/* ═══════════════════════════════════════════════════════════

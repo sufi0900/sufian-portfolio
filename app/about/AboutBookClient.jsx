@@ -433,8 +433,8 @@ const CHAPTERS = [
         h3("Tested in live conditions"),
         p("LIONXE™ wasn't theoretical. The Waywegaming diagnostic audit — a full organizational investigation spanning 87 sites, 226,000+ indexed pages, and a 12-month transformation roadmap — was the proof of concept. The framework didn't emerge from a whiteboard; it emerged from applying systematic thinking to a live, failing system and identifying exactly where the foundation had cracked."),
         callout("LIONXE™ is the standard I had always been measuring against in my head. Writing it down turned an instinct into a framework others could use.", "insight"),
-        linkcard("LIONXE™ Framework Documentation", "https://lionxeframework.com", "The full four-pillar doctrine, governing laws, and audit methodology"),
-        p("The full doctrine lives at lionxeframework.com — and the discipline behind it is what continues to shape every layer of the work today."),
+        linkcard("LIONXE™ Framework Documentation", "https://lionxe.com", "The full four-pillar doctrine, governing laws, and audit methodology"),
+        p("The full doctrine lives at lionxe.com — and the discipline behind it is what continues to shape every layer of the work today."),
       ]},
     ],
   },
@@ -462,7 +462,7 @@ const CHAPTERS = [
         ulist([
           "sufianmustafa.com — the authority layer. The founder platform and the strategic voice (you are here).",
           "DoItWithAI.tools — the proving ground. A live AI SEO hub where the theory is tested in public.",
-          "lionxeframework.com — the doctrine. The institutional standard that governs everything.",
+          "lionxe.com — the doctrine. The institutional standard that governs everything.",
         ]),
         image("The three-platform ecosystem — authority, practice, doctrine"),
         callout("Each platform strengthens the others. Authority at sufianmustafa.com increases trust in the framework. The framework governs the platform. The platform validates the methodology. It compounds.", "insight"),
@@ -865,7 +865,7 @@ export default function AboutBook() {
             <a href="/contact" className="bk-finalcta-btn bk-finalcta-btn--primary">
               Start a conversation <ArrowRight size={14} aria-hidden />
             </a>
-            <a href="https://lionxeframework.com" target="_blank" rel="noopener noreferrer" className="bk-finalcta-btn bk-finalcta-btn--secondary">
+            <a href="https://lionxe.com" target="_blank" rel="noopener noreferrer" className="bk-finalcta-btn bk-finalcta-btn--secondary">
               Read the LIONXE™ Framework <ExternalLink size={13} aria-hidden />
             </a>
           </div>
@@ -889,7 +889,7 @@ export default function AboutBook() {
     if (lf.kind === "toc-a") return (
       <div className="bk-page bk-page--toc-intro">
         <div className="bk-toc-brand">
-          <div className="bk-toc-mark">S</div>
+          <div className="bk-toc-mark">SM</div>
           <div>
             <div className="bk-toc-title">The Making of an Architect</div>
             <div className="bk-toc-sub">The journey of Sufian Mustafa</div>
@@ -1023,10 +1023,10 @@ export default function AboutBook() {
             <span className="bk-final-next-card-title">Start a conversation</span>
             <span className="bk-final-next-card-sub">Strategy, consultation, or collaboration</span>
           </a>
-          <a href="https://lionxeframework.com" target="_blank" rel="noopener noreferrer" className="bk-final-next-card">
+          <a href="https://lionxe.com" target="_blank" rel="noopener noreferrer" className="bk-final-next-card">
             <Shield size={20} aria-hidden />
             <span className="bk-final-next-card-title">Read the LIONXE™ Framework</span>
-            <span className="bk-final-next-card-sub">The full doctrine at lionxeframework.com</span>
+            <span className="bk-final-next-card-sub">The full doctrine at lionxe.com</span>
           </a>
           <a href="https://doitwithai.tools" target="_blank" rel="noopener noreferrer" className="bk-final-next-card">
             <Globe size={20} aria-hidden />
@@ -1064,7 +1064,7 @@ export default function AboutBook() {
             <div className="bk-cover-spine" aria-hidden />
             <div className="bk-cover-content">
               <div className="bk-cover-badge"><BookOpen size={13} aria-hidden /> An illustrated journey</div>
-              <div className="bk-cover-mark">S</div>
+              <div className="bk-cover-mark">SM</div>
               <h1 className="bk-cover-title">The Making of an Architect</h1>
               <p className="bk-cover-author">Sufian Mustafa</p>
               <p className="bk-cover-tag">Growth Systems Architect · LIONXE™ Creator · Digital Ecosystem Founder</p>

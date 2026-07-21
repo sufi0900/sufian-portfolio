@@ -33,7 +33,7 @@ export default function StaticInsightsPageShell({ initialServerData, children })
               <span>AI Search</span>
               <span>Technical SEO</span>
               <span>Digital Systems</span>
-              <span>LIONXE® Thinking</span>
+              <span>LIONXE ™ Thinking</span>
             </div>
           </div>
 

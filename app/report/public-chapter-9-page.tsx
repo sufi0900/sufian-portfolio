@@ -17,10 +17,10 @@ import { TrustGapInfographic } from "@/components/report/TrustGapInfographic";
 export default function PublicChapter9Page() {
   return (
     <main className="report-shell">
-      <DownloadPdfButton
+      {/* <DownloadPdfButton
         slug="portfolio-chapter-9"
         label="Chapter 9: Video and Social Media Strategy"
-      />
+      /> */}
 
       <ChapterOpener
         chapterNumber={9}
@@ -37,7 +37,7 @@ export default function PublicChapter9Page() {
         Facebook, Instagram, and YouTube.
       </Paragraph>
       <Paragraph>
-        The same structural patterns documented in the web analysis, high volume,
+        The same structural patterns identified in the web analysis, high volume,
         automated production, fragmented footprint, and absence of original
         insight, are present here in a different medium. The findings are
         measured against the originality and content-quality policies each
@@ -50,7 +50,7 @@ export default function PublicChapter9Page() {
       <SectionHeading>9.2 The Scale of the Social Media Footprint</SectionHeading>
       <Paragraph>
         The company maintains three social media accounts for each of the 87
-        documented sites: one on Facebook, one on Instagram, and one on YouTube.
+        audited sites: one on Facebook, one on Instagram, and one on YouTube.
       </Paragraph>
 
       <DataTable
@@ -157,7 +157,7 @@ export default function PublicChapter9Page() {
       />
 
       <Paragraph>
-        For the documented network, this policy means that AI-generated videos
+        For the audited network, this policy means that AI-generated videos
         published identically or near-identically across dozens of accounts are
         exactly the type of content Instagram&apos;s recommendation system is
         designed to suppress.
@@ -179,7 +179,7 @@ export default function PublicChapter9Page() {
       />
 
       <Paragraph>
-        The policy targets exactly the production model the documented network
+        The policy targets exactly the production model the audited network
         uses for its video content: automated generation applied at scale,
         without original input, across multiple channels.
       </Paragraph>
@@ -205,9 +205,15 @@ export default function PublicChapter9Page() {
         figureNumber="9.1"
         title="Fragmented Accounts vs. Consolidated Brand Presence"
         leftLabel="CURRENT MODEL: 261 FRAGMENTED ACCOUNTS"
-        leftBody="Each account builds its own minimal follower base independently. Engagement history is fragmented across 261 profiles. No single account earns platform recommendation. The company's 30-year reputation is invisible online."
+        leftBody={`Each account builds its own minimal follower base independently
+Engagement history fragmented across 261 profiles
+No single account earns platform recommendation
+The company's 30-year reputation is invisible online`}
         rightLabel="CONSOLIDATED MODEL: ONE BRAND PER PLATFORM"
-        rightBody="One Facebook page, one Instagram, one YouTube channel. All engagement concentrates into a single entity. Platform authority builds through consistent activity. One identity carries the full real-world reputation."
+        rightBody={`One Facebook page, one Instagram, one YouTube channel
+All engagement concentrates into a single entity
+Platform authority builds through consistent activity
+One identity carries the full real-world reputation`}
       />
 
       <MiniHeading>The Trust Gap</MiniHeading>
@@ -233,7 +239,7 @@ export default function PublicChapter9Page() {
       <Paragraph>
         The number of social media accounts (261), the team size (two
         coordinators and two video editors), and the use of AI video generation
-        tools are directly observable in the company&apos;s documented
+        tools are directly observable in the audited
         operations.
       </Paragraph>
       <Paragraph>

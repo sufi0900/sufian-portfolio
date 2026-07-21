@@ -52,7 +52,7 @@ const CASES = [
     title: "LIONXE™ Framework",
     subtitle: "A quality standard — created, documented, enterprise-applied.",
     color: "#4D7BFF",
-    url: "https://lionxeframework.com",
+    url: "https://lionxe.com",
     what: "A proprietary four-gate digital quality and auditing standard with sequential evaluation logic, governing laws, and a scoring engine. Not a checklist — a system where failure at any gate voids the entire assessment.",
     why: "Existing audit tools check surface metrics — rankings, backlinks, speed scores. LIONXE™ was created because no standard evaluated whether a digital asset is structurally built to survive. It emerged from the pattern recognition that crystallized during the 87-site enterprise audit.",
     how: [
@@ -81,7 +81,7 @@ const CASES = [
     title: "Enterprise Research Report",
     subtitle: "87 sites. 226,200+ URLs. 15 chapters. One diagnosis.",
     color: "#E3B341",
-    url: null,
+    url: "/report",
     what: "A 15-chapter strategic audit of a US-based carpet cleaning and restoration company's digital ecosystem — analyzing an 87-website network that had been duplicated across locations, generating 226,200+ indexed URLs through automated content swapping.",
     why: "The company was running 87 near-identical sites targeting overlapping keywords in the same market. The sites were competing against each other, cannibalizing traffic, and producing negative-sum results. The audit was commissioned to diagnose the root causes and propose a consolidation architecture.",
     how: [

@@ -68,7 +68,7 @@ const SOCIALS = [
 
 const ROLES = [
   { label: "AI SEO Architect", color: "#E3B341" },
-  { label: "LIONXE® Creator", color: "#F2CC6B" },
+  { label: "LIONXE ™ Creator", color: "#F2CC6B" },
   { label: "Digital Ecosystem Founder", color: "#C9952C" },
 ];
 
@@ -179,7 +179,7 @@ const AuthorBioCard = () => {
 
                   <div className="abc-quote">
                     <p>
-                      He created the <strong>LIONXE® framework</strong> — a
+                      He created the <strong>LIONXE ™ framework</strong> — a
                       four-pillar auditing doctrine for{" "}
                       <strong>GEO and AEO optimisation</strong> that helps
                       brands build search authority built to last decades, not

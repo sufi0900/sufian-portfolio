@@ -21,21 +21,21 @@ import { DownloadPdfButton } from "@/components/report/DownloadPdfButton";
 export default function PublicChapter4Page() {
   return (
     <main className="report-shell">
-      <DownloadPdfButton
+      {/* <DownloadPdfButton
         slug="portfolio-chapter-4"
         label="Chapter 4: Content Quality and the Shift to Intent-Based Search"
-      />
+      /> */}
 
       <ChapterOpener
         chapterNumber={4}
         title="Content Quality and the Shift to Intent-Based Search"
-        overview="This chapter examines the quality of the written content within the documented network: how it is researched, how long it is permitted to run, how its keywords are placed, and how it reads to the person who arrives on the page, each measured against the standard modern search now applies."
+        overview="This chapter examines the quality of the written content within the audited network: how it is researched, how long it is permitted to run, how its keywords are placed, and how it reads to the person who arrives on the page, each measured against the standard modern search now applies."
       />
 
       {/* ══════════════ 4.1 ══════════════ */}
       <SectionHeading>4.1 Scope of This Chapter</SectionHeading>
       <Paragraph>
-        Chapter 3 established the structure and scale of the documented network.
+        Chapter 3 established the structure and scale of the audited network.
         This chapter turns from the structure to the content held within it: the
         individual articles and pages the construction pattern reproduces across
         the portfolio.
@@ -247,7 +247,7 @@ export default function PublicChapter4Page() {
           spam policies
         </InlineLink>{" "}
         define keyword stuffing and name, among their examples, a pattern that
-        corresponds directly to the construction documented in Chapter 3.
+        corresponds directly to the construction identified in Chapter 3.
       </Paragraph>
       <CitationCard
         quote="Blocks of text that list cities and regions that a web page is trying to rank for."
@@ -274,16 +274,16 @@ export default function PublicChapter4Page() {
       <MiniHeading>The Keyword Set</MiniHeading>
       <Paragraph>
         One representative row from the company&apos;s{" "}
-        <InlineLink href="#">
-          keyword sheet
-        </InlineLink>
-        , row 29, shows the structure every row follows. All six keywords point
+        
+          keyword dataset
+        
+        , a sample entry, shows the structure every row follows. All six keywords point
         to the same underlying intent.
       </Paragraph>
 
       <KeywordIntentDiagram
         figureNumber="4.4"
-        title="Six Keywords, One Intent — Row 29 of the Keyword Sheet"
+        title="Six Keywords, One Intent — the keyword dataset"
         keywords={[
           { keyword: "how to get stains out of mattress", isPrimary: true },
           { keyword: "how to get stains out of a mattress" },
@@ -323,7 +323,7 @@ export default function PublicChapter4Page() {
 
       <MiniHeading>Grammatically Incorrect Queries</MiniHeading>
       <Paragraph>
-        The keyword sheet does not filter for grammatical correctness. If a
+        The keyword dataset does not filter for grammatical correctness. If a
         query has search volume, it is added and assigned the same
         twelve-repetition instruction regardless of whether the phrase is
         well-formed.
@@ -350,9 +350,9 @@ export default function PublicChapter4Page() {
       <MiniHeading>The Scale Across the Full Sheet</MiniHeading>
       <Paragraph>
         The{" "}
-        <InlineLink href="#">
-          keyword sheet
-        </InlineLink>{" "}
+        
+          keyword dataset
+        {" "}
         currently contains 809 rows and continues to grow. The same construction
         is applied from the first row to the last. No row reflects an
         intent-based strategy or a departure from the repetition-based approach.
@@ -365,7 +365,7 @@ export default function PublicChapter4Page() {
       {/* ══════════════ 4.6 ══════════════ */}
       <SectionHeading>4.6 Query Variation and Search Intent</SectionHeading>
       <Paragraph>
-        Each of the five secondary keywords in row 29 is a rephrasing of the
+        Each of the five secondary keywords in a sample entry is a rephrasing of the
         same request. Targeting each as a separate term treats a difference in
         phrasing as a difference in intent.
       </Paragraph>
@@ -441,10 +441,10 @@ export default function PublicChapter4Page() {
       <SectionHeading>4.8 Scope and Confidence of These Findings</SectionHeading>
       <Paragraph>
         The production workflow, the two-writer daily output, the 1,200-word
-        ceiling, the row 29 keyword set, the repetition instruction, the
+        ceiling, the a sample entry keyword set, the repetition instruction, the
         presence of grammatically incorrect queries, and the question-insertion
         pattern are directly observable in the company&apos;s own content
-        process and keyword sheet. The sheet currently contains 809 rows.
+        process and keyword dataset. The sheet currently contains 809 rows.
       </Paragraph>
       <Paragraph>
         The industry data is drawn from Orbit Media (12,000+ bloggers, 2025)
@@ -460,7 +460,7 @@ export default function PublicChapter4Page() {
           "Two writers produce ~25 pages per site in one day. The industry average for a single post is 3 hours 25 minutes. The company compresses ~85 hours of equivalent work into eight.",
           "A fixed 1,200-word ceiling is applied regardless of subject. Google publishes no recommended word count.",
           "Keyword repetition consumes ~164 words (13.7%) of every post. The practice dates to early-era SEO and has been actively penalized for over a decade.",
-          "The keyword sheet does not filter for grammar. Queries with errors are inserted verbatim. Question-based queries are placed inside sentences where they cannot function.",
+          "The keyword dataset does not filter for grammar. Queries with errors are inserted verbatim. Question-based queries are placed inside sentences where they cannot function.",
           "The sheet contains 809 rows, all following the same repetition pattern. No row reflects an intent-based strategy.",
           "The five secondary keywords per row are rephrasings of one intent. Targeting each separately is inconsistent with modern search.",
           "The combined effect is observable across all three audiences: the crawler reads stuffing as a spam signal, the AI system finds nothing to cite, and the human reader bounces, reinforcing the negative evaluation.",

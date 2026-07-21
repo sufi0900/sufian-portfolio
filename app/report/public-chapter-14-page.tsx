@@ -18,15 +18,15 @@ import { DownloadPdfButton } from "@/components/report/DownloadPdfButton";
 export default function PublicChapter14Page() {
   return (
     <main className="report-shell">
-      <DownloadPdfButton
+      {/* <DownloadPdfButton
         slug="portfolio-chapter-14"
         label="Chapter 14: Two Paths Forward"
-      />
+      /> */}
 
       <ChapterOpener
         chapterNumber={14}
         title="Two Paths Forward"
-        overview="With the diagnosis complete, the standard established, and the solution fully described, this chapter places the two paths side by side: their objectives, their outcomes, their trajectories, and their formal assessment through the LIONXE gates, so that the decision before leadership is fully documented."
+        overview="With the diagnosis complete, the standard established, and the solution fully described, this chapter places the two paths side by side: their objectives, their outcomes, their trajectories, and their formal assessment through the LIONXE gates, so that the decision before leadership is fully described."
       />
 
       {/* 14.1 */}
@@ -63,7 +63,7 @@ export default function PublicChapter14Page() {
       <Paragraph>
         The findings of this report do not support this path. It is an
         objective disconnected from search visibility, customer acquisition,
-        and revenue, and it carries the enforcement risk documented in Section
+        and revenue, and it carries the enforcement risk identified in Section
         14.4.
       </Paragraph>
 
@@ -77,7 +77,7 @@ export default function PublicChapter14Page() {
       </Paragraph>
       <Paragraph>
         The findings of this report support this path. Every diagnostic
-        finding, every landscape trend documented in Chapter 11, and every gate
+        finding, every landscape trend identified in Chapter 11, and every gate
         of the standard established in Chapter 12 points toward it.
       </Paragraph>
 
@@ -103,7 +103,7 @@ export default function PublicChapter14Page() {
         The same clean division applies to what each model optimizes for. The
         current workflow directs every hour and every dollar toward quantity:
         more sites, more pages, more accounts, more posts, with no stage at
-        which quality enters the process. Chapter 10 documented the result: the
+        which quality enters the process. Chapter 10 identified the result: the
         entire budget consumed by production that returns no visibility.
       </Paragraph>
       <Paragraph>
@@ -203,7 +203,7 @@ export default function PublicChapter14Page() {
         model produces the conditions for the next. It begins where the company
         stands today: 87 live sites publishing the same duplicated,
         keyword-stuffed, template-uniform content, with every team locked in
-        the repetitive production Chapter 10 documented, and no site ranking.
+        the repetitive production Chapter 10 identified, and no site ranking.
       </Paragraph>
       <Paragraph>
         The next stage follows directly: as more sites from the portfolio come
@@ -219,7 +219,7 @@ export default function PublicChapter14Page() {
 
       <MiniHeading>The Current Path Over Time</MiniHeading>
       <Paragraph>
-        The structural issues documented in Chapters 3 through 10 are not
+        The structural issues identified in Chapters 3 through 10 are not
         self-correcting. Continuing the current model means continuing to publish
         content with the same characteristics, into an environment that is
         becoming progressively less favorable to that content. As AI-generated
@@ -239,7 +239,7 @@ export default function PublicChapter14Page() {
       <MiniHeading>The Escalation Risk: Network-Level Enforcement</MiniHeading>
       <Paragraph>
         Diminishing returns represent the gradual end of the trajectory.
-        Google&apos;s documented enforcement mechanisms include a more severe
+        Google&apos;s published enforcement mechanisms include a more severe
         outcome: network-level manual action. This is not a theoretical risk. It
         is a published enforcement path that Google has applied to networks
         matching the pattern documented in this report.
@@ -263,13 +263,13 @@ export default function PublicChapter14Page() {
         Google&apos;s SpamBrain system is specifically designed to detect
         networks of sites, not just individual pages. It examines patterns
         across sites: shared infrastructure, content reuse, templated
-        structures, and coordinated signals. The documented network&apos;s
-        shared hosting, single Search Console account, identical code base, and
+        structures, and coordinated signals. The audited network&apos;s
+        shared hosting, single webmaster account, identical code base, and
         location-swap duplication are exactly the signals this system is built to
         identify.
       </Paragraph>
       <Paragraph>
-        The shared Search Console account is an amplifier. When one account
+        The shared webmaster account is an amplifier. When one account
         manages 87 sites and a reviewer opens that account, they see the entire
         network in a single view. The relationship between sites does not need
         to be discovered through IP analysis; the company has displayed it
@@ -279,7 +279,7 @@ export default function PublicChapter14Page() {
       <MiniHeading>The Specific Trigger</MiniHeading>
       <Paragraph>
         Google&apos;s documentation on doorway pages names the exact pattern the
-        documented network follows: pages created for specific search queries
+        audited network follows: pages created for specific search queries
         using district and city names, directing users to the same underlying
         purpose. The March 2026 spam update specifically targeted high-volume
         AI-generated pages published without editorial review, original
@@ -585,7 +585,7 @@ export default function PublicChapter14Page() {
       <Paragraph>
         The network-level enforcement risk described in Section 14.4 is based on
         Google&apos;s published manual actions documentation, SpamBrain&apos;s
-        documented network-detection capabilities, the March 2026 spam update
+        audited network-detection capabilities, the March 2026 spam update
         enforcement record, and the April 2026 update to Google&apos;s spam
         reporting policy. These are published enforcement mechanisms, not
         predictions about whether or when Google will apply them to this
@@ -613,7 +613,7 @@ export default function PublicChapter14Page() {
         ]}
       />
       <Paragraph>
-        Both pathways are now fully documented: their objectives, their
+        Both pathways are now fully described: their objectives, their
         outcomes, their trajectories, and their formal assessment. One direction
         is anchored to practices the search environment is actively eliminating.
         The other compounds. The decision belongs to leadership, and the next

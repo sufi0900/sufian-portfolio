@@ -131,7 +131,7 @@
   background: color-mix(in srgb, var(--accent) 12%, transparent);
 }
 .bk-cover-mark {
-  margin-top: 28px; width: 70px; height: 70px; border-radius: 20px;
+  margin-top: 28px; width: 80px; height: 70px; border-radius: 20px;
   display: grid; place-items: center; font-size: 34px; font-weight: 900; color: var(--accent-ink);
   background: linear-gradient(140deg, var(--accent), #C9952C);
   box-shadow: 0 14px 40px color-mix(in srgb, var(--accent) 45%, transparent);

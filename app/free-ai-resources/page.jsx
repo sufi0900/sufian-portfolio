@@ -19,7 +19,7 @@ const ARTICLE = {
   category: "AI SEO Content Writing",
   title: "How to Write SEO Meta Titles With AI That Actually Rank",
   dek: "A repeatable, human-first framework for using AI to craft meta titles that win clicks in both Google and AI search — without sounding like a robot.",
-  author: { name: "Sufian Mustafa", role: "AI SEO Strategist · LIONXE® Creator", initials: "SM", bio: "Founder of DoItWithAI.tools and creator of the LIONXE® framework. Sufian writes about engineering search authority that compounds in the AI-search era." },
+  author: { name: "Sufian Mustafa", role: "AI SEO Strategist · LIONXE ™ Creator", initials: "SM", bio: "Founder of DoItWithAI.tools and creator of the LIONXE ™ framework. Sufian writes about engineering search authority that compounds in the AI-search era." },
   date: "March 18, 2026",
   feature: "Feature image — meta titles & AI search",
   tags: ["Meta Titles", "AI SEO", "On-Page SEO", "GEO"],
@@ -73,7 +73,7 @@ const BLOCKS = [
     "Humanize the finalists. Rewrite the top three in your own voice so they sound written, not assembled.",
     "Pick the sharpest promise. Choose the title that makes the boldest claim you can actually keep.",
   ]),
-  quote("Don't ask AI for the best title. Ask it for ten honest options, then bring the judgment AI can't. The title is yours; the speed is the machine's.", "The LIONXE® approach to AI-assisted writing"),
+  quote("Don't ask AI for the best title. Ask it for ten honest options, then bring the judgment AI can't. The title is yours; the speed is the machine's.", "The LIONXE ™ approach to AI-assisted writing"),
 
   h2("Meta title formulas (with examples)"),
   p("Formulas aren't crutches — they're starting points you adapt. Here are four that consistently perform, with examples you can model:"),
@@ -82,7 +82,7 @@ const BLOCKS = [
     [
       ["The How-To", "How to [Outcome] (Without [Pain])", "How to Rank in AI Search Without Chasing Algorithms"],
       ["The Numbered List", "[N] [Things] for [Goal]", "7 On-Page Signals That Still Move Rankings in 2026"],
-      ["The Framework", "The [Name] Framework for [Outcome]", "The LIONXE® Framework for Content Built to Last"],
+      ["The Framework", "The [Name] Framework for [Outcome]", "The LIONXE ™ Framework for Content Built to Last"],
       ["The Direct Promise", "[Primary Keyword]: [Specific Benefit]", "AI SEO: How to Become the Answer, Not Just a Result"],
     ]
   ),

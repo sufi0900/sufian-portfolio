@@ -29,7 +29,7 @@ export default function PublicChapter16Page() {
       </Paragraph>
       <Paragraph>
         To answer that question, the report conducted a systematic examination
-        of every layer of the company&apos;s digital ecosystem.
+        of every layer of the organization&apos;s digital ecosystem.
       </Paragraph>
       <Paragraph>
         Chapters 1 and 2 established the enterprise context and the methodology
@@ -90,7 +90,7 @@ export default function PublicChapter16Page() {
       <Paragraph>
         The proposed architecture, presented in Chapter 13 and validated through the LIONXE framework in Chapters 12 and 14, is engineered to align with the
         environment as it exists now and as it is projected to develop. It
-        consolidates the company&apos;s digital presence into a single
+        consolidates the organization&apos;s digital presence into a single
         authoritative domain, replaces the flat keyword model with a structured
         topical hierarchy, shifts AI from a replacement for expertise to an
         assistant to it, and unifies the brand across three consolidated social
@@ -129,7 +129,7 @@ export default function PublicChapter16Page() {
       <Paragraph>
         The third is execution: the sustained, disciplined work of building and
         populating the new architecture, consolidating the brand, and developing
-        the authority that will allow the company&apos;s digital presence to
+        the authority that will allow the organization&apos;s digital presence to
         reflect the quality of its real-world operations.
       </Paragraph>
 

@@ -402,14 +402,14 @@ const Contact = () => {
               })}
             </div>
 
-            <div className="smc-direct-card">
+            {/* <div className="smc-direct-card">
               <span>Direct email</span>
 
               <a href="mailto:doitwithaitools@gmail.com">
                 doitwithaitools@gmail.com
                 <ArrowUpRight size={15} strokeWidth={2.4} />
               </a>
-            </div>
+            </div> */}
 
             <div className="smc-readiness">
               <CheckCircle2 size={17} strokeWidth={2.35} />

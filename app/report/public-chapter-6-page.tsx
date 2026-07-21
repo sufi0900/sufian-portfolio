@@ -20,15 +20,15 @@ import { DownloadPdfButton } from "@/components/report/DownloadPdfButton";
 export default function PublicChapter6Page() {
   return (
     <main className="report-shell">
-      <DownloadPdfButton
+      {/* <DownloadPdfButton
         slug="portfolio-chapter-6"
         label="Chapter 6: Content Structure and Template Uniformity"
-      />
+      /> */}
 
       <ChapterOpener
         chapterNumber={6}
         title="Content Structure and Template Uniformity"
-        overview="This chapter examines the fixed structural template imposed on every blog post and service page across the documented network, what repeating that structure across tens of thousands of pages signals to search systems, and the absence of original insight within the production process."
+        overview="This chapter examines the fixed structural template imposed on every blog post and service page across the audited network, what repeating that structure across tens of thousands of pages signals to search systems, and the absence of original insight within the production process."
       />
 
       {/* 6.1 */}
@@ -38,7 +38,7 @@ export default function PublicChapter6Page() {
         placement, and reading experience. Chapter 5 examined the tools used to
         produce and process it. This chapter examines the structure imposed on
         that content, the fixed template every blog post and service page is
-        required to follow across the documented network.
+        required to follow across the audited network.
       </Paragraph>
       <Paragraph>
         Where the previous two chapters asked what the content says and how it
@@ -53,7 +53,7 @@ export default function PublicChapter6Page() {
       {/* 6.2 */}
       <SectionHeading>6.2 The Template Pattern</SectionHeading>
       <Paragraph>
-        Every blog post across the documented network follows a single
+        Every blog post across the audited network follows a single
         structural framework. The sequence is fixed, the sections are
         predetermined, and writers are not permitted to deviate from it
         regardless of the topic being covered.
@@ -122,10 +122,10 @@ export default function PublicChapter6Page() {
       <MiniHeading>Observable Across the Documented Network</MiniHeading>
       <Paragraph>
         The{" "}
-        <InlineLink href="#">
-          content sheet
-        </InlineLink>{" "}
-        used to manage blog production across the 87 documented sites confirms
+        
+          content inventory
+        {" "}
+        used to manage blog production across the 87 audited sites confirms
         this pattern directly. Selecting any site from the sheet and reviewing
         its blog posts reveals the same six-stage structure repeating across
         every entry, because the content has been produced through AI from the
@@ -237,12 +237,12 @@ export default function PublicChapter6Page() {
       <Paragraph>
         The template is not applied to a handful of posts. It is applied to
         every blog post on every site, and then multiplied across the same
-        location-based construction documented in Chapter 3.
+        location-based construction identified in Chapter 3.
       </Paragraph>
 
       <MiniHeading>The Blog Calculation</MiniHeading>
       <Paragraph>
-        Each of the 87 documented sites carries approximately 5 blog posts. Each
+        Each of the 87 audited sites carries approximately 5 blog posts. Each
         blog post is reproduced across approximately 104 service areas per site
         through the same location-swap mechanism described in Chapter 3.
       </Paragraph>
@@ -314,7 +314,7 @@ export default function PublicChapter6Page() {
 
       <MiniHeading>The Observed Pattern</MiniHeading>
       <Paragraph>
-        In the documented network, the 16 service pages, the homepage, the FAQ,
+        In the audited network, the 16 service pages, the homepage, the FAQ,
         and the privacy and contact pages are generated through the same
         automated pipeline as the blog posts, on the same compressed timeline.
         The documented workflow produces the full set of approximately 20 core
@@ -385,13 +385,13 @@ export default function PublicChapter6Page() {
       <SectionHeading>6.7 Scope and Confidence of These Findings</SectionHeading>
       <Paragraph>
         The six-stage template structure is directly observable across the blog
-        posts in the documented network. The production of 16 service pages, the
+        posts in the audited network. The production of 16 service pages, the
         homepage, and supporting pages within a single-day timeline is documented
         in the company&apos;s own workflow.
       </Paragraph>
       <Paragraph>
         The 45,240-page figure is a calculation based on the 5-blog, 87-site,
-        104-area construction documented in Chapter 3, applied to the structural
+        104-area construction identified in Chapter 3, applied to the structural
         observation in this chapter. It is consistent with the methodology
         established in that chapter and is presented as a calculated figure
         rather than an independently verified count.
@@ -406,10 +406,10 @@ export default function PublicChapter6Page() {
       <SectionHeading>6.8 Summary of Findings</SectionHeading>
       <BulletList
         items={[
-          "Every blog post across the documented network follows a single six-stage template: introduction, importance, tools, steps, CTA, FAQ. No stage varies between posts regardless of topic.",
+          "Every blog post across the audited network follows a single six-stage template: introduction, importance, tools, steps, CTA, FAQ. No stage varies between posts regardless of topic.",
           "This template matches the default output structure of automated language models, making the content structurally indistinguishable from the most common automated output on the web. Modern readers recognize this pattern immediately.",
           "The template erases the individual writer: output is indistinguishable between writers, new hires are absorbed into the same pattern from day one, and the role is reduced to placing generated text into a fixed structure, work that requires no professional writing capability.",
-          "The content sheet confirms the pattern is applied consistently across all 87 sites from the first entry to the latest, because AI has been the production method from the start.",
+          "The content inventory confirms the pattern is applied consistently across all 87 sites from the first entry to the latest, because AI has been the production method from the start.",
           "Applied across 5 blog posts per site, 87 sites, and 104 service areas, the template produces 45,240 blog pages with identical organizational structure, differing only in location name.",
           "The fixed 1,200-word ceiling adds a further uniformity layer: every blog runs to the same length, creating one more detectable signal of automated production.",
           "These characteristics, template uniformity, fixed length, keyword stuffing, AI production, and location-swap duplication, do not exist in isolation. Together they form a combined fingerprint that makes spam classification straightforward for Google\u2019s systems.",
