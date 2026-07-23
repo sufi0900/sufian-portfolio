@@ -864,3 +864,22 @@
   .term-line--boot, .tl-item--recent .tl-dot, .tab-building-dot, .dynamic-island,
   .dynamic-island-text, .buildingTextIn { animation: none !important; transition: none !important; }
 }
+/* ═══════════════════════════════════════════════════════════════════════
+   PERF: OFF-SCREEN ANIMATION PAUSE
+   Toggled by IntersectionObserver in index.jsx (.hero-offscreen on the
+   root section) and in TabletMockup.jsx (.tablet-offscreen on the tablet
+   shell). Stops every continuously-looping CSS animation the instant its
+   container scrolls out of view, and resumes it the instant it's back —
+   no visual change, purely fewer paints/composites happening off-screen.
+   ═══════════════════════════════════════════════════════════════════════ */
+.hero-offscreen .ring-spin-cw-slow,
+.hero-offscreen .ring-spin-ccw,
+.hero-offscreen .ring-spin-cw,
+.hero-offscreen .hero-cta::before {
+  animation-play-state: paused;
+}
+
+.tablet-offscreen .tablet-frame::before,
+.tablet-offscreen .tablet-glare {
+  animation-play-state: paused;
+}

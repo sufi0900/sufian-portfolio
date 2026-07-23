@@ -1065,6 +1065,7 @@ export default function AboutBook() {
             <div className="bk-cover-content">
               <div className="bk-cover-badge"><BookOpen size={13} aria-hidden /> An illustrated journey</div>
               <div className="bk-cover-mark">SM</div>
+              
               <h1 className="bk-cover-title">The Making of an Architect</h1>
               <p className="bk-cover-author">Sufian Mustafa</p>
               <p className="bk-cover-tag">Growth Systems Architect · LIONXE™ Creator · Digital Ecosystem Founder</p>

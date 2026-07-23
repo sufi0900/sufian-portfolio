@@ -1,4 +1,4 @@
-// app/about/page.jsx — Server Component (SEO + Schema Layer)
+// app/about/page.jsx — Server Component (SEO + Schema Layer of sufianmustafa.com/about for refrence)
 // The client-side interactive book lives in ./AboutBookClient.jsx
 import React from "react";
 import Script from "next/script";

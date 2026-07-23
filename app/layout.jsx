@@ -1,5 +1,3 @@
-//layout.jsx of sufian portfolio
-
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable react/no-unescaped-entities */
 "use client";
@@ -146,8 +144,8 @@ export default function RootLayout({ children }) {
 
   const isHomePage = cleanPathname === "/";
 
- // Remove the '/contact' string constraint out of this rule block
-const isSelectEngagementPage = cleanPathname === "/select-engagements";
+  // Remove the '/contact' string constraint out of this rule block
+  const isSelectEngagementPage = cleanPathname === "/select-engagements";
 
   const isSlugPage =
     pathname.startsWith("/ai-tools/") ||
@@ -313,66 +311,75 @@ const isSelectEngagementPage = cleanPathname === "/select-engagements";
             <>
               <div 
                 className={[
-                  "bg-amber-500/10 border border-amber-500/20 text-amber-800 dark:text-amber-400 px-4 py-2.5 text-center text-[12.5px] font-bold flex items-center justify-between shadow-sm backdrop-blur-md animate-fade-in",
+                  "bg-amber-500/10 border border-amber-500/20 text-amber-800 dark:text-amber-400 px-3 py-2 sm:px-4 sm:py-2.5 text-center text-[11px] sm:text-[12.5px] font-bold flex items-center justify-between shadow-sm backdrop-blur-md animate-fade-in",
                   isHomePage 
-                    ? "relative z-[9999] rounded-xl mt-4 max-w-7xl mx-auto w-full" 
+                    ? "relative z-[9999] rounded-xl mt-3 sm:mt-4 max-w-[calc(100%-24px)] sm:max-w-7xl mx-auto w-full" 
                     : "fixed top-0 left-0 right-0 w-full z-[10000] border-x-0 border-t-0 rounded-none"
                 ].join(" ")}
               >
-                <div className="flex-1 flex items-center justify-center gap-2">
-                  <AlertTriangle size={15} className="shrink-0 animate-pulse text-amber-500" />
-                  <span>Notice: This platform is running optimization cycles under live construction. Core models are being synchronized.</span>
+                <div className="flex-1 flex items-center justify-center gap-1.5 sm:gap-2">
+                  <AlertTriangle className="shrink-0 animate-pulse text-amber-500 w-[14px] h-[14px] sm:w-[15px] sm:h-[15px]" />
+                  <span className="leading-tight sm:leading-normal">
+                    {/* Desktop Text */}
+                    <span className="hidden sm:inline">
+                      Notice: This platform is running optimization cycles under live construction. Core models are being synchronized.
+                    </span>
+                    {/* Mobile Text: Kept short to prevent multiline wrapping and height expansion */}
+                    <span className="sm:hidden">
+                      Live optimization in progress. Core models syncing.
+                    </span>
+                  </span>
                 </div>
                 <button 
                   onClick={() => setShowConstructionBar(false)}
-                  className="p-1 text-slate-400 hover:text-slate-900 dark:hover:text-white rounded-lg transition-colors ml-2 focus:outline-none"
+                  className="p-1 text-slate-400 hover:text-slate-900 dark:hover:text-white rounded-lg transition-colors ml-1 sm:ml-2 shrink-0 focus:outline-none"
                   aria-label="Dismiss notice"
                 >
-                  <XCircle size={16} />
+                  <XCircle className="w-4 h-4 sm:w-4 sm:h-4" />
                 </button>
               </div>
 
               {/* AUTOMATED LAYOUT OVERRIDES WHEN THE BAR IS RENDERED ON SUBPAGES */}
-            {/* AUTOMATED LAYOUT OVERRIDES WHEN THE BAR IS RENDERED ON SUBPAGES */}
-{!isHomePage && (
-  <style>{`
-    /* Shift fixed navigation structures downward matching the bar size */
-    .pn-header {
-      top: 45px !important;
-    }
-    /* Shift the conditional global tracking header wrapper as well */
-    .fixed.top-0.left-0.w-full.z-40 {
-      top: 45px !important;
-    }
-    
-    /* SMART EXCEPTION: Balanced container normalization specifically calibrated for the contact grid */
-    ${pathname === '/contact' ? `
-      main {
-        padding-top: 45px !important;
-      }
-    ` : `
-      main {
-        padding-top: 135px !important;
-      }
-    `}
+              {!isHomePage && (
+                <style>{`
+                  /* Shift fixed navigation structures downward matching the bar size */
+                  .pn-header {
+                    top: 45px !important;
+                  }
+                  /* Shift the conditional global tracking header wrapper as well */
+                  .fixed.top-0.left-0.w-full.z-40 {
+                    top: 45px !important;
+                  }
+                  
+                  /* SMART EXCEPTION: Balanced container normalization specifically calibrated for the contact grid */
+                  ${pathname === '/contact' ? `
+                    main {
+                      padding-top: 45px !important;
+                    }
+                  ` : `
+                    main {
+                      padding-top: 135px !important;
+                    }
+                  `}
 
-    @media (max-width: 640px) {
-      .pn-header, .fixed.top-0.left-0.w-full.z-40 {
-        top: 62px !important;
-      }
-      
-      ${pathname === '/contact' ? `
-        main {
-          padding-top: 62px !important;
-        }
-      ` : `
-        main {
-          padding-top: 155px !important;
-        }
-      `}
-    }
-  `}</style>
-)}
+                  /* UPDATED: Slimmer offsets for mobile since the text no longer wraps onto multiple lines */
+                  @media (max-width: 640px) {
+                    .pn-header, .fixed.top-0.left-0.w-full.z-40 {
+                      top: 36px !important;
+                    }
+                    
+                    ${pathname === '/contact' ? `
+                      main {
+                        padding-top: 36px !important;
+                      }
+                    ` : `
+                      main {
+                        padding-top: 129px !important;
+                      }
+                    `}
+                  }
+                `}</style>
+              )}
             </>
           )}
 
